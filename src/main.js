@@ -1,24 +1,3 @@
-/**
- * main.js
- *
- * Bootstraps Vuetify and other plugins then mounts the App`
- */
-
-// // Plugins
-// import { registerPlugins } from '@/plugins'
-
-// // Components
-// import App from './App.vue'
-
-// // Composables
-// import { createApp } from 'vue'
-
-// const app = createApp(App)
-
-// registerPlugins(app)
-
-// app.mount('#app')
-
 // Components
 import App from './App.vue'
 
@@ -29,9 +8,9 @@ import { createApp } from 'vue'
 import { registerPlugins } from '@/plugins'
 
 import { createI18n } from 'vue-i18n';
-// import QrcodeVue from 'qrcode.vue'
-// import { store } from './store'
-// import VueNumber from 'vue-number-animation'
+import QrcodeVue from 'qrcode.vue'
+import { store } from './store'
+import VueNumber from 'vue-number-animation'
 
 const app = createApp(App)
 
@@ -86,9 +65,9 @@ loadLanguage(languageCode).catch(() => {
 // Montar la aplicación con la instancia de i18n
 app.use(i18n);
 
-// app.use(store);
-// app.use(VueNumber)
+app.use(store);
+app.use(VueNumber)
 
 registerPlugins(app)
-// app.component('QrcodeVue', QrcodeVue)
+app.component('QrcodeVue', QrcodeVue)
 app.mount('#app')

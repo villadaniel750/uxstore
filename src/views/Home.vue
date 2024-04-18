@@ -1,158 +1,130 @@
 <template>
   <v-container class="fill-height">
-    <v-responsive
-      class="align-centerfill-height mx-auto"
-      max-width="900"
-    >
+    <v-responsive class="d-flex align-center text-center fill-height">
       <v-img
-        class="mb-4"
-        height="150"
-        src="@/assets/logo.png"
+        contain
+        height="300"
+        src="@/assets/fire.svg"
       />
 
-      <div class="text-center">
-        <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
+      <div class="text-body-2 font-weight-light mb-n1">{{ $t("Common.welcome") }}</div>
 
-        <h1 class="text-h2 font-weight-bold">Vuetify</h1>
-        <div class="text-body-2 font-weight-light mb-n1">{{ $t("Common.welcome") }}</div>
+      <h1 class="text-h3">
+          <b class="font-weight-medium">EARNLUMENS</b>
+      </h1>
+
+      <div class="text-body-2 font-weight-regular pt-1 text-medium-emphasis">{{ $t("Common.shortAbout") }}</div>
+
+      <div class="py-3" />
+
+      <div class="d-flex justify-center">
+          <v-row justify="center">
+              <v-col cols="12" md="10" lg="8" xl="6">
+                  <blockquote class="v-blockquote">
+                      <span class="text-body-1 text-high-emphasis">{{ $t("Common.blockquote") }}</span>
+                  </blockquote>
+              </v-col>
+          </v-row>
       </div>
 
-      <div class="py-4" />
+      <div class="py-3" />
 
-      <v-row>
-        <v-col cols="12">
-          <v-card
-            class="py-4"
-            color="surface-variant"
-            image="https://cdn.vuetifyjs.com/docs/images/one/create/feature.png"
-            prepend-icon="mdi-rocket-launch-outline"
-            rounded="lg"
-            variant="outlined"
-          >
-            <template #image>
-              <v-img position="top right" />
-            </template>
-
-            <template #title>
-              <h2 class="text-h5 font-weight-bold">Get started</h2>
-            </template>
-
-            <template #subtitle>
-              <div class="text-subtitle-1">
-                Replace this page by removing <v-kbd>{{ `<HelloWorld />` }}</v-kbd> in <v-kbd>pages/index.vue</v-kbd>.
-              </div>
-            </template>
-
-            <v-overlay
-              opacity=".12"
-              scrim="primary"
-              contained
-              model-value
-              persistent
-            />
-          </v-card>
+      <v-row class="d-flex align-center justify-center">
+        <v-col cols="auto">
+          <v-btn href="https://stellar.org/learn/lumens" min-width="164" rel="noopener noreferrer" target="_blank" variant="text">
+            <img src="@/assets/stellar.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
+            {{ $t("Home.aboutXLM") }}
+          </v-btn>
         </v-col>
 
-        <v-col cols="6">
-          <v-card
-            append-icon="mdi-open-in-new"
-            class="py-4"
-            color="surface-variant"
-            href="https://vuetifyjs.com/"
-            prepend-icon="mdi-text-box-outline"
-            rel="noopener noreferrer"
-            rounded="lg"
-            subtitle="Learn about all things Vuetify in our documentation."
-            target="_blank"
-            title="Documentation"
-            variant="text"
-          >
-            <v-overlay
-              opacity=".06"
-              scrim="primary"
-              contained
-              model-value
-              persistent
-            />
-          </v-card>
-        </v-col>
+        <v-col cols="auto">
 
-        <v-col cols="6">
-          <v-card
-            append-icon="mdi-open-in-new"
-            class="py-4"
-            color="surface-variant"
-            href="https://vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            prepend-icon="mdi-star-circle-outline"
+          <v-btn
+            color="orange-accent-2"
+            min-width="228"
             rel="noopener noreferrer"
-            rounded="lg"
-            subtitle="Explore available framework Features."
-            target="_blank"
-            title="Features"
-            variant="text"
+            size="x-large"
+            variant="flat"
+            @click="this.$router.push({ name: 'WaitList' });"
           >
-            <v-overlay
-              opacity=".06"
-              scrim="primary"
-              contained
-              model-value
-              persistent
+            <v-icon
+              icon="mdi-calendar-clock"
+              size="large"
+              start
             />
-          </v-card>
-        </v-col>
 
-        <v-col cols="6">
-          <v-card
-            append-icon="mdi-open-in-new"
-            class="py-4"
-            color="surface-variant"
-            href="https://vuetifyjs.com/components/all"
-            prepend-icon="mdi-widgets-outline"
-            rel="noopener noreferrer"
-            rounded="lg"
-            subtitle="Discover components in the API Explorer."
-            target="_blank"
-            title="Components"
-            variant="text"
-          >
-            <v-overlay
-              opacity=".06"
-              scrim="primary"
-              contained
-              model-value
-              persistent
-            />
-          </v-card>
+            {{ $t("Home.joinWaitlist") }}
+          </v-btn>
         </v-col>
+        
 
-        <v-col cols="6">
-          <v-card
-            append-icon="mdi-open-in-new"
-            class="py-4"
-            color="surface-variant"
-            href="https://discord.vuetifyjs.com"
-            prepend-icon="mdi-account-group-outline"
-            rel="noopener noreferrer"
-            rounded="lg"
-            subtitle="Connect with Vuetify developers."
-            target="_blank"
-            title="Community"
-            variant="text"
-          >
-            <v-overlay
-              opacity=".06"
-              scrim="primary"
-              contained
-              model-value
-              persistent
-            />
-          </v-card>
+        <v-col cols="auto">
+          <v-btn href="https://twitter.com/earnlumens" min-width="164" rel="noopener noreferrer" target="_blank" variant="text">
+            <img src="@/assets/twitterx.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
+            {{ $t("Home.community") }}
+          </v-btn>
         </v-col>
       </v-row>
+
+      <div class="py-3" />
+      <div class="d-flex justify-center">
+        <iframe
+          width="600"
+          height="340"
+          :src="`https://www.youtube.com/embed/${$t('Common.videoId')}`"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+    </div>
+    <div class="py-3" />
+      
+    <v-footer class=" text-center d-flex flex-column">
+      
+
+      <div class="d-flex justify-center">
+          <v-row justify="center">
+              <v-col cols="12" md="10" lg="8" xl="6">
+                      <span class="text-caption">{{ $t("Common.messageToUsers") }}</span>
+              </v-col>
+          </v-row>
+      </div>
+
+
+      <v-divider></v-divider>
+
+      <div class="text-overline text-medium-emphasis">
+              &copy;{{ new Date().getFullYear() }} <strong>EARNLUMENS</strong>
+      </div>
+    </v-footer>
+      
+      
     </v-responsive>
+    
   </v-container>
 </template>
 
-<script setup>
-  //
+<script>
+export default {
+  data: () => ({
+    drawer: false,
+    menuActive: true,
+    rail: true,
+    drawerLocation: 'right',
+    permanent: false,
+    desktopView: true,
+    activeItem: null,
+  }),
+  methods: {
+
+  },
+  mounted() {
+  },
+  watch: {
+  },
+  created() {
+    },
+  computed: {
+  },
+};//ss
 </script>

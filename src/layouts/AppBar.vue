@@ -14,6 +14,7 @@
   
       <div style="display: flex; flex: 1; justify-content: flex-end;">
         <cx-search-dialog v-if="mobileView"></cx-search-dialog>
+        <!-- <cx-dark-light-mode></cx-dark-light-mode> -->
         <cx-language-dialog></cx-language-dialog>
         <!-- <cx-register-dialog v-if="!loggedIn"></cx-register-dialog> -->
         <cx-login-dialog v-if="!loggedIn" ref="loginDialog"></cx-login-dialog>
@@ -248,6 +249,7 @@
   import CxPopoverMenu from "@/components/CxPopoverMenu.vue";
   import CxSearchDialog from "@/components/CxSearchDialog.vue";
   import CxSearchTextField from "@/components/CxSearchTextField.vue";
+  import CxDarkLightMode from "@/components/CxDarkLightMode.vue";
   export default {
     data: () => ({
       drawer: false,
@@ -265,6 +267,7 @@
       CxPopoverMenu,
       CxSearchDialog,
       CxSearchTextField,
+      CxDarkLightMode,
     },
     methods: {
       handleResize() {

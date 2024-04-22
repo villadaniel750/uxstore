@@ -11,7 +11,7 @@
         icon="mdi-login"
         variant="flat"
         type="submit"
-        color="orange-accent-2"
+        color="primary"
         
         size="small">
       </v-btn>
@@ -23,7 +23,7 @@
         prepend-icon="mdi-login"
         variant="flat"
         type="submit"
-        color="orange-accent-2"
+        color="primary"
         >
         {{ $t("Common.login") }}
       </v-btn>
@@ -41,7 +41,7 @@
       <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
         
 
-        <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="outlined" color="orange-accent-2" class="text-capitalize mt-3" size="large">
+        <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="outlined" color="primary" class="text-capitalize mt-3" size="large">
             <img src="@/assets/walletConnect.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             WalletConnect
           </v-btn>
@@ -95,7 +95,7 @@
                 :loading="isLoading"
                 block
                 class="mb-8 mt-4"
-                color="orange-accent-2"
+                color="primary"
                 size="large"
                 variant="outlined"
                 @click="login" 

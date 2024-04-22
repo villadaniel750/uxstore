@@ -19,7 +19,7 @@
         prepend-icon="mdi-content-copy"
         variant="outlined"
         type="submit"
-        color="orange-accent-2"
+        color="primary"
         class="mt-2 mx-auto mb-6"
         rounded
         @click="copyTextToClipboard(this.addr)"
@@ -27,7 +27,7 @@
       >
     </div>
     <div class="px-6 mb-1 text-center text-white p-5 break-word">
-      <p color="orange-accent-2" class="text-overline font-weight-thin">
+      <p color="primary" class="text-overline font-weight-thin">
         Memo: {{ $t("CxDeposit.memo") }}
       </p>
     </div>

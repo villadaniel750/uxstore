@@ -2,14 +2,14 @@
   <v-dialog v-model="dialog" fullscreen :scrim="false" transition="dialog-bottom-transition">
       <template v-slot:activator="{ props }">
           <v-btn v-bind="props"  min-width="228" prepend-icon="mdi-calendar-clock" variant="flat" size="x-large"
-              color="orange-accent-2">
+              color="primary">
               Join Waitlist
           </v-btn>
 
           
       </template>
       <v-card>
-        <v-toolbar dark :color="this.responseOk ? 'green' : 'orange-accent-2'">
+        <v-toolbar dark :color="this.responseOk ? 'green' : 'primary'">
           <v-btn icon dark @click="closeDialog">
             <v-icon>mdi-close</v-icon>
           </v-btn>
@@ -31,10 +31,10 @@
 
               <v-list-item>
                 <div :style="mobileView ? '' : 'width: 800px;'">
-                  <v-btn v-if="!responseOk" block :loading="isLoading" color="orange-accent-2" :disabled="!formIsValid || isLoading" @click="this.joinClicked">Join</v-btn>
+                  <v-btn v-if="!responseOk" block :loading="isLoading" color="primary" :disabled="!formIsValid || isLoading" @click="this.joinClicked">Join</v-btn>
                   <v-btn v-else block color="green" @click="closeDialog">Close</v-btn>
                   <v-card-text class="text-center">
-                    <span class="text-orange-accent-2" v-if="this.sendingRequest">
+                    <span class="text-primary" v-if="this.sendingRequest">
                       Please Wait
                     </span>
                     <span v-if="this.responseOk" class="text-green">

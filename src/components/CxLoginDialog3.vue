@@ -8,7 +8,7 @@
         icon="mdi-login"
         variant="outlined"
         type="submit"
-        color="orange-accent-2"
+        color="primary"
         
         size="small">
       </v-btn>
@@ -20,7 +20,7 @@
         prepend-icon="mdi-login"
         variant="outlined"
         type="submit"
-        color="orange-accent-2"
+        color="primary"
         >
         {{ $t("Common.login") }}
       </v-btn>
@@ -105,7 +105,7 @@
           :loading="isLoading"
           block
           class="mb-8 mt-4"
-          color="orange-accent-2"
+          color="primary"
           size="large"
           variant="outlined"
           @click="login" 

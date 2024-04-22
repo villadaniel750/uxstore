@@ -29,7 +29,7 @@
             />
             <h2
               class="text-h3 font-weight-bold mt-3 text-transparent"
-              :class="{'mx-6': isLoading, 'mx-0': !isLoading, 'text-orange-accent-2': !isLoading}"
+              :class="{'mx-6': isLoading, 'mx-0': !isLoading, 'text-primary': !isLoading}"
             ><number
             :from="0"
             :to="this.saldo"
@@ -41,7 +41,7 @@
           </div>
         </v-col>
         <v-col cols="auto" class="text-left px-0 pt-0">
-          <h2 v-if="!isLoading" class="text-left text-body-1 font-weight-bold text-orange-accent-2">XLM</h2>
+          <h2 v-if="!isLoading" class="text-left text-body-1 font-weight-bold text-primary">XLM</h2>
         </v-col>
       </v-row>
     </div>

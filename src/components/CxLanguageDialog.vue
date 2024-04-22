@@ -52,10 +52,10 @@
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions>
-      <v-btn prepend-icon="mdi-close" color="orange-accent-2" variant="text" @click="dialog = false">
+      <v-btn prepend-icon="mdi-close" color="primary" variant="text" @click="dialog = false">
         {{ $t("Common.close") }}
       </v-btn>
-      <v-btn class="ml-3" prepend-icon="mdi-content-save" color="orange-accent-2" variant="text" @click="this.save()">
+      <v-btn class="ml-3" prepend-icon="mdi-content-save" color="primary" variant="text" @click="this.save()">
         {{ $t("Common.save") }}
       </v-btn>
     </v-card-actions>

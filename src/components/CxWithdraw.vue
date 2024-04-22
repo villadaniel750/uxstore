@@ -13,7 +13,7 @@
 
         <v-text-field ref="memoField" v-model="memo" :label="memoLabel" :rules="memoRules"></v-text-field>
 
-        <v-btn prepend-icon="mdi-send" variant="outlined" type="submit" block color="orange-accent-2" class="mt-2" rounded
+        <v-btn prepend-icon="mdi-send" variant="outlined" type="submit" block color="primary" class="mt-2" rounded
           :disabled="!valid" @click="submit">{{ $t("CxWithdraw.send") }}</v-btn>
       </v-form>
     </v-sheet>

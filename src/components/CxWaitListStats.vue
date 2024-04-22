@@ -11,7 +11,7 @@
             <v-row justify="center">
                 <v-col>
                         <span class="text-overline">{{ $t("WaitList.totalUsersOnWaitlist") }}</span>
-                        <span class="text-orange-accent-2 font-weight-bold ml-1">{{ this.totalUsers }}</span>
+                        <span class="primary font-weight-bold ml-1">{{ this.totalUsers }}</span>
                 </v-col>
             </v-row>
         </div>

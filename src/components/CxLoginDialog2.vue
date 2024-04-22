@@ -8,7 +8,7 @@
         icon="mdi-login"
         variant="outlined"
         type="submit"
-        color="orange-accent-2"
+        color="primary"
         
         size="small">
       </v-btn>
@@ -20,7 +20,7 @@
         prepend-icon="mdi-login"
         variant="outlined"
         type="submit"
-        color="orange-accent-2"
+        color="primary"
         >
         {{ $t("Common.login") }}
       </v-btn>
@@ -56,7 +56,7 @@
 
           <a
             tabindex="-1"
-            class="text-caption text-decoration-none text-orange-accent-2"
+            class="text-caption text-decoration-none text-primary"
             href="#"
             rel="noopener noreferrer"
             target="_blank"
@@ -84,7 +84,7 @@
           :loading="isLoading"
           block
           class="mb-8 mt-4"
-          color="orange-accent-2"
+          color="primary"
           size="large"
           variant="outlined"
           @click="login" 
@@ -99,7 +99,7 @@
 
         <v-card-text class="text-center">
           <a
-            class="text-orange-accent-2 text-decoration-none"
+            class="primary text-decoration-none"
             href="#"
             rel="noopener noreferrer"
             target="_blank"

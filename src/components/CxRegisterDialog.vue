@@ -2,18 +2,18 @@
     <v-dialog v-model="dialog" fullscreen :scrim="false" transition="dialog-bottom-transition">
         <template v-slot:activator="{ props }">
             <v-btn v-if="mobileView" v-bind="props" class="ma-2" icon="mdi-account-plus" variant="flat" type="submit"
-                color="orange-accent-2" size="small">
+                color="primary" size="small">
             </v-btn>
 
             <v-btn v-else v-bind="props" class="ma-2" prepend-icon="mdi-account-plus" variant="flat"
-                type="submit" color="orange-accent-2">
+                type="submit" color="primary">
                 {{ $t("Common.signup") }}
             </v-btn>
 
             
         </template>
         <v-card>
-            <v-toolbar dark color="orange-accent-2">
+            <v-toolbar dark color="primary">
                 <v-btn icon dark @click="dialog = false">
                     <v-icon>mdi-close</v-icon>
                 </v-btn>
@@ -53,7 +53,7 @@
                         </v-list-item>
                         <v-list-item>
                             <div :style="mobileView ? '' : 'width: 800px;'">
-                                <v-btn block color="orange-accent-2" :disabled="!formIsValid">{{ $t("CxRegisterDialog.createAccount") }}</v-btn>
+                                <v-btn block color="primary" :disabled="!formIsValid">{{ $t("CxRegisterDialog.createAccount") }}</v-btn>
                             </div>
                         </v-list-item>
                     </v-list-item-group>

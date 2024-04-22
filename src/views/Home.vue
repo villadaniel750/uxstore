@@ -40,7 +40,7 @@
         <v-col cols="auto">
 
           <v-btn
-            color="orange-accent-2"
+            color="primary"
             min-width="228"
             rel="noopener noreferrer"
             size="x-large"

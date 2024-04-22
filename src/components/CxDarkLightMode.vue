@@ -2,7 +2,7 @@
 
     <v-btn 
         v-if="mobileView"
-        class="my-2 mr-3"
+        class="my-2 mr-1"
         variant="text"
         icon="mdi-circle-half-full"
         size="small">
@@ -10,10 +10,9 @@
 
       <v-btn 
         v-else
-        class="my-2 mr-3"
+        class="mr-2"
         variant="text"
-        icon="mdi-circle-half-full"
-        size="small">
+        icon="mdi-circle-half-full">
       </v-btn>
   </template>
 <script>

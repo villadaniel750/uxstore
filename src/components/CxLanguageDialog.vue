@@ -11,7 +11,7 @@
     <v-btn 
         v-if="mobileView"
         v-bind="props"
-        class="my-2 mr-3"
+        class="my-2 mr-1"
         variant="text"
         icon="mdi-translate"
         size="small">
@@ -20,7 +20,7 @@
       <v-btn 
         v-else
         v-bind="props"
-        class="my-2 mr-3"
+        class="my-2"
         variant="text"
         prepend-icon="mdi-translate">
         {{ $t("Common.language") }}

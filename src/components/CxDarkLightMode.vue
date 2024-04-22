@@ -2,6 +2,7 @@
 
     <v-btn 
         v-if="mobileView"
+        @click="toggleTheme"
         class="my-2 mr-1"
         variant="text"
         icon="mdi-circle-half-full"
@@ -10,31 +11,32 @@
 
       <v-btn 
         v-else
+        @click="toggleTheme"
         class="mr-2"
         variant="text"
         icon="mdi-circle-half-full">
       </v-btn>
   </template>
 <script>
-import { mapGetters } from "vuex";
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+import { useTheme } from 'vuetify';
 
 export default {
+  setup() {
+    const store = useStore();
+    const theme = useTheme();
 
-created() {
+    function toggleTheme() {
+      theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
+    }
 
-},
-methods: {
-  save() {
-    this.dialog = false;
-    console.log(this.dialogm1);
-    localStorage.setItem('selectedLanguage', this.dialogm1);
-    loadLanguage(this.dialogm1); // Carga el idioma seleccionado
-  },
-},
-computed: {
-    ...mapGetters([
-      'mobileView', 
-    ]),
-  },
+    const mobileView = computed(() => store.getters.mobileView);
+
+    return {
+      toggleTheme,
+      mobileView
+    };
+  }
 };
 </script>

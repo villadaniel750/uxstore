@@ -8,12 +8,12 @@ export default createVuetify({
     themes: {
       light: {
         colors: {
-          primary: '#d56043', // Color verde para modo claro
+          primary: '#000000', // Color para modo claro #d56043
         },
       },
       dark: {
         colors: {
-          primary: '#FFAB40', // Color rojo para modo oscuro
+          primary: '#FFFFFF', // Color para modo oscuro #FFAB40
         },
       },
     },

@@ -29,6 +29,16 @@ export default {
 
     function toggleTheme() {
       theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
+
+      const isDarkTheme = theme.global.current.value.dark;
+      localStorage.setItem('isDarkTheme', isDarkTheme.toString());
+      
+      if (isDarkTheme) {
+        store.commit('setDarkThemeTrue');
+      } else {
+        store.commit('setDarkThemeFalse');
+      }
+      
     }
 
     const mobileView = computed(() => store.getters.mobileView);

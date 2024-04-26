@@ -6,6 +6,7 @@ export const store = createStore({
       windowWidth: window.innerWidth,
       mobileView: window.innerWidth < 960,
       loggedIn: false,
+      isDarkTheme: true,
       color: "#FFCA28",
       addr: null,
     }
@@ -20,6 +21,12 @@ export const store = createStore({
     },
     setLoggedInFalse(state) {
       state.loggedIn = false;
+    },
+    setDarkThemeTrue(state) {
+      state.isDarkTheme = true;
+    },
+    setDarkThemeFalse(state) {
+      state.isDarkTheme = false;
     },
     setAddr(state, addr) {
       state.addr = addr;
@@ -37,6 +44,7 @@ export const store = createStore({
     windowWidth: state => state.windowWidth,
     mobileView: state => state.mobileView,
     loggedIn: state => state.loggedIn,
+    isDarkTheme: state => state.isDarkTheme,
     color: state => state.color,
     addr: state => state.addr,
   }

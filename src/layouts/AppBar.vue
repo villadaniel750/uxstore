@@ -3,7 +3,7 @@
       <v-btn @click="rail = !rail" class="hidden-sm-and-down" icon="mdi-menu"></v-btn>
       <div style="display: flex; flex: 1; align-items: center;">
       <v-icon class="ml-3 ">
-        <img src="@/assets/fireIcon.svg" alt="Fire Icon" width="24" height="24" />
+        <img :src="iconPath" alt="Fire Icon" width="24" height="24" />
       </v-icon>
       <v-toolbar-title><b class="pl-1 font-weight-bold text-button">EARNLUMENS</b></v-toolbar-title>
     </div>
@@ -251,6 +251,8 @@
   import CxSearchDialog from "@/components/CxSearchDialog.vue";
   import CxSearchTextField from "@/components/CxSearchTextField.vue";
   import CxDarkLightMode from "@/components/CxDarkLightMode.vue";
+  import fireIcon from "@/assets/fireIcon.svg";
+  import fireIconBlack from "@/assets/fireIconBlack.svg";
   export default {
     data: () => ({
       drawer: false,
@@ -303,8 +305,11 @@
     },
     computed: {
       ...mapGetters([
-        'mobileView', 'loggedIn',
-      ])
+        'mobileView', 'loggedIn', 'isDarkTheme'
+      ]),
+      iconPath() {
+        return this.isDarkTheme ? fireIcon : fireIconBlack;
+      }
     },
   };//ss
   </script>

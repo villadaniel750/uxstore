@@ -32,7 +32,7 @@
       <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
           <v-btn href="https://stellar.org/learn/lumens" min-width="164" rel="noopener noreferrer" target="_blank" variant="text">
-            <img src="@/assets/stellar.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
+            <img :src="stellarIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             {{ $t("Home.aboutXLM") }}
           </v-btn>
         </v-col>
@@ -60,7 +60,7 @@
 
         <v-col cols="auto">
           <v-btn href="https://twitter.com/earnlumens" min-width="164" rel="noopener noreferrer" target="_blank" variant="text">
-            <img src="@/assets/twitterx.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
+            <img :src="xIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             {{ $t("Home.community") }}
           </v-btn>
         </v-col>
@@ -105,26 +105,42 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    drawer: false,
-    menuActive: true,
-    rail: true,
-    drawerLocation: 'right',
-    permanent: false,
-    desktopView: true,
-    activeItem: null,
-  }),
-  methods: {
+  import { mapGetters } from "vuex";
+  import stellarIcon from "@/assets/stellar.svg";
+  import stellarBlackIcon from "@/assets/stellarBlack.svg";
+  import xIcon from "@/assets/twitterx.svg";
+  import xBlackIcon from "@/assets/twitterxBlack.svg";
 
-  },
-  mounted() {
-  },
-  watch: {
-  },
-  created() {
+
+  export default {
+    data: () => ({
+      drawer: false,
+      menuActive: true,
+      rail: true,
+      drawerLocation: 'right',
+      permanent: false,
+      desktopView: true,
+      activeItem: null,
+    }),
+    methods: {
+
     },
-  computed: {
-  },
-};//ss
+    mounted() {
+    },
+    watch: {
+    },
+    created() {
+      },
+    computed: {
+      ...mapGetters([
+        'mobileView', 'loggedIn', 'isDarkTheme'
+      ]),
+      stellarIconPath() {
+        return this.isDarkTheme ? stellarIcon : stellarBlackIcon;
+      },
+      xIconPath() {
+        return this.isDarkTheme ? xIcon : xBlackIcon;
+      }
+    },
+  };//ss
 </script>

@@ -66,8 +66,11 @@ export default {
   methods: {
     async requestBalance() {  // <-- Declara el método como async
       try {
+        console.log("requestBalance");
         const result = await api.getBalance(this.addr);  // <-- Usa await aquí
+        console.log(result);
         this.saldo = result.data.balances[0].balance;
+        console.log(this.saldo);
         this.isLoading = false;
       } catch (error) {
         console.error(error);

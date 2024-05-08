@@ -141,7 +141,7 @@
 import { mapGetters } from "vuex";
 // import CryptoJS from "crypto-js";
 import api from "@/api";
-import { isConnected } from "@lobstrco/signer-extension-api";
+import { isConnected, getPublicKey } from "@lobstrco/signer-extension-api";
 
 // Función independiente3
 function validateEmail(email) {
@@ -216,11 +216,28 @@ export default {
     },
     async isLobstrConnected(){
         if (await isConnected()) {
-         alert("User has LOBSTR extension installed!");
+         alert(this.retrievePublicKey());
         }else{
           alert("User has not LOBSTR extension installed!");
         }
+        
       },
+      async retrievePublicKey() {
+      let publicKey = "";
+      let error = "";
+
+      try {
+        publicKey = await getPublicKey();
+      } catch (e) {
+        error = e;
+      }
+
+      if (error) {
+        return error;
+      }
+
+      return publicKey;
+    },
   showDialog() {
     this.dialog = true;
   }

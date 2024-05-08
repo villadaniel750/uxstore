@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@hcaptcha/vue3-hcaptcha": "^1.3.0",
+    "@lobstrco/signer-extension-api": "^1.0.0-beta.0",
     "@mdi/font": "7.0.96",
     "axios": "^1.6.8",
     "chart.js": "^4.4.2",

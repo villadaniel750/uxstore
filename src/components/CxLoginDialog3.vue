@@ -36,13 +36,18 @@
       >
 
       <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
+
+      <v-btn @click="isLobstrConnected" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #4fa2bc; color: #4fa2bc;" class="text-capitalize mt-3" size="large">
+            <img src="@/assets/lobstr.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
+            LOBSTR
+          </v-btn>
         
       <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #6969F2; color: #6969F2;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/freighter.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             Freighter
           </v-btn>
 
-      <!-- <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #0691b7; color: #0691b7;" class="text-capitalize mt-3" size="large">
+      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #0691b7; color: #0691b7;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/albedo.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             Albedo
           </v-btn>
@@ -50,7 +55,12 @@
       <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #B8BAC4; color: #B8BAC4;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/rabet.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             Rabet
-          </v-btn> -->
+          </v-btn>
+
+      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #C19CFC; color: #C19CFC;" class="text-capitalize mt-3" size="large">
+            <img src="@/assets/xbull.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
+            xBull
+          </v-btn>
           
       <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #3B99FC; color: #3B99FC;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/walletConnect.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
@@ -131,6 +141,7 @@
 import { mapGetters } from "vuex";
 // import CryptoJS from "crypto-js";
 import api from "@/api";
+import { isConnected } from "@lobstrco/signer-extension-api";
 
 // Función independiente3
 function validateEmail(email) {
@@ -202,7 +213,14 @@ export default {
     if (this.isValid && !this.isLoading) {
       this.login();
     }
-  },
+    },
+    async isLobstrConnected(){
+        if (await isConnected()) {
+         alert("User has LOBSTR extension installed!");
+        }else{
+          alert("User has not LOBSTR extension installed!");
+        }
+      },
   showDialog() {
     this.dialog = true;
   }

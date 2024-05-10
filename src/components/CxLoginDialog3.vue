@@ -37,36 +37,36 @@
 
       <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
 
+      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #C19CFC; color: #C19CFC;" class="text-capitalize mt-3" size="large">
+            <img src="@/assets/xbull.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
+            xBull
+          </v-btn>
+
+      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #B8BAC4; color: #B8BAC4;" class="text-capitalize mt-3" size="large">
+            <img src="@/assets/rabet.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
+            Rabet
+          </v-btn>
+
       <v-btn @click="isLobstrConnected" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #4fa2bc; color: #4fa2bc;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/lobstr.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             LOBSTR
-          </v-btn>
-        
-      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #6969F2; color: #6969F2;" class="text-capitalize mt-3" size="large">
-            <img src="@/assets/freighter.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
-            Freighter
           </v-btn>
 
       <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #0691b7; color: #0691b7;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/albedo.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             Albedo
           </v-btn>
-          
-      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #B8BAC4; color: #B8BAC4;" class="text-capitalize mt-3" size="large">
-            <img src="@/assets/rabet.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
-            Rabet
-          </v-btn>
 
-      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #C19CFC; color: #C19CFC;" class="text-capitalize mt-3" size="large">
-            <img src="@/assets/xbull.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
-            xBull
-          </v-btn>
-          
       <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #3B99FC; color: #3B99FC;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/walletConnect.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             WalletConnect
           </v-btn>
-
+        
+      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #6969F2; color: #6969F2;" class="text-capitalize mt-3" size="large">
+            <img src="@/assets/freighter.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
+            Freighter
+          </v-btn>
+          
           <v-divider
             class="border-opacity-50 my-5"
             

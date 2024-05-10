@@ -52,7 +52,7 @@
             LOBSTR
           </v-btn>
 
-      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #0691b7; color: #0691b7;" class="text-capitalize mt-3" size="large">
+      <v-btn @click="isAlbedoConnected" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #0691b7; color: #0691b7;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/albedo.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             Albedo
           </v-btn>
@@ -142,6 +142,7 @@ import { mapGetters } from "vuex";
 // import CryptoJS from "crypto-js";
 import api from "@/api";
 import { isConnected, getPublicKey } from "@lobstrco/signer-extension-api";
+import albedo from '@albedo-link/intent'
 
 // Función independiente3
 function validateEmail(email) {
@@ -237,6 +238,14 @@ export default {
       }
 
       return publicKey;
+    },
+    async isAlbedoConnected() {
+      try {
+        const response = await albedo.publicKey();
+        alert("Clave pública: " + response.pubkey); 
+      } catch (err) {
+        alert("Error: " + err.error.message);        
+      }
     },
   showDialog() {
     this.dialog = true;

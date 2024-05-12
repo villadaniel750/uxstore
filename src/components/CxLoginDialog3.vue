@@ -46,16 +46,10 @@
             <img src="@/assets/rabet.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             Rabet
           </v-btn>
+      
+      <cx-lobstr-button></cx-lobstr-button>
 
-      <v-btn @click="isLobstrConnected" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #4fa2bc; color: #4fa2bc;" class="text-capitalize mt-3" size="large">
-            <img src="@/assets/lobstr.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
-            LOBSTR
-          </v-btn>
-
-      <v-btn @click="isAlbedoConnected" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #0691b7; color: #0691b7;" class="text-capitalize mt-3" size="large">
-            <img src="@/assets/albedo.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
-            Albedo
-          </v-btn>
+      <cx-albedo-button></cx-albedo-button>
 
       <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #3B99FC; color: #3B99FC;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/walletConnect.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
@@ -141,8 +135,8 @@
 import { mapGetters } from "vuex";
 // import CryptoJS from "crypto-js";
 import api from "@/api";
-import { isConnected, getPublicKey } from "@lobstrco/signer-extension-api";
-import albedo from '@albedo-link/intent'
+import CxAlbedoButton from './login/CxAlbedoButton.vue';
+import CxLobstrButton from './login/CxLobstrButton.vue';
 
 // Función independiente3
 function validateEmail(email) {
@@ -171,6 +165,9 @@ export default {
       loginError: false,
       };
   },
+  components: {
+    CxAlbedoButton, CxLobstrButton
+    },
   methods: {
     async login() {
       this.loginError = false;
@@ -214,38 +211,6 @@ export default {
     if (this.isValid && !this.isLoading) {
       this.login();
     }
-    },
-    async isLobstrConnected(){
-        if (await isConnected()) {
-         alert(this.retrievePublicKey());
-        }else{
-          alert("User has not LOBSTR extension installed!");
-        }
-        
-      },
-      async retrievePublicKey() {
-      let publicKey = "";
-      let error = "";
-
-      try {
-        publicKey = await getPublicKey();
-      } catch (e) {
-        error = e;
-      }
-
-      if (error) {
-        return error;
-      }
-
-      return publicKey;
-    },
-    async isAlbedoConnected() {
-      try {
-        const response = await albedo.publicKey();
-        alert("Clave pública: " + response.pubkey); 
-      } catch (err) {
-        alert("Error: " + err.error.message);        
-      }
     },
   showDialog() {
     this.dialog = true;

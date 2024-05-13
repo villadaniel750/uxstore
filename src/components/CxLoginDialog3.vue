@@ -37,10 +37,12 @@
 
       <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
 
-      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #C19CFC; color: #C19CFC;" class="text-capitalize mt-3" size="large">
+      <!-- <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #C19CFC; color: #C19CFC;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/xbull.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             xBull
-          </v-btn>
+          </v-btn> -->
+
+      <cx-xbull-button></cx-xbull-button>
 
       <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #B8BAC4; color: #B8BAC4;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/rabet.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
@@ -137,6 +139,7 @@ import { mapGetters } from "vuex";
 import api from "@/api";
 import CxAlbedoButton from './login/CxAlbedoButton.vue';
 import CxLobstrButton from './login/CxLobstrButton.vue';
+import CxXBullButton from './login/CxXBullButton.vue';
 
 // Función independiente3
 function validateEmail(email) {
@@ -166,7 +169,7 @@ export default {
       };
   },
   components: {
-    CxAlbedoButton, CxLobstrButton
+    CxAlbedoButton, CxLobstrButton, CxXBullButton
     },
   methods: {
     async login() {

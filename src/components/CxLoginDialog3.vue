@@ -37,17 +37,9 @@
 
       <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
 
-      <!-- <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #C19CFC; color: #C19CFC;" class="text-capitalize mt-3" size="large">
-            <img src="@/assets/xbull.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
-            xBull
-          </v-btn> -->
-
       <cx-xbull-button></cx-xbull-button>
 
-      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #B8BAC4; color: #B8BAC4;" class="text-capitalize mt-3" size="large">
-            <img src="@/assets/rabet.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
-            Rabet
-          </v-btn>
+      <cx-rabet-button></cx-rabet-button>
       
       <cx-lobstr-button></cx-lobstr-button>
 
@@ -58,10 +50,7 @@
             WalletConnect
           </v-btn>
         
-      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #6969F2; color: #6969F2;" class="text-capitalize mt-3" size="large">
-            <img src="@/assets/freighter.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
-            Freighter
-          </v-btn>
+      <cx-freighter-button></cx-freighter-button>
           
           <v-divider
             class="border-opacity-50 my-5"
@@ -139,7 +128,9 @@ import { mapGetters } from "vuex";
 import api from "@/api";
 import CxAlbedoButton from './login/CxAlbedoButton.vue';
 import CxLobstrButton from './login/CxLobstrButton.vue';
-import CxXBullButton from './login/CxXBullButton.vue';
+import CxXBullButton from './login/CxXbullButton.vue';
+import CxRabetButton from "./login/CxRabetButton.vue";
+import CxFreighterButton from "./login/CxFreighterButton.vue";
 
 // Función independiente3
 function validateEmail(email) {
@@ -169,7 +160,7 @@ export default {
       };
   },
   components: {
-    CxAlbedoButton, CxLobstrButton, CxXBullButton
+    CxAlbedoButton, CxLobstrButton, CxXBullButton, CxRabetButton, CxFreighterButton
     },
   methods: {
     async login() {

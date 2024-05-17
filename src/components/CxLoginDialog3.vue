@@ -37,8 +37,6 @@
 
       <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
 
-      <cx-bull-button></cx-bull-button>
-
       <cx-rabet-button></cx-rabet-button>
       
       <cx-lobstr-button></cx-lobstr-button>
@@ -130,7 +128,6 @@ import CxAlbedoButton from './login/CxAlbedoButton.vue';
 import CxLobstrButton from './login/CxLobstrButton.vue';
 import CxRabetButton from "./login/CxRabetButton.vue";
 import CxFreighterButton from "./login/CxFreighterButton.vue";
-import CxBullButton from './login/CxBullButton.vue';
 // Función independiente3
 function validateEmail(email) {
   let wep = email.match(
@@ -159,7 +156,7 @@ export default {
       };
   },
   components: {
-    CxAlbedoButton, CxLobstrButton, CxRabetButton, CxFreighterButton, CxBullButton
+    CxAlbedoButton, CxLobstrButton, CxRabetButton, CxFreighterButton
     },
   methods: {
     async login() {

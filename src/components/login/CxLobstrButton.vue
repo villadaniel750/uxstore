@@ -1,5 +1,5 @@
 <template>
-    <v-btn @click="isLobstrConnected" block rel="noopener noreferrer" variant="tonal"
+    <v-btn @click="userSignTransaction" block rel="noopener noreferrer" variant="tonal"
         style="border-color: #4fa2bc; color: #4fa2bc;" class="text-capitalize mt-3" size="large">
         <img src="@/assets/lobstr.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;" />
         LOBSTR
@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { isConnected, getPublicKey } from "@lobstrco/signer-extension-api";
+import { isConnected, getPublicKey, signTransaction } from "@lobstrco/signer-extension-api";
 export default {
     methods: {
         async isLobstrConnected(){
@@ -36,6 +36,22 @@ export default {
 
       return publicKey;
     },
+    async userSignTransaction() {
+  try {
+    // Intentar firmar la transacción con la extensión LOBSTR
+    const signedXdr = await signTransaction("AAAAAgAAAADnvkGByLO/qCM4AyawrIQ0GBHfZLX0V9bUK5H3ecHEDQAAASwDAJJ9AAAAAQAAAAEAAAAAAAAAAAAAAABmRj6iAAAAAAAAAAMAAAAAAAAAAQAAAACmQ0PRQfDqCF+MwIvEy0b05EKgFOdwyF0jWdk4x9C1RAAAAAAAAAAAATEtAAAAAAAAAAABAAAAANEvKvuHZgdIigty5V8bfMwb7IM8+ZTWB8Hd4wlgOPGUAAAAAAAAAAAAHoSAAAAAAAAAAAEAAAAAN1Qc2mRF4pXo2chTYhR++jHryVmGNKHeboaMVNup1L0AAAAAAAAAAAL68IAAAAAAAAAAAA==");
+    console.log("Transacción firmada correctamente:", signedXdr);
+    alert('Transacción firmada exitosamente!');
+    return signedXdr;
+  } catch (error) {
+    // Manejar errores que puedan surgir durante la firma
+    console.error("Error al firmar la transacción con LOBSTR:", error);
+    alert('Fallo al firmar la transacción.');
+    return error.toString();
+  }
+}
+
+
     },
 };
 

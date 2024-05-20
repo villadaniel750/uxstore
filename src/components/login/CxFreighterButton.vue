@@ -31,7 +31,7 @@ export default {
         console.log(`Public key retrieved: ${publicKey}`);
 
         // Define el XDR y la red para la firma
-        const xdr = 'AAAAAgAAAADboxFlQYKamAS7J42c9q5CcVrKmbbaR9qK2o2fxscTWQAAASwC/wbaAAAAAwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAQAAAACJFbikN9vQTXgRzv25svTR+/QFGccSvjzCzOiS5w6Z0gAAAAAAAAAAAbFtCAAAAAAAAAABAAAAABJOYvnN6JH0pP7nqFKBT8txu2NkuODt1PpSKioUBKKyAAAAAAAAAAAAEj/gAAAAAAAAAAEAAAAAKkXKryeNDqGzWdQvFQE3+iznroti+JT74HZd9152HaMAAAAAAAAAAAAEj/gAAAAAAAAAAA==';
+        const xdr = 'AAAAAgAAAADboxFlQYKamAS7J42c9q5CcVrKmbbaR9qK2o2fxscTWQAAASwC/wbaAAAAAwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAQAAAACan9nPi8kIoBthZJEXJeKYZtXPR+0bDDsyP5SZsnB3IwAAAAAAAAAAAbFtCAAAAAAAAAABAAAAADygGATwVjGKjeMn7gsE1ZU7pWJ/WQPsELtdVpv+npsrAAAAAAAAAAAAEj/gAAAAAAAAAAEAAAAAW/L+cozyghajU1wLrhLznN2eCZI5CB6admax9Dh9FioAAAAAAAAAAAAEj/gAAAAAAAAAAA==';
         const opts = {
           network: 'public', // 'public' o 'testnet'
           networkPassphrase: 'Public Global Stellar Network ; September 2015', // Omitir si no es necesario

@@ -39,7 +39,7 @@ export default {
     async userSignTransaction() {
   try {
     // Intentar firmar la transacción con la extensión LOBSTR
-    const signedXdr = await signTransaction("AAAAAgAAAADboxFlQYKamAS7J42c9q5CcVrKmbbaR9qK2o2fxscTWQAAASwC/wbaAAAAAwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAQAAAACJFbikN9vQTXgRzv25svTR+/QFGccSvjzCzOiS5w6Z0gAAAAAAAAAAAbFtCAAAAAAAAAABAAAAABJOYvnN6JH0pP7nqFKBT8txu2NkuODt1PpSKioUBKKyAAAAAAAAAAAAEj/gAAAAAAAAAAEAAAAAKkXKryeNDqGzWdQvFQE3+iznroti+JT74HZd9152HaMAAAAAAAAAAAAEj/gAAAAAAAAAAA==");
+    const signedXdr = await signTransaction("AAAAAgAAAADboxFlQYKamAS7J42c9q5CcVrKmbbaR9qK2o2fxscTWQAAASwC/wbaAAAAAwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAQAAAACan9nPi8kIoBthZJEXJeKYZtXPR+0bDDsyP5SZsnB3IwAAAAAAAAAAAbFtCAAAAAAAAAABAAAAADygGATwVjGKjeMn7gsE1ZU7pWJ/WQPsELtdVpv+npsrAAAAAAAAAAAAEj/gAAAAAAAAAAEAAAAAW/L+cozyghajU1wLrhLznN2eCZI5CB6admax9Dh9FioAAAAAAAAAAAAEj/gAAAAAAAAAAA==");
     console.log("Transacción firmada correctamente:", signedXdr);
     alert('Transacción firmada exitosamente!');
     return signedXdr;

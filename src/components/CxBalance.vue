@@ -4,10 +4,10 @@
     <div>
       <div class="d-flex justify-center align-center">
 
-          <img :src="logoUrl" width="63" class="mr-3"/>
+          <img :src="iconPath" width="63" class="mr-3"/>
 
         <div>
-          <h1 class="text-center text-h4 text-white text-md-h3">Stellar </h1>
+          <h1 class="text-center text-h4 text-md-h3">Stellar </h1>
           <div class="text-body-2 font-weight-light mt-n1">{{ $t("Common.wallet") }}</div>
         </div>
       </div>
@@ -54,6 +54,7 @@ import api from "@/api";
 import Loading from "vue-loading-overlay";
 import 'vue-loading-overlay/dist/css/index.css';
 import stellarLogo from "@/assets/stellar.svg";
+import stellarLogoBlack from "@/assets/stellarBlack.svg";
 
 export default {
 data: () => ({
@@ -88,8 +89,11 @@ unmounted() {
 },
 computed: {
   ...mapGetters([
-    'addr'
-  ])
+    'addr', 'isDarkTheme'
+  ]),
+  iconPath() {
+        return this.isDarkTheme ? stellarLogo : stellarLogoBlack;
+      }
 },
 components: {
   Loading,

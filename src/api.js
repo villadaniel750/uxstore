@@ -10,9 +10,9 @@ var hostname = window.location.hostname;
 var ENDPOINT_PATH = "";
 
 if (hostname === "www.earnlumens.com" || hostname === "earnlumens.com") {
-    ENDPOINT_PATH = "https://api.earnlumens.com/run-environment/api/";
+    ENDPOINT_PATH = "https://api.earnlumens.com/api/";
 } else {
-    ENDPOINT_PATH = "http://localhost:852/run-environment/api/";
+    ENDPOINT_PATH = "http://localhost:852/api/";
 }
 ///only for dev
 

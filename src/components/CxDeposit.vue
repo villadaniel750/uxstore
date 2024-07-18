@@ -10,7 +10,7 @@
         />
       </div>
     </div>
-    <div class="px-6 mb-6 text-center text-white p-5 break-word">
+    <div class="px-6 mb-6 text-center p-5 break-word">
       <span @click="copyTextToClipboard(this.addr)">{{ this.addr }}</span>
     </div>
 
@@ -26,7 +26,7 @@
         >{{ $t("CxDeposit.tap") }}</v-btn
       >
     </div>
-    <div class="px-6 mb-1 text-center text-white p-5 break-word">
+    <div class="px-6 mb-1 text-center p-5 break-word">
       <p color="primary" class="text-overline font-weight-thin">
         Memo: {{ $t("CxDeposit.memo") }}
       </p>

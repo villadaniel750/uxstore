@@ -280,7 +280,7 @@
           this.drawerLocation = 'right';
           this.permanent = false;
         } else {
-          this.rail = true,
+          this.rail = false,
           this.drawer = true;
           this.drawerLocation = 'left';
           this.permanent = true;

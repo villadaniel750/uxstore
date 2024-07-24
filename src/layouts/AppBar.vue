@@ -280,10 +280,18 @@
           this.drawerLocation = 'right';
           this.permanent = false;
         } else {
-          this.rail = false,
-          this.drawer = true;
-          this.drawerLocation = 'left';
-          this.permanent = true;
+          if(this.windowWidth < 1264) {
+            this.rail = true,
+            this.drawer = true;
+            this.drawerLocation = 'left';
+            this.permanent = true;
+          }else{
+            this.rail = false,
+            this.drawer = true;
+            this.drawerLocation = 'left';
+            this.permanent = true;
+          }
+          
         }
       },
     },
@@ -305,7 +313,7 @@
     },
     computed: {
       ...mapGetters([
-        'mobileView', 'loggedIn', 'isDarkTheme'
+        'mobileView', 'loggedIn', 'isDarkTheme', 'windowWidth'
       ]),
       iconPath() {
         return this.isDarkTheme ? fireIcon : fireIconBlack;

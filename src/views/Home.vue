@@ -86,9 +86,9 @@
 >
     <v-slide-group
       v-model="model"
-      class="pa-4"
+      class="py-4"
       selected-class="bg-success"
-      show-arrows
+      :show-arrows="!mobileView"
     >
       <v-slide-group-item
         v-for="n in 15"

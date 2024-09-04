@@ -97,7 +97,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'ForFree', 'Wallet']; // agregar nombres de rutas que no requieren autenticación
+  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'ForFree', 'Wallet', 'Favorites']; // agregar nombres de rutas que no requieren autenticación
   const authRequired = !publicPages.includes(to.name); // verificar si la página actual requiere autenticación
 
   // Si se requiere autenticación y el usuario no está autenticado, redirigir a 'Home'

@@ -1,7 +1,7 @@
 import axios from "axios"
 import Cookies from "js-cookie";
 
-//const ENDPOINT_PATH = "https://api.earnlumens.com/run-environment/api/";
+//const ENDPOINT_PATH = "https://api.earnlumens.org/run-environment/api/";
 
 axios.defaults.withCredentials = true
 
@@ -9,8 +9,8 @@ axios.defaults.withCredentials = true
 var hostname = window.location.hostname;
 var ENDPOINT_PATH = "";
 
-if (hostname === "www.earnlumens.com" || hostname === "earnlumens.com") {
-    ENDPOINT_PATH = "https://api.earnlumens.com/api/";
+if (hostname === "www.earnlumens.org" || hostname === "earnlumens.org") {
+    ENDPOINT_PATH = "https://api.earnlumens.org/api/";
 } else {
     ENDPOINT_PATH = "http://localhost:852/api/";
 }

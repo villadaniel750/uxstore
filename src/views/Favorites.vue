@@ -21,12 +21,12 @@ export default {
   data() {
     return {
       images: [
-        'https://via.placeholder.com/1920x1080',
-        'https://via.placeholder.com/1920x1080',
-        'https://via.placeholder.com/1920x1080',
-        'https://via.placeholder.com/1920x1080',
-        'https://via.placeholder.com/1920x1080',
-        'https://via.placeholder.com/1920x1080',
+        `https://picsum.photos/1280/720?random=${Math.random()}`,
+        `https://picsum.photos/1280/720?random=${Math.random()}`,
+        `https://picsum.photos/1280/720?random=${Math.random()}`,
+        `https://picsum.photos/1280/720?random=${Math.random()}`,
+        `https://picsum.photos/1280/720?random=${Math.random()}`,
+        `https://picsum.photos/1280/720?random=${Math.random()}`,
       ],
     };
   },

@@ -1,17 +1,19 @@
 <template>
-    <v-container class="fill-height">
+    <v-container >
         <h1>@{{ this.sniped }} FAN PAGE</h1>
+        <cx-fan-header></cx-fan-header>
     </v-container>
   </template>
   
   <script>
+  import CxFanHeader from "@/components/fan/CxFanHeader";
   export default {
     data() {
       return {
         sniped: window.location.pathname.substring(1).toLowerCase(),
       };
     },
-  };//ss
+  };
   </script>
   
   <style></style>

@@ -1,6 +1,5 @@
 <template>
     <v-container >
-        <h1>@{{ this.sniped }} FAN PAGE</h1>
         <cx-fan-header></cx-fan-header>
     </v-container>
   </template>

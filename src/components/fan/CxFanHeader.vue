@@ -1,32 +1,41 @@
 <template>
-    <v-container>
+  <v-container class="pa-4">
+    <v-row align="center" justify="start" class="text-center">
+      <!-- Imagen ajustada -->
+      <v-col cols="12" md="2" class="d-flex justify-center">
         <v-img
-                    class="rounded-circle"
-                    :src="logoImage"
-                    alt="Profile"
-                    max-width="210"
-                    max-height="210"
-                />
-        <div class="flex sm:flex-nowrap flex-wrap justify-start gap-4">
-            <div class="sm:w-48 w-full flex justify-center">
-                
-            </div>
-            
-        </div>
-    </v-container>
+          :src="logoImage"
+          class="rounded-circle"
+          max-width="210"
+          max-height="210"
+        ></v-img>
+      </v-col>
+
+      <!-- Texto ajustado -->
+      <v-col cols="12" md="6" class="text-left">
+        <h3>@{{ this.sniped }} FAN PAGE</h3>
+        <h4>muyinteresante_es</h4>
+        <p>296.9K Seguidores | 323.6K Me gusta</p>
+        <v-btn color="black" class="mr-2">Seguir</v-btn>
+        <v-btn outlined>Mensaje</v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      // Simula una URL de imagen por defecto
-      logoImage: "https://picsum.photos/210/210",
+      logoImage: "https://picsum.photos/210/210", // URL de imagen simulada
+      sniped: window.location.pathname.substring(1).toLowerCase(),
     };
-  },
-  // En un método o ciclo de vida, podrías reemplazar logoImage con la URL desde la base de datos.
-  mounted() {
-    // Ejemplo: reemplazar con la URL obtenida desde la base de datos.
-    // this.logoImage = "https://tu-servidor.com/imagen-desde-bd.jpg";
   },
 };
 </script>
+
+<style scoped>
+.v-row {
+  margin: 0;
+}
+</style>

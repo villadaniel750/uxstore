@@ -13,8 +13,8 @@
 
       <!-- Texto ajustado -->
       <v-col cols="12" md="6" class="text-left">
-        <h3>@{{ this.sniped }} FAN PAGE</h3>
-        <h4>muyinteresante_es</h4>
+        <h3>@{{ this.sniped }}</h3>
+        <h4>{{ this.sniped }}</h4>
         <p>296.9K Seguidores | 323.6K Me gusta</p>
         <v-btn color="black" class="mr-2">Seguir</v-btn>
         <v-btn outlined>Mensaje</v-btn>

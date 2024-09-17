@@ -13,7 +13,7 @@
         <v-img
           :src="image"
           alt="Image"
-          class="mb-3"
+          class="mb-2"
           aspect-ratio="16/9"
           rounded="lg"
           @loadstart="loading[index] = true"

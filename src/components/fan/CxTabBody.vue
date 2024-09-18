@@ -29,7 +29,7 @@
                 <v-img
                   :lazy-src="`https://picsum.photos/10/6?image=${i * n * 5 + 10}`"
                   :src="`https://picsum.photos/500/300?image=${i * n * 5 + 10}`"
-                  height="205"
+                  height="200"
                   aspect-ratio="16/9"
                   cover
                 ></v-img>

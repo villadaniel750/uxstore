@@ -1,14 +1,25 @@
 <template>
   <v-container class="pa-4">
     <v-row align="center" justify="start" class="text-center">
-      <!-- Imagen ajustada -->
+      <!-- Imagen ajustada con skeleton loading -->
       <v-col cols="12" md="2" class="d-flex justify-center">
         <v-img
+          
           :src="logoImage"
           class="rounded-circle"
           max-width="210"
           max-height="210"
-        ></v-img>
+          aspect-ratio="1"
+          alt="Profile image"
+        >
+          <!-- Skeleton mientras carga la imagen -->
+          <template v-slot:placeholder>
+            <v-skeleton-loader
+              type="card"
+
+            ></v-skeleton-loader>
+          </template>
+        </v-img>
       </v-col>
 
       <!-- Texto ajustado -->
@@ -33,9 +44,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.v-row {
-  margin: 0;
-}
-</style>

@@ -11,12 +11,10 @@
   
       <v-tabs-window v-model="tab">
         <v-tabs-window-item :value="1">
-          <!-- Componente para Entries -->
            <cx-entries></cx-entries>
         </v-tabs-window-item>
 
         <v-tabs-window-item :value="2">
-          <!-- Componente para Posts -->
           <cx-posts></cx-posts>
         </v-tabs-window-item>
       </v-tabs-window>

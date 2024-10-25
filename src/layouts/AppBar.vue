@@ -9,11 +9,11 @@
     </div>
   
       <div style="display: flex; flex: 1; justify-content: center;">
-        <cx-search-text-field v-if="!mobileView"></cx-search-text-field>
+        <cx-search-text-field v-if="false"></cx-search-text-field>
       </div>
   
       <div style="display: flex; flex: 1; justify-content: flex-end;">
-        <cx-search-dialog v-if="mobileView"></cx-search-dialog>
+        <cx-search-dialog v-if="true"></cx-search-dialog>
         
         <cx-language-dialog></cx-language-dialog>
         <cx-dark-light-mode></cx-dark-light-mode>

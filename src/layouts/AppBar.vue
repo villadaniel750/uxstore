@@ -8,10 +8,6 @@
       <v-toolbar-title><b class="pl-1 font-weight-bold text-button">EARNLUMENS</b></v-toolbar-title>
     </div>
   
-      <div style="display: flex; flex: 1; justify-content: center;">
-        <cx-search-text-field v-if="false"></cx-search-text-field>
-      </div>
-  
       <div style="display: flex; flex: 1; justify-content: flex-end;">
         <cx-search-dialog v-if="true"></cx-search-dialog>
         
@@ -248,7 +244,6 @@
   import CxRegisterDialog from "@/components/CxRegisterDialog";
   import CxPopoverMenu from "@/components/CxPopoverMenu.vue";
   import CxSearchDialog from "@/components/CxSearchDialog.vue";
-  import CxSearchTextField from "@/components/CxSearchTextField.vue";
   import CxDarkLightMode from "@/components/CxDarkLightMode.vue";
   import fireIcon from "@/assets/fireIcon.svg";
   import fireIconBlack from "@/assets/fireIconBlack.svg";
@@ -268,7 +263,6 @@
       CxRegisterDialog,
       CxPopoverMenu,
       CxSearchDialog,
-      CxSearchTextField,
       CxDarkLightMode,
     },
     methods: {

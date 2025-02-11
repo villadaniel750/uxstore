@@ -245,8 +245,8 @@
   import CxPopoverMenu from "@/components/CxPopoverMenu.vue";
   import CxSearchDialog from "@/components/CxSearchDialog.vue";
   import CxDarkLightMode from "@/components/CxDarkLightMode.vue";
-  import fireIcon from "@/assets/fireIcon.svg";
-  import fireIconBlack from "@/assets/fireIconBlack.svg";
+  import fireIcon from "@/assets/logo.svg";
+  import fireIconBlack from "@/assets/logo-dm.svg";
   export default {
     data: () => ({
       drawer: false,

@@ -54,7 +54,7 @@ import api from "@/api";
 import Loading from "vue-loading-overlay";
 import 'vue-loading-overlay/dist/css/index.css';
 import stellarLogo from "@/assets/stellar.svg";
-import stellarLogoBlack from "@/assets/stellarBlack.svg";
+import stellarLogoBlack from "@/assets/stellar-black.svg";
 
 export default {
 data: () => ({

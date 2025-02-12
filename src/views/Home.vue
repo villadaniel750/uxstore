@@ -148,9 +148,9 @@
 <script>
   import { mapGetters } from "vuex";
   import stellarIcon from "@/assets/stellar.svg";
-  import stellarBlackIcon from "@/assets/stellarBlack.svg";
+  import stellarBlackIcon from "@/assets/stellar-black.svg";
   import xIcon from "@/assets/twitterx.svg";
-  import xBlackIcon from "@/assets/twitterxBlack.svg";
+  import xBlackIcon from "@/assets/twitterx-black.svg";
 
 
   export default {

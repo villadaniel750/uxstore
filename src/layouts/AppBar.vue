@@ -12,7 +12,7 @@
         <cx-search-dialog v-if="true"></cx-search-dialog>
         
         <cx-language-dialog></cx-language-dialog>
-        <cx-dark-light-mode></cx-dark-light-mode>
+        <cx-dark-light-mode v-if="!loggedIn"></cx-dark-light-mode>
         <!-- <cx-register-dialog v-if="!loggedIn"></cx-register-dialog> -->
         <cx-login-dialog-3 v-if="!loggedIn"></cx-login-dialog-3>
         <cx-popover-menu v-else></cx-popover-menu>
@@ -240,7 +240,7 @@
   <script>
   import { mapGetters } from "vuex";
   import CxLanguageDialog from "@/components/CxLanguageDialog";
-  import CxLoginDialog3 from "@/components/CxLoginDialog3";
+  import CxLoginDialog3 from "@/components/CxLoginDialog";
   import CxRegisterDialog from "@/components/CxRegisterDialog";
   import CxPopoverMenu from "@/components/CxPopoverMenu.vue";
   import CxSearchDialog from "@/components/CxSearchDialog.vue";

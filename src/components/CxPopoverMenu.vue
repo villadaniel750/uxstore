@@ -77,7 +77,6 @@ export default {
       }
     }
 
-    // Sincroniza el estado inicial con Vuetify y localStorage
     onMounted(() => {
       const storedTheme = localStorage.getItem("isDarkTheme");
       const isDark = storedTheme ? storedTheme === "true" : theme.global.current.value.dark;
@@ -86,7 +85,6 @@ export default {
       theme.global.name.value = isDark ? "dark" : "light";
     });
 
-    // Observa los cambios en Vuetify y actualiza el switch
     watch(
       () => theme.global.current.value.dark,
       (newValue) => {

@@ -1,15 +1,12 @@
 <template>
-  <v-dialog v-model="dialog" width="640">
+  <v-dialog v-model="dialog" width="640" scrollable>
     <template v-slot:activator="{ props }">
-
-      
-
       <v-btn 
         v-if="mobileView"
         v-bind="props"
         class="ma-2"
         icon="mdi-login"
-        variant="flat"
+        variant="outlined"
         type="submit"
         color="primary"
         
@@ -21,7 +18,7 @@
         v-bind="props"
         class="ma-2"
         prepend-icon="mdi-login"
-        variant="flat"
+        variant="outlined"
         type="submit"
         color="primary"
         >
@@ -39,92 +36,86 @@
       >
 
       <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
-        
 
-        <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="outlined" color="primary" class="text-capitalize mt-3" size="large">
+      <cx-rabet-button></cx-rabet-button>
+      
+      <cx-lobstr-button></cx-lobstr-button>
+
+      <cx-albedo-button></cx-albedo-button>
+
+      <v-btn @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #3B99FC; color: #3B99FC;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/wallet-connect.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             WalletConnect
           </v-btn>
-
+        
+      <cx-freighter-button></cx-freighter-button>
+          
           <v-divider
             class="border-opacity-50 my-5"
             
           ></v-divider>
 
-          <div>
-            
-              <div class="text-subtitle-1 text-medium-emphasis">{{ $t("Common.email") }}</div>
 
-              <v-text-field
-                density="compact"
-                :placeholder="$t('Common.emailAddress')"
-                prepend-inner-icon="mdi-email-outline"
-                variant="outlined"
-                :disabled="isLoading"
-                required
-                v-model="email"
-                :rules="emailRules"
-                @keydown.enter="handleEnterPress"
-                type="email"
-              ></v-text-field>
+        
 
-              <div
-                class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
-              >
-                {{ $t("Common.password") }}
+        <div class="text-subtitle-1 text-medium-emphasis">{{ $t("Common.email") }}</div>
 
-              
-              </div>
+        <v-text-field
+          density="compact"
+          :placeholder="$t('Common.emailAddress')"
+          prepend-inner-icon="mdi-email-outline"
+          variant="outlined"
+          :disabled="isLoading"
+          required
+          v-model="email"
+          :rules="emailRules"
+          @keydown.enter="handleEnterPress"
+          type="email"
+        ></v-text-field>
 
-              <v-text-field
-                :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
-                :type="visible ? 'text' : 'password'"
-                density="compact"
-                :placeholder="$t('Common.enterYourPassword')"
-                prepend-inner-icon="mdi-lock-outline"
-                variant="outlined"
-                :disabled="isLoading"
-                required
-                v-model="password"
-                @click:append-inner="visible = !visible"
-                :rules="passwordRules"
-                @keydown.enter="handleEnterPress"
-              ></v-text-field>
+        <div
+          class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
+        >
+          {{ $t("Common.password") }}
+        </div>
 
-              <v-btn
-                :loading="isLoading"
-                block
-                class="mb-8 mt-4"
-                color="primary"
-                size="large"
-                variant="outlined"
-                @click="login" 
-                :disabled="!isValid || isLoading"
-              >
-                {{ $t("Common.login") }}
-              </v-btn>
+        <v-text-field
+          :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+          :type="visible ? 'text' : 'password'"
+          density="compact"
+          :placeholder="$t('Common.enterYourPassword')"
+          prepend-inner-icon="mdi-lock-outline"
+          variant="outlined"
+          :disabled="isLoading"
+          required
+          v-model="password"
+          @click:append-inner="visible = !visible"
+          :rules="passwordRules"
+          @keydown.enter="handleEnterPress"
+        ></v-text-field>
 
-              <v-alert type="error" v-if="loginError" variant="tonal" >
-                {{ $t("Common.invalidLogin") }} 
-              </v-alert>
+        <v-btn
+          :loading="isLoading"
+          block
+          class="mb-8 mt-4"
+          color="primary"
+          size="large"
+          variant="outlined"
+          @click="login" 
+          :disabled="!isValid || isLoading"
+        >
+          {{ $t("Common.login") }}
+        </v-btn>
 
-              <v-card-text class="text-center">
-                <p class="text-disabled text-caption">Dev purpose | user: sat@gmx.com | pass: trustline</p>
-              </v-card-text>
-            
-          </div>
-            </v-card>
+        <v-alert type="error" v-if="loginError" variant="tonal" >
+          {{ $t("Common.invalidLogin") }} 
+        </v-alert>
+
+        <v-card-text class="text-center">
+          <p class="text-disabled text-caption">Dev purpose | user: sat@gmx.com | pass: trustline</p>
+        </v-card-text>
+      </v-card>
     </div>
-    <v-snackbar
-      location="center"
-      rounded="pill"
-      v-model="snackbar"
-      :timeout="timeout"
-    >
-      <v-icon left>mdi-check</v-icon>
-      Under Development
-      <template v-slot:actions> </template>
-    </v-snackbar>
 
   </v-dialog>
 </template>
@@ -133,7 +124,10 @@
 import { mapGetters } from "vuex";
 // import CryptoJS from "crypto-js";
 import api from "@/api";
-
+import CxAlbedoButton from './login/CxAlbedoButton.vue';
+import CxLobstrButton from './login/CxLobstrButton.vue';
+import CxRabetButton from "./login/CxRabetButton.vue";
+import CxFreighterButton from "./login/CxFreighterButton.vue";
 // Función independiente3
 function validateEmail(email) {
   let wep = email.match(
@@ -145,9 +139,6 @@ function validateEmail(email) {
 export default {
   data() {
       return {
-        snackbar: false,
-        timeout: 1500,
-        
       dialog: false,
       email: '',
       password: '',
@@ -164,6 +155,9 @@ export default {
       loginError: false,
       };
   },
+  components: {
+    CxAlbedoButton, CxLobstrButton, CxRabetButton, CxFreighterButton
+    },
   methods: {
     async login() {
       this.loginError = false;
@@ -175,7 +169,7 @@ export default {
           console.log(result.data);
 
           if (result.status === 200) {
-            // this.$store.commit("setLoggedInTrue");
+            this.$store.commit("setLoggedInTrue");
 
             //   window.localStorage.PUK = CryptoJS.AES.encrypt(
             //   result.data.xlmAddress,
@@ -207,12 +201,9 @@ export default {
     if (this.isValid && !this.isLoading) {
       this.login();
     }
-  },
+    },
   showDialog() {
     this.dialog = true;
-  },
-  underDevelopment() {
-    this.snackbar = true;
   }
   },
   computed: {

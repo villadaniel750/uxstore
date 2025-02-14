@@ -14,7 +14,7 @@
         <cx-language-dialog></cx-language-dialog>
         <cx-dark-light-mode v-if="!loggedIn"></cx-dark-light-mode>
         <!-- <cx-register-dialog v-if="!loggedIn"></cx-register-dialog> -->
-        <cx-login-dialog-3 v-if="!loggedIn"></cx-login-dialog-3>
+        <cx-login-dialog v-if="!loggedIn"></cx-login-dialog>
         <cx-popover-menu v-else></cx-popover-menu>
       </div>
     </v-app-bar>
@@ -240,7 +240,7 @@
   <script>
   import { mapGetters } from "vuex";
   import CxLanguageDialog from "@/components/CxLanguageDialog";
-  import CxLoginDialog3 from "@/components/CxLoginDialog";
+  import CxLoginDialog from "@/components/CxLoginDialog";
   import CxRegisterDialog from "@/components/CxRegisterDialog";
   import CxPopoverMenu from "@/components/CxPopoverMenu.vue";
   import CxSearchDialog from "@/components/CxSearchDialog.vue";
@@ -259,7 +259,7 @@
     }),
     components: {
       CxLanguageDialog,
-      CxLoginDialog3,
+      CxLoginDialog,
       CxRegisterDialog,
       CxPopoverMenu,
       CxSearchDialog,

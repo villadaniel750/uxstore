@@ -135,7 +135,7 @@
       <v-divider></v-divider> -->
 
       <div class="text-overline text-medium-emphasis">
-              &copy;{{ new Date().getFullYear() }} <strong>EARNLUMENS</strong>
+              &copy;{{ new Date().getFullYear() }} <strong>- EARNLUMENS</strong>
       </div>
     </v-footer>
       

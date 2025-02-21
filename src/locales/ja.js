@@ -31,6 +31,9 @@ export default { //japonés
         tap: 'コピーするにはタップ',
         demo: 'これはデモウォレットです。テストネットで動作しています。応答性をテストするためにいくつかのルーメンを送信してください。',
     },
+    CxVideo: {
+        bloqued: 'ブロックされました',
+    },
     Wallet: {
         deposit: '預金',
         withdraw: '撤退する',

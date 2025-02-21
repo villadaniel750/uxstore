@@ -31,6 +31,9 @@ export default { // Português
         tap: 'Toque para copiar',
         demo: 'Esta é uma carteira de demonstração. Está funcionando na testnet. Envie alguns lumens para testar a responsividade.',
     },
+    CxVideo: {
+        bloqued: 'Bloqueado',
+    },
     Wallet: {
         deposit: 'Depósito',
         withdraw: 'Retirada',

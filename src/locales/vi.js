@@ -31,6 +31,9 @@ export default { // Tiếng Việt
         tap: 'Chạm để sao chép',
         demo: 'Đây là ví demo. Nó đang chạy trên testnet. Gửi một số lumens để kiểm tra độ phản hồi.',
     },
+    CxVideo: {
+        bloqued: 'Bị chặn',
+    },
     Wallet: {
         deposit: 'Gửi tiền',
         withdraw: 'Rút tiền',

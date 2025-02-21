@@ -31,6 +31,9 @@ export default { // Turco
         tap: 'Kopyalamak için dokunun',
         demo: 'Bu bir demo cüzdandır. Testnet üzerinde çalışmaktadır. Tepkiyi test etmek için biraz lumen yatırın.',
     },
+    CxVideo: {
+        bloqued: 'Engellendi',
+    },
     Wallet: {
         deposit: 'Yatır',
         withdraw: 'Çek',

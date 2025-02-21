@@ -31,6 +31,9 @@ export default { // Français
         tap: 'Tapez pour copier',
         demo: 'Ceci est un portefeuille de démonstration. Il fonctionne sur le testnet. Déposez des lumens pour tester la réactivité.',
     },
+    CxVideo: {
+        bloqued: 'Bloquée',
+    },
     Wallet: {
         deposit: 'Dépôt',
         withdraw: 'Retrait',

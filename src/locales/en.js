@@ -31,6 +31,9 @@ export default { // Inglés
         tap: 'Tap to copy',
         demo: 'This is a demo wallet. It is running on the testnet. Deposit some lumens to test responsiveness.',
     },
+    CxVideo: {
+        bloqued: 'Blocked',
+    },
     Wallet: {
         deposit: 'Deposit',
         withdraw: 'Withdraw',

@@ -31,6 +31,9 @@ export default { // Malayo
         tap: 'Klik untuk menyalin',
         demo: 'Ini adalah dompet demo. Ia berjalan di testnet. Hantar beberapa lumens untuk menguji responsif.',
     },
+    CxVideo: {
+        bloqued: 'Diblokir',
+    },
     Wallet: {
         deposit: 'Deposit',
         withdraw: 'Keluar',

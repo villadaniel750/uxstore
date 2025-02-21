@@ -31,6 +31,9 @@ export default { // Chino (simplificado)
         tap: '点击复制',
         demo: '这是一个演示钱包。它在测试网上运行。发送一些Lumens以测试响应性。',
     },
+    CxVideo: {
+        bloqued: '已阻止',
+    },
     Wallet: {
         deposit: '存款',
         withdraw: '提款',

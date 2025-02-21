@@ -31,6 +31,9 @@ export default { // 한국어
         tap: '탭하여 복사',
         demo: '이것은 데모 지갑입니다. 테스트넷에서 실행 중입니다. 반응성을 테스트하기 위해 몇 개의 루멘을 입금하세요.',
     },
+    CxVideo: {
+        bloqued: '차단됨',
+    },
     Wallet: {
         deposit: '입금',
         withdraw: '출금',

@@ -31,6 +31,9 @@ export default { // Alemán
         tap: 'Tippen, um zu kopieren',
         demo: 'Dies ist eine Demo-Wallet. Sie läuft im Testnetz. Lege einige Lumens ein, um die Reaktionsfähigkeit zu testen.',
     },
+    CxVideo: {
+        bloqued: 'Blockiert',
+    },
     Wallet: {
         deposit: 'Einzahlen',
         withdraw: 'Abheben',

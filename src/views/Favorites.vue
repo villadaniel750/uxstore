@@ -1,8 +1,8 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <v-col
-        v-for="(image, index) in images"
+        v-for="(img, index) in images"
         :key="index"
         cols="12"
         sm="6"
@@ -11,7 +11,8 @@
         xl="2"
       >
         <v-img
-          :src="image"
+          :lazy-src="img.lazySrc"
+          :src="img.src"
           alt="Image"
           class="mb-2"
           aspect-ratio="16/9"
@@ -20,11 +21,7 @@
           @load="loading[index] = false"
         >
           <template #placeholder>
-            <v-row
-              class="fill-height ma-0"
-              align="center"
-              justify="center"
-            >
+            <v-row class="fill-height ma-0" align="center" justify="center">
               <v-progress-circular indeterminate color="primary" />
             </v-row>
           </template>
@@ -38,28 +35,16 @@
 export default {
   data() {
     return {
-      images: [
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-        `https://picsum.photos/1280/720?random=${Math.random()}`,
-      ],
-      loading: [], // Estado de carga de las imágenes
+      // Array de imágenes, que luego puedes reemplazar con la respuesta de tu webservice.
+      images: Array.from({ length: 18 }, (_, i) => {
+        const index = i + 1;
+        return {
+          lazySrc: `https://picsum.photos/10/6?image=${index * 5 + 10}`,
+          src: `https://picsum.photos/500/300?image=${index * 5 + 10}`
+        };
+      }),
+      loading: Array(18).fill(false) // loading state for each image
     };
-  },
+  }
 };
 </script>
-
-<style scoped>
-.mb-3 {
-  margin-bottom: 1.5rem;
-}
-</style>

@@ -68,6 +68,24 @@ function sendCookieHttpOnly(JWTToken) {
     return axios.get(ENDPOINT_PATH + 'test/cookies', { headers: { "Authorization": `Bearer ${JWTToken}` } })
 }
 
+function requestSep10Challenge(publicKey) {
+    return axios.get(`https://api.earnlumens.org/auth?account=${publicKey}`)
+        .then(response => response.data) // Devuelve el XDR del desafío
+        .catch(error => {
+            console.error("Error solicitando el desafío SEP-10:", error);
+            throw error;
+        });
+}
+
+function submitSignedTransaction(signedXdr) {
+    return axios.post("https://api.earnlumens.org/auth", { transaction: signedXdr })
+        .then(response => response.data) // Recibe el JWT si la autenticación fue exitosa
+        .catch(error => {
+            console.error("Error enviando la transacción firmada:", error);
+            throw error;
+        });
+}
+
 export default {
     subscribe,
     signup,
@@ -79,5 +97,7 @@ export default {
     getUserLogged,
     deleteUserLogged,
     sendCookieHttpOnly,
-    getWaitlistStats
+    getWaitlistStats,
+    requestSep10Challenge,
+    submitSignedTransaction
 }

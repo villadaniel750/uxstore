@@ -33,7 +33,7 @@ export default { // Italiano
         demo: 'Questo è un portafoglio dimostrativo. È in esecuzione sulla testnet. Deposita alcuni lumens per testare la reattività.',
     },
     CxVideo: {
-        bloqued: 'Bloccata',
+        bloqued: 'Bloccato',
     },
     Wallet: {
         deposit: 'Deposita',

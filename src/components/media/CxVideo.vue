@@ -1,10 +1,9 @@
 <template>
-  <div class="video-container">
+  <v-card rounded="lg">
     <v-img
       :lazy-src="lazySrc"
       :src="src"
       alt="Image"
-      class="mb-2"
       aspect-ratio="16/9"
       rounded="lg"
       @loadstart="$emit('loadstart')"
@@ -16,11 +15,18 @@
         </v-row>
       </template>
     </v-img>
-    <div v-if="showButton" class="overlay"></div>
-    <v-btn v-if="showButton" class="block-button text-none" size="small" prepend-icon="mdi-lock">
-      {{ $t("CxVideo.bloqued") }}
-    </v-btn>
-  </div>
+
+    <v-overlay
+      :model-value="blocked"
+      class="align-end pb-3 pl-3"
+      scrim="#808080"
+      contained
+    >
+      <v-btn class="text-none" size="small" prepend-icon="mdi-lock">
+        {{ $t("CxVideo.bloqued") }}
+      </v-btn>
+    </v-overlay>
+  </v-card>
 </template>
 
 <script>
@@ -28,40 +34,18 @@ export default {
   props: {
     lazySrc: {
       type: String,
-      required: true
+      required: true,
     },
     src: {
       type: String,
-      required: true
+      required: true,
     },
-    showButton: {
+    blocked: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 };
 </script>
 
-<style scoped>
-.video-container {
-  position: relative;
-}
-
-.block-button {
-  position: absolute;
-  bottom: 15px; 
-  left: 30px; 
-  z-index: 10; 
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(128, 128, 128, 0.5);
-  z-index: 5;
-  border-radius: 0.5rem;
-}
-</style>
+<style scoped></style>

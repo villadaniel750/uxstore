@@ -32,7 +32,7 @@ export default { // Español
         demo: 'Esta es una wallet de demostración. Esta funcionando sobre la testnet. Deposite unos lumens para probar la responsividad.',
     },
     CxVideo: {
-        bloqued: 'Bloquejat',
+        bloqued: 'Bloqueado',
     },
     Wallet: {
         deposit: 'Depositar',

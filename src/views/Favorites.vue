@@ -13,7 +13,7 @@
         <CxVideo
           :lazy-src="img.lazySrc"
           :src="img.src"
-          :show-button="index%3==true"
+          :blocked="index%3==true"
           @loadstart="loading[index] = true"
           @load="loading[index] = false"
         />

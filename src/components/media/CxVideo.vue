@@ -19,7 +19,8 @@
     <v-overlay
       :model-value="blocked"
       class="align-end pb-3 pl-3"
-      scrim="#808080"
+      scrim="grey-darken-1"
+      opacity="0.6"
       contained
     >
       <v-btn class="text-none" size="small" prepend-icon="mdi-lock">

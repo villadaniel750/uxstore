@@ -1,5 +1,5 @@
 <template>
-    <v-btn @click="signTransaction" block rel="noopener noreferrer" variant="tonal"
+    <v-btn disabled @click="signTransaction" block rel="noopener noreferrer" variant="tonal"
         style="border-color: #0691b7; color: #0691b7;" class="text-capitalize mt-3" size="large">
         <img src="@/assets/albedo.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;" />
         Albedo

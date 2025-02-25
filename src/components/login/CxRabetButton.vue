@@ -1,5 +1,5 @@
 <template>
-    <v-btn @click="userSignTransaction" block  rel="noopener noreferrer"  variant="tonal" :color="isDarkTheme ? '#B8BAC4' : '#8A8C99'"  class="text-capitalize mt-3" size="large">
+    <v-btn disabled @click="userSignTransaction" block  rel="noopener noreferrer"  variant="tonal" :color="isDarkTheme ? '#B8BAC4' : '#8A8C99'"  class="text-capitalize mt-3" size="large">
         <img src="@/assets/rabet.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
         Rabet
     </v-btn>

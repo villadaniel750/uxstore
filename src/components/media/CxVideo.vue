@@ -21,6 +21,7 @@
       class="align-end pb-3 pl-3"
       scrim="grey-darken-1"
       opacity="0.6"
+      persistent
       contained
     >
       <v-btn class="text-none" size="small" prepend-icon="mdi-lock">

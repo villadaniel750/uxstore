@@ -90,6 +90,7 @@ export default { //japonés
         emailRequired: 'メールが必要です',
         passwordRequired: 'パスワードが必要です',
         passwordMinLength: 'パスワードは8文字以上である必要があります',
+        loginWithX: 'Xでログイン',
     },
     CxRegisterDialog: {
         createAnAccount: 'アカウントを作成する',

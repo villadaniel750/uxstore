@@ -90,6 +90,7 @@ export default { // Tiếng Việt
         emailRequired: 'Email là bắt buộc',
         passwordRequired: 'Mật khẩu là bắt buộc',
         passwordMinLength: 'Mật khẩu phải có ít nhất 8 ký tự',
+        loginWithX: 'Đăng nhập với X',
     },
     CxRegisterDialog: {
         createAnAccount: 'Tạo một tài khoản',

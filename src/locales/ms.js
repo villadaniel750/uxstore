@@ -90,6 +90,7 @@ export default { // Malayo
         emailRequired: 'E-mel diperlukan',
         passwordRequired: 'Kata laluan diperlukan',
         passwordMinLength: 'Kata laluan mesti sekurang-kurangnya 8 aksara',
+        loginWithX: 'Log masuk dengan X',
     },
     CxRegisterDialog: {
         createAnAccount: 'Buat akaun',

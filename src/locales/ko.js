@@ -90,6 +90,7 @@ export default { // 한국어
         emailRequired: '이메일이 필요합니다',
         passwordRequired: '비밀번호가 필요합니다',
         passwordMinLength: '비밀번호는 최소 8자 이상이어야 합니다',
+        loginWithX: 'X로 로그인',
     },
     CxRegisterDialog: {
         createAnAccount: '계정 생성하기',

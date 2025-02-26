@@ -90,6 +90,7 @@ export default { // Português
         emailRequired: 'E-mail é necessário',
         passwordRequired: 'Senha é necessária',
         passwordMinLength: 'A senha deve ter pelo menos 8 caracteres',
+        loginWithX: 'Entrar com X',
     },
     CxRegisterDialog: {
         createAnAccount: 'Criar uma conta',

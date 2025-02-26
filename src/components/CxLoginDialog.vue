@@ -37,6 +37,8 @@
 
       <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
 
+      <cx-x-button></cx-x-button>
+
       <cx-rabet-button></cx-rabet-button>
       
       <cx-lobstr-button></cx-lobstr-button>
@@ -124,6 +126,7 @@
 import { mapGetters } from "vuex";
 // import CryptoJS from "crypto-js";
 import api from "@/api";
+import CxXButton from "./login/CxXButton.vue";
 import CxAlbedoButton from './login/CxAlbedoButton.vue';
 import CxLobstrButton from './login/CxLobstrButton.vue';
 import CxRabetButton from "./login/CxRabetButton.vue";
@@ -156,7 +159,7 @@ export default {
       };
   },
   components: {
-    CxAlbedoButton, CxLobstrButton, CxRabetButton, CxFreighterButton
+    CxAlbedoButton, CxLobstrButton, CxRabetButton, CxFreighterButton, CxXButton
     },
   methods: {
     async login() {

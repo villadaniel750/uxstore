@@ -90,6 +90,7 @@ export default { // Hindi
         emailRequired: 'ईमेल आवश्यक है',
         passwordRequired: 'पासवर्ड आवश्यक है',
         passwordMinLength: 'पासवर्ड कम से कम 8 वर्णों का होना चाहिए',
+        loginWithX: 'X के साथ लॉग इन करें',
     },
     CxRegisterDialog: {
         createAnAccount: 'खाता बनाएं',

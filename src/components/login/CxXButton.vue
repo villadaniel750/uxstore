@@ -44,9 +44,9 @@ export default {
           });
 
           const authUrl = `https://twitter.com/i/oauth2/authorize?${params.toString()}`;
-          console.log("🔹 Auth URL:", authUrl);
+          
 
-          //window.location.href = authUrl; // 🔹 Redirige en la misma ventana
+          window.location.href = authUrl; 
       }
   },
   computed: {

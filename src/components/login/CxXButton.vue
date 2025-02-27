@@ -17,7 +17,7 @@ import { mapGetters } from "vuex";
 import xIcon from "@/assets/twitterx.svg";
 import xBlackIcon from "@/assets/twitterx-black.svg";
 
-// 🔹 Genera un `code_challenge` para PKCE (simplificado)
+// 🔹 Genera un `code_challenge` aleatorio para PKCE
 function generateCodeChallenge() {
     const codeVerifier = btoa(Math.random().toString(36).substring(2, 15)); // 🔹 String aleatorio
     return btoa(codeVerifier).replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
@@ -31,17 +31,22 @@ export default {
           const codeChallenge = generateCodeChallenge();
           const state = Math.random().toString(36).substring(2, 15); // 🔹 Random CSRF protection
 
-          const authUrl = `https://twitter.com/i/oauth2/authorize
-              ?response_type=code
-              &client_id=${clientId}
-              &redirect_uri=${encodeURIComponent(redirectUri)}
-              &scope=users.read
-              &state=${state}
-              &code_challenge=${codeChallenge}
-              &code_challenge_method=S256
-              &prompt=consent`;
+          // ✅ Construcción segura de la URL, sin espacios adicionales
+          const params = new URLSearchParams({
+              response_type: "code",
+              client_id: clientId,
+              redirect_uri: redirectUri,
+              scope: "users.read",
+              state: state,
+              code_challenge: codeChallenge,
+              code_challenge_method: "S256",
+              prompt: "consent"
+          });
 
-          window.location.href = authUrl; // 🔹 Redirige en la misma ventana
+          const authUrl = `https://twitter.com/i/oauth2/authorize?${params.toString()}`;
+          console.log("🔹 Auth URL:", authUrl);
+
+          //window.location.href = authUrl; // 🔹 Redirige en la misma ventana
       }
   },
   computed: {
@@ -52,3 +57,4 @@ export default {
   }
 };
 </script>
+

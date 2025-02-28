@@ -34,7 +34,7 @@
         class="position-absolute right-0 bottom-0 text-body-2 bg-black opacity-60 rounded pb-1 pt-1 pl-1 pr-1 mr-3 mb-3 elevation-2"
         style="z-index: 9999999;"
     >
-        <b>13:02</b>
+        <b class="opacity-100">13:02</b>
     </div>
 
     <div 
@@ -42,8 +42,8 @@
         class="d-flex align-center position-absolute right-0 bottom-0 text-body-2 opacity-60 bg-black rounded pb-1 pt-1 pl-1 pr-1 mr-3 mb-3 elevation-3"
         style="z-index: 9999999;"
     >
-        <v-icon icon="mdi-playlist-play" class="" size="small"></v-icon>
-        <b>{{ playlistCount }}</b>
+        <v-icon icon="mdi-playlist-play" class="opacity-100" size="small"></v-icon>
+        <b class="opacity-100">{{ playlistCount }}</b>
     </div>
 
   </v-card>

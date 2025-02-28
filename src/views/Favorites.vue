@@ -14,6 +14,8 @@
           :lazy-src="img.lazySrc"
           :src="img.src"
           :blocked="index%3==true"
+          :isPlaylist="index%4==true"
+          :playlist-count="index + 1"
           @loadstart="loading[index] = true"
           @load="loading[index] = false"
         />

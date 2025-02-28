@@ -88,7 +88,7 @@
 
   <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
     <div class="d-flex justify-space-between align-center px-4">
-      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6">Stellar Community</v-btn>
+      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6">Community</v-btn>
       <v-btn href="#" variant="text" class="text-body-2 font-weight-medium text-button">more ></v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">

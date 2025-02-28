@@ -31,16 +31,18 @@
 
     <div 
         v-if="isPlaylist"
-        class="position-absolute right-0 bottom-0 text-body-2 bg-grey-darken-1 rounded pb-1 pt-1 pl-1 pr-1 mr-3 mb-3 elevation-2"
+        class="position-absolute right-0 bottom-0 text-body-2 bg-black opacity-60 rounded pb-1 pt-1 pl-1 pr-1 mr-3 mb-3 elevation-2"
+        style="z-index: 9999999;"
     >
         <b>13:02</b>
     </div>
 
     <div 
         v-if="!isPlaylist && playlistCount%3===0"
-        class="position-absolute right-0 bottom-0 bg-grey-darken-2 rounded-lg pb-1 pt-1 pl-2 pr-2 mr-3 mb-3 elevation-3"
+        class="d-flex align-center position-absolute right-0 bottom-0 text-body-2 opacity-60 bg-black rounded pb-1 pt-1 pl-1 pr-1 mr-3 mb-3 elevation-3"
+        style="z-index: 9999999;"
     >
-        <v-icon icon="mdi-playlist-play" class="mr-1" size="large"></v-icon>
+        <v-icon icon="mdi-playlist-play" class="" size="small"></v-icon>
         <b>{{ playlistCount }}</b>
     </div>
 

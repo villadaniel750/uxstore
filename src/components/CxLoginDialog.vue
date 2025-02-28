@@ -39,18 +39,18 @@
 
       <cx-x-button></cx-x-button>
 
-      <cx-rabet-button></cx-rabet-button>
+      <!-- <cx-rabet-button></cx-rabet-button> -->
       
-      <cx-lobstr-button></cx-lobstr-button>
+      <!-- <cx-lobstr-button></cx-lobstr-button> -->
 
-      <cx-albedo-button></cx-albedo-button>
+      <!-- <cx-albedo-button></cx-albedo-button> -->
 
       <!-- <v-btn disabled @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #3B99FC; color: #3B99FC;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/wallet-connect.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             WalletConnect
           </v-btn> -->
         
-      <cx-freighter-button></cx-freighter-button>
+      <!-- <cx-freighter-button></cx-freighter-button> -->
           
           <v-divider
             class="border-opacity-50 my-5"

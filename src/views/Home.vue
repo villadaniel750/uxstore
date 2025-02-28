@@ -67,55 +67,56 @@
       </v-row>
 
       <div class="py-3" />
-      <div class="d-flex justify-center">
-        <iframe
-          width="600"
-          height="340"
-          :src="`https://www.youtube.com/embed/${$t('Common.videoId')}`"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-    </div>
     <div class="py-3" />
 
-    <v-sheet
-  class="mx-auto"
-  elevation="8"
-  width="100%"
->
-    <v-slide-group
-      v-model="model"
-      class="py-4"
-      selected-class="bg-success"
-      :show-arrows="!mobileView"
-    >
-      <v-slide-group-item
-        v-for="n in 15"
-        :key="n"
-        v-slot="{ isSelected, toggle, selectedClass }"
-      >
-        <v-card
-          :class="['ma-4', selectedClass]"
-          color="grey-lighten-1"
-          height="150"
-          width="260"
-          @click="toggle"
-        >
-          <div class="d-flex fill-height align-center justify-center">
-            <v-scale-transition>
-              <v-icon
-                v-if="isSelected"
-                color="white"
-                icon="mdi-close-circle-outline"
-                size="48"
-              ></v-icon>
-            </v-scale-transition>
-          </div>
+
+    <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
+    <div class="d-flex justify-space-between align-center px-4">
+      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6">Stellar Ecosystem</v-btn>
+      <v-btn href="#" variant="text" class="text-body-2 font-weight-medium text-button">more ></v-btn>
+    </div>
+    <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
+      <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
+        <v-card :class="['ma-4', selectedClass]" height="150" width="260" flat tile>
+          <v-img :lazy-src="img.lazySrc" :src="img.src" alt="Image" cover class="fill-height" rounded="lg" />
         </v-card>
       </v-slide-group-item>
     </v-slide-group>
   </v-sheet>
+
+  <div class="py-3" />
+
+  <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
+    <div class="d-flex justify-space-between align-center px-4">
+      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6">Stellar Community</v-btn>
+      <v-btn href="#" variant="text" class="text-body-2 font-weight-medium text-button">more ></v-btn>
+    </div>
+    <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
+      <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
+        <v-card :class="['ma-4', selectedClass]" height="150" width="260" flat tile>
+          <v-img :lazy-src="img.lazySrc" :src="img.src" alt="Image" cover class="fill-height" rounded="lg" />
+        </v-card>
+      </v-slide-group-item>
+    </v-slide-group>
+  </v-sheet>
+
+  <div class="py-3" />
+
+  <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
+    <div class="d-flex justify-space-between align-center px-4">
+      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6">{{ $t('AppBar.topRated') }}</v-btn>
+      <v-btn href="#" variant="text" class="text-body-2 font-weight-medium text-button">more ></v-btn>
+    </div>
+    <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
+      <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
+        <v-card :class="['ma-4', selectedClass]" height="150" width="150" flat tile color="transparent">
+          <v-img :lazy-src="img.lazySrc" :src="img.src" alt="Image" cover class="fill-height" rounded="circle" />
+        </v-card>
+      </v-slide-group-item>
+    </v-slide-group>
+  </v-sheet>
+
+  
 
   <v-divider></v-divider>
   
@@ -162,6 +163,14 @@
       permanent: false,
       desktopView: true,
       activeItem: null,
+      model: null,
+      images: Array.from({ length: 15 }, (_, i) => {
+        const index = i + 1;
+        return {
+          lazySrc: `https://picsum.photos/10/6?image=${index * 5 + 10}`,
+          src: `https://picsum.photos/500/300?image=${index * 5 + 10}`
+        };
+      })
     }),
     methods: {
 

@@ -45,10 +45,10 @@
 
       <cx-albedo-button></cx-albedo-button>
 
-      <v-btn disabled @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #3B99FC; color: #3B99FC;" class="text-capitalize mt-3" size="large">
+      <!-- <v-btn disabled @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #3B99FC; color: #3B99FC;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/wallet-connect.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             WalletConnect
-          </v-btn>
+          </v-btn> -->
         
       <cx-freighter-button></cx-freighter-button>
           

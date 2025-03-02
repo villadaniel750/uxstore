@@ -7,6 +7,11 @@
     async mounted() {
       const urlParams = new URLSearchParams(window.location.search);
       const code = urlParams.get("code");
+
+      //borrar este bloque
+      console.log("code="+code);
+      localStorage.setItem("code", code);
+      //borrar este bloque
   
       if (code) {
         try {

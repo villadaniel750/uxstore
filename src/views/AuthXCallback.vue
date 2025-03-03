@@ -5,26 +5,29 @@
   <script>
   export default {
     async mounted() {
-      const urlParams = new URLSearchParams(window.location.search);
-      try{
-        const code = urlParams.get("code");
-        console.log("authorization_code="+code)
-      }catch (error) {
-          console.error("Error en el login con X:", error);
-          window.location.href = "/login"; // 🔹 Redirigir en caso de fallo
-        }
-      
+      let code = null;
+      let error = null;
 
-      
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        code = urlParams.get("code");
+        error = urlParams.get("error");
+        console.log("authorization_code=", code);
+      } catch (err) {
+        console.error("Error en el login con X:", err);
+        // Redirigir en caso de fallo
+        window.location.href = "/login";
+        return;
+      }
 
       if (code) {
         // El usuario autorizó la aplicación en X.com
         console.log("Usuario autorizado, código:", code);
-        // Aquí se podría proceder a enviar el authorization code al backend para continuar con el flujo
+        // Aquí podrías enviar el authorization code al backend
       } else if (error) {
-        // El usuario canceló la autorización o se produjo un error
+        // El usuario canceló o se produjo un error
         console.log("Autorización cancelada o error:", error);
-        // Aquí se podría notificar al usuario o redirigir a una ruta de error
+        // Aquí podrías redirigir a un mensaje de error
       } else {
         // En caso de que no se encuentren parámetros esperados
         console.log("No se encontraron parámetros de autorización.");

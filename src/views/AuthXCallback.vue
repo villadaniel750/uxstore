@@ -4,6 +4,18 @@
   
   <script>
   export default {
+    methods: {
+      // Método que redirige a la URL guardada en 'pre-login-url'
+      redirectToPreLoginUrl() {
+        const preLoginUrl = localStorage.getItem("pre-login-url");
+        localStorage.removeItem("pre-login-url");
+        if (preLoginUrl) {
+          window.location.href = preLoginUrl;
+        } else {
+          window.location.href = "/";
+        }
+      },
+    },
     async mounted() {
       let code = null;
       let error = null;
@@ -16,7 +28,7 @@
       } catch (err) {
         console.error("Error en el login con X:", err);
         // Redirigir en caso de fallo
-        window.location.href = "/login";
+        this.redirectToPreLoginUrl();
         return;
       }
 
@@ -24,17 +36,22 @@
         // El usuario autorizó la aplicación en X.com
         console.log("Usuario autorizado, código:", code);
         // Aquí podrías enviar el authorization code al backend
+        this.redirectToPreLoginUrl();
       } else if (error) {
         // El usuario canceló o se produjo un error
         console.log("Autorización cancelada o error:", error);
         // Aquí podrías redirigir a un mensaje de error
+        this.redirectToPreLoginUrl();
       } else {
         // En caso de que no se encuentren parámetros esperados
         console.log("No se encontraron parámetros de autorización.");
+        this.redirectToPreLoginUrl();
       }
 
-  
-      if (code) {
+
+
+
+      /* if (code) {
         try {
           // 🔹 Enviar el código al backend para obtener el access_token
           const response = await fetch("https://api.earnlumens.org/auth/x/token", {
@@ -69,7 +86,12 @@
         }
       } else {
         window.location.href = "/login"; // 🔹 Si no hay code, volver al login
-      }
+      } */
+
+
+
+
+
     },
   };
   </script>

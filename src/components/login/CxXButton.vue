@@ -26,6 +26,7 @@ function generateCodeChallenge() {
 export default {
   methods: {
       loginWithX() {
+          localStorage.setItem("pre-login-url", window.location.pathname);
           const clientId = "WHdUand1aHozTlZlNXEyMEt6NF86MTpjaQ";
           const redirectUri = "https://earnlumens.org/auth/x/callback";
           const codeChallenge = generateCodeChallenge();

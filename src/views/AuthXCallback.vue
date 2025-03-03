@@ -6,9 +6,16 @@
   export default {
     async mounted() {
       const urlParams = new URLSearchParams(window.location.search);
-      const code = urlParams.get("code");
+      try{
+        const code = urlParams.get("code");
+        console.log("authorization_code="+code)
+      }catch (error) {
+          console.error("Error en el login con X:", error);
+          window.location.href = "/login"; // 🔹 Redirigir en caso de fallo
+        }
+      
 
-      console.log("code="+code);
+      
 
       if (code) {
         // El usuario autorizó la aplicación en X.com

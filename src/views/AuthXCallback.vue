@@ -8,10 +8,21 @@
       const urlParams = new URLSearchParams(window.location.search);
       const code = urlParams.get("code");
 
-      //borrar este bloque
       console.log("code="+code);
-      localStorage.setItem("code", code);
-      //borrar este bloque
+
+      if (code) {
+        // El usuario autorizó la aplicación en X.com
+        console.log("Usuario autorizado, código:", code);
+        // Aquí se podría proceder a enviar el authorization code al backend para continuar con el flujo
+      } else if (error) {
+        // El usuario canceló la autorización o se produjo un error
+        console.log("Autorización cancelada o error:", error);
+        // Aquí se podría notificar al usuario o redirigir a una ruta de error
+      } else {
+        // En caso de que no se encuentren parámetros esperados
+        console.log("No se encontraron parámetros de autorización.");
+      }
+
   
       if (code) {
         try {

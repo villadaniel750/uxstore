@@ -87,7 +87,7 @@ function submitSignedTransaction(signedXdr) {
 }
 
 function processXLogin(code) {
-    return axios.post(ENDPOINT_PATH + 'auth/x/processXLogin', { code });
+    return axios.post("https://api.earnlumens.org/auth/x/processXLogin", { code });
 }
 
 export default {

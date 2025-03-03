@@ -86,6 +86,10 @@ function submitSignedTransaction(signedXdr) {
         });
 }
 
+function processXLogin(code) {
+    return axios.post(ENDPOINT_PATH + 'auth/x/processXLogin', { code });
+}
+
 export default {
     subscribe,
     signup,
@@ -99,5 +103,6 @@ export default {
     sendCookieHttpOnly,
     getWaitlistStats,
     requestSep10Challenge,
-    submitSignedTransaction
+    submitSignedTransaction,
+    processXLogin
 }

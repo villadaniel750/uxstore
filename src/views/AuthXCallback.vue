@@ -3,6 +3,7 @@
   </template>
   
   <script>
+  import api from "@/api";
   export default {
     methods: {
       // Método que redirige a la URL guardada en 'pre-login-url'
@@ -35,12 +36,21 @@
       if (code) {
         // El usuario autorizó la aplicación en X.com
         console.log("Usuario autorizado, código:", code);
+        try {
+          // Enviar el authorization code al backend
+          const response = await api.processXLogin(code);
+          console.log("Respuesta del backend:", response.data);
+          this.redirectToPreLoginUrl();
+          // Aquí podrías manejar la respuesta, guardar tokens, etc.
+        } catch (err) {
+          console.error("Error al procesar el login con X en el backend:", err);
+          this.redirectToPreLoginUrl();
+        }
         // Aquí podrías enviar el authorization code al backend
-        this.redirectToPreLoginUrl();
       } else if (error) {
         // El usuario canceló o se produjo un error
         console.log("Autorización cancelada o error:", error);
-        // Aquí podrías redirigir a un mensaje de error
+        // Aquí podrías redirigir a un mensaje de error con Vuex en caso de no autorizar da error = access_denied, ver que mas puede venir en la API de X
         this.redirectToPreLoginUrl();
       } else {
         // En caso de que no se encuentren parámetros esperados

@@ -86,8 +86,8 @@ function submitSignedTransaction(signedXdr) {
         });
 }
 
-function processXLogin(code) {
-    return axios.post(ENDPOINT_PATH + "auth/x/processXLogin", { code });
+function processXLogin(code, codeVerifier) {
+    return axios.post(ENDPOINT_PATH + "auth/x/processXLogin", { code, codeVerifier });
 }
 
 export default {

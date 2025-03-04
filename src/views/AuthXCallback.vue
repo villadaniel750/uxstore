@@ -48,7 +48,7 @@ export default {
         console.log("Usuario autorizado, código:", code);
         try {
           // Enviar el authorization code y el code_verifier al backend
-          const response = await api.processXLogin(code, codeVerifier);
+          const response = await api.processXLogin(code, codeVerifier, "https://earnlumens.org/auth/x/callback");
           console.log("Respuesta del backend:", response.data);
           this.redirectToPreLoginUrl();
           // Aquí podrías manejar la respuesta, guardar tokens, etc.

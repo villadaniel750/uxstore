@@ -47,7 +47,7 @@
     methods: {
       async loginWithX() {
         localStorage.setItem("pre-login-url", window.location.pathname);
-        const clientId = "WHdUand1aHozTlZlNXEyMEt6NF86MTpjaQ";
+        const clientId = "a0dpSUhpRkxHckNLT0tkNTcteDk6MTpjaQ";
         const redirectUri = "https://earnlumens.org/auth/x/callback";
   
         // Genera y almacena el code_verifier

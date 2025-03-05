@@ -45,8 +45,69 @@
         <v-icon icon="mdi-playlist-play" class="opacity-100" size="small"></v-icon>
         <b class="opacity-100">{{ playlistCount }}</b>
     </div>
-
   </v-card>
+  <div class="d-flex justify-space-between">
+
+    <div class="d-flex align-center">
+      <v-card :class="['ma-4', selectedClass]" height="45" width="45" min-width="45" min-height="45" flat tile color="transparent">
+        <v-img lazy-src="https://randomuser.me/api/portraits/men/22.jpg" src="https://randomuser.me/api/portraits/men/22.jpg" alt="Image" cover class="fill-height" rounded="circle" />
+      </v-card>
+
+      <div class="">
+        <div class="text-caption truncate-text">
+          {{ title }}
+        </div>
+        <div class="w-100 text-no-wrap overflow-hidden	">
+          <span class="text-caption font-weight-bold">{{username}}</span>
+          <v-img
+              v-if="profileBadge === 1"
+              class="d-inline-block ml-1"
+              style="vertical-align: middle;"
+              height="14"
+              width="14"
+              src="/src/assets/blue-verified-badge.svg"
+            ></v-img>
+          <v-img
+            v-if="profileBadge === 2"
+            class="d-inline-block ml-1"
+            style="vertical-align: middle;"
+            height="14"
+            width="14"
+            src="/src/assets/yellow-verified-badge.svg"
+          ></v-img>
+          <span class="text-caption ml-1">{{" • " + uploadDate}}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pt-4">
+      <v-menu>
+        <template v-slot:activator="{ props: activatorProps }">
+          <v-btn variant="text" prepend-icon="mdi-dots-vertical" size="x-small" v-bind="activatorProps"></v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item @click="onClick">
+            <v-list-item-title>Add to favorite</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item @click="onClick">
+            <v-list-item-title>Share</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item @click="onClick">
+            <v-list-item-title>Follow</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item @click="onClick">
+            <v-list-item-title>Contact</v-list-item-title>
+          </v-list-item>
+
+        </v-list>
+      </v-menu>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -71,9 +132,34 @@ export default {
     playlistCount: {
         type: Number,
         default: 0
+    },
+    title: {
+      type: String,
+      default: ""
+    },
+    username: {
+      type: String,
+      default: ""
+    },
+    uploadDate: {
+      type: String,
+      default: ""
+    },
+    profileBadge: {
+      type: Number,
+      default: 0
     }
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.truncate-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limits the text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal; /* Allows text to wrap */
+}
+</style>

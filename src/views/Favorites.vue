@@ -16,6 +16,10 @@
           :blocked="index%3==true"
           :isPlaylist="index%4==true"
           :playlist-count="index + 1"
+          title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
+          username="Shamus"
+          uploadDate="2024/10/7"
+          :profileBadge="index%3"
           @loadstart="loading[index] = true"
           @load="loading[index] = false"
         />

@@ -10,29 +10,31 @@
         lg="3"
         xl="2"
       >
-        <v-img
+        <CxVideo
           :lazy-src="img.lazySrc"
           :src="img.src"
-          alt="Image"
-          class="mb-2"
-          aspect-ratio="16/9"
-          rounded="lg"
+          :blocked="index%3===1"
+          :isPlaylist="index%4===1"
+          :playlist-count="index + 1"
+          title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
+          username="Shamus"
+          uploadDate="2024/10/7"
+          :profileBadge="index%3"
           @loadstart="loading[index] = true"
           @load="loading[index] = false"
-        >
-          <template #placeholder>
-            <v-row class="fill-height ma-0" align="center" justify="center">
-              <v-progress-circular indeterminate color="primary" />
-            </v-row>
-          </template>
-        </v-img>
+        />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import CxVideo from '@/components/media/CxVideo.vue';
+
 export default {
+  components: {
+    CxVideo
+  },
   data() {
     return {
       // Array de imágenes, que luego puedes reemplazar con la respuesta de tu webservice.

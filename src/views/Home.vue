@@ -77,8 +77,20 @@
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
-        <v-card :class="['ma-4', selectedClass]" height="150" width="260" flat tile>
-          <v-img :lazy-src="img.lazySrc" :src="img.src" alt="Image" cover class="fill-height" rounded="lg" />
+        <v-card :class="['ma-4', selectedClass]" width="260" flat tile>          
+          <CxVideo
+            :lazy-src="img.lazySrc"
+            :src="img.src"
+            :blocked="index%3===1"
+            :isPlaylist="index%4===1"
+            :playlist-count="index + 1"
+            title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
+            username="Shamus"
+            uploadDate="2024/10/7"
+            :profileBadge="index%3"
+            @loadstart="loading[index] = true"
+            @load="loading[index] = false"
+          />
         </v-card>
       </v-slide-group-item>
     </v-slide-group>
@@ -93,8 +105,22 @@
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
-        <v-card :class="['ma-4', selectedClass]" height="150" width="260" flat tile>
-          <v-img :lazy-src="img.lazySrc" :src="img.src" alt="Image" cover class="fill-height" rounded="lg" />
+        <v-card :class="['ma-4', selectedClass]"  width="260" flat tile>
+          <CxVideo
+            :lazy-src="img.lazySrc"
+            :src="img.src"
+            :blocked="index%3===1"
+            :isPlaylist="index%4===1"
+            :playlist-count="index + 1"
+            title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
+            username="Shamus"
+            uploadDate="2024/10/7"
+            :profileBadge="index%3"
+            @loadstart="loading[index] = true"
+            @load="loading[index] = false"
+          />
+          <!-- <v-img :lazy-src="img.lazySrc" :src="img.src" alt="Image" cover class="fill-height" rounded="lg" /> -->
+
         </v-card>
       </v-slide-group-item>
     </v-slide-group>
@@ -152,9 +178,12 @@
   import stellarBlackIcon from "@/assets/stellar-black.svg";
   import xIcon from "@/assets/twitterx.svg";
   import xBlackIcon from "@/assets/twitterx-black.svg";
-
+  import CxVideo from "@/components/media/CxVideo.vue";
 
   export default {
+    components: {
+      CxVideo
+    },
     data: () => ({
       drawer: false,
       menuActive: true,
@@ -170,7 +199,8 @@
           lazySrc: `https://picsum.photos/10/6?image=${index * 5 + 10}`,
           src: `https://picsum.photos/500/300?image=${index * 5 + 10}`
         };
-      })
+      }),
+      loading: Array(15).fill(false)
     }),
     methods: {
 

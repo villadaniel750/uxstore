@@ -54,11 +54,11 @@
       </v-card>
 
       <div class="">
-        <div class="text-caption truncate-text">
+        <div class="text-caption truncate-text text-left">
           {{ title }}
         </div>
-        <div class="w-100 text-no-wrap overflow-hidden	">
-          <span class="text-caption font-weight-bold">{{username}}</span>
+        <div class="w-100 text-no-wrap overflow-hidden text-left">
+          <span class="text-caption font-weight-bold ">{{username}}</span>
           <v-img
               v-if="profileBadge === 1"
               class="d-inline-block ml-1"
@@ -84,7 +84,7 @@
     <div class="pt-4">
       <v-menu>
         <template v-slot:activator="{ props: activatorProps }">
-          <v-btn variant="text" prepend-icon="mdi-dots-vertical" size="x-small" v-bind="activatorProps"></v-btn>
+          <v-btn variant="text" prepend-icon="mdi-dots-vertical" width="10" size="x-small" v-bind="activatorProps"></v-btn>
         </template>
 
         <v-list>

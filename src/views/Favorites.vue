@@ -13,8 +13,8 @@
         <CxVideo
           :lazy-src="img.lazySrc"
           :src="img.src"
-          :blocked="index%3==true"
-          :isPlaylist="index%4==true"
+          :blocked="index%3===1"
+          :isPlaylist="index%4===1"
           :playlist-count="index + 1"
           title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
           username="Shamus"

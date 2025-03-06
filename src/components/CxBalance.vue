@@ -2,6 +2,23 @@
   <v-container>
   <div class="ma-10">
     <div>
+      <div class="text-center">
+        <v-btn
+          prepend-icon="mdi-wallet"
+          append-icon="mdi-menu-down"
+          variant="outlined"
+          type="submit"
+          color="primary"
+          class="mt-2 mx-auto mb-6"
+          rounded
+          max-width="250"
+          @click="copyTextToClipboard(addr)"
+        >
+          <span class="d-inline-block text-truncate" style="max-width: 140px;">
+            {{ formattedAddr }}
+          </span>
+        </v-btn>
+      </div>
       <div class="d-flex justify-center align-center">
 
           <img :src="iconPath" width="63" class="mr-3"/>
@@ -93,7 +110,11 @@ computed: {
   ]),
   iconPath() {
         return this.isDarkTheme ? stellarLogo : stellarLogoBlack;
-      }
+      },
+      formattedAddr() {
+    if (!this.addr || this.addr.length <= 12) return this.addr; // Si es corta, no truncar
+    return `${this.addr.substring(0, 6)}...${this.addr.substring(this.addr.length - 6)}`;
+  }
 },
 components: {
   Loading,

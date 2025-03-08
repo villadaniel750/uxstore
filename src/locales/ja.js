@@ -64,6 +64,7 @@ export default { //japonés
         mostSold: '最も売れている',
         offers: 'オファー',
         topRated: 'トップ評価',
+        featured: '注目',
     },
     Language: {
         spanish: 'スペイン語',

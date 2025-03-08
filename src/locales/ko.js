@@ -64,6 +64,7 @@ export default { // 한국어
         mostSold: '가장 많이 팔린',
         offers: '제안',
         topRated: '최고 평점',
+        featured: '추천',
     },
     Language: {
         spanish: '스페인어',

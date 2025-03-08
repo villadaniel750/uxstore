@@ -64,6 +64,7 @@ export default { // Ruso
         mostSold: 'самый продаваемый',
         offers: 'предложения',
         topRated: 'самый популярный',
+        featured: 'рекомендуемый',
     },
     Language: {
         spanish: 'испанский',

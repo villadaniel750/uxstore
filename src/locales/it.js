@@ -65,6 +65,7 @@ export default { // Italiano
         mostSold: 'Più Venduti',
         offers: 'Offerte',
         topRated: 'Più Votati',
+        featured: 'In Evidenza',
     },
     Language: {
         spanish: 'Spagnolo',

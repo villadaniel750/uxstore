@@ -64,6 +64,7 @@ export default { // Malayo
         mostSold: 'Paling laris',
         offers: 'Tawaran',
         topRated: 'Top Rated',
+        featured: 'Ditampilkan',
     },
     Language: {
         spanish: 'Sepanyol',

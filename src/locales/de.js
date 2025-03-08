@@ -64,6 +64,7 @@ export default { // Alemán
         mostSold: 'Meistverkauft',
         offers: 'Angebote',
         topRated: 'Top Bewertet',
+        featured: 'Vorgestellt',
     },
     Language: {
         spanish: 'Spanisch',

@@ -64,6 +64,7 @@ export default { // Chino (tradicional)
         mostSold: '最暢銷',
         offers: '優惠',
         topRated: '最高評分',
+        featured: '推薦',
     },
     Language: {
         spanish: '西班牙語',

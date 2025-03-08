@@ -64,6 +64,7 @@ export default { // Turco
         mostSold: 'En Çok Satılan',
         offers: 'Teklifler',
         topRated: 'En Yüksek Puanlı',
+        featured: 'Öne Çıkan',
     },
     Language: {
         spanish: 'İspanyolca',

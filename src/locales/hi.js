@@ -64,6 +64,7 @@ export default { // Hindi
         mostSold: 'सबसे ज्यादा बिका',
         offers: 'ऑफर',
         topRated: 'शीर्ष रेटेड',
+        featured: 'फीचर्ड',
     },
     Language: {
         spanish: 'स्पेनिश',

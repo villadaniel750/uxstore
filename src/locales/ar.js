@@ -64,6 +64,7 @@ export default { // Árabe
         mostSold: 'الأكثر مبيعًا',
         offers: 'عروض',
         topRated: 'الأعلى تقييما',
+        featured: 'مميز',
     },
     Language: {
         spanish: 'الإسبانية',

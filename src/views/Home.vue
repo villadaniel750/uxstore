@@ -71,9 +71,8 @@
 
 
     <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
-    <div class="d-flex justify-space-between align-center px-4">
-      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6">Stellar Ecosystem</v-btn>
-      <v-btn href="#" variant="text" class="text-body-2 font-weight-medium text-button">more ></v-btn>
+    <div class="d-flex justify-space-between align-center" :class="{ 'pl-13': !mobileView }">
+      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6" append-icon="mdi-chevron-right" >Stellar Ecosystem</v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
@@ -99,9 +98,8 @@
   <div class="py-3" />
 
   <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
-    <div class="d-flex justify-space-between align-center px-4">
-      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6">Community</v-btn>
-      <v-btn href="#" variant="text" class="text-body-2 font-weight-medium text-button">more ></v-btn>
+    <div class="d-flex justify-space-between align-center" :class="{ 'pl-13': !mobileView }">
+      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6" append-icon="mdi-chevron-right">Community</v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
@@ -129,9 +127,8 @@
   <div class="py-3" />
 
   <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
-    <div class="d-flex justify-space-between align-center px-4">
-      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6">{{ $t('AppBar.topRated') }}</v-btn>
-      <v-btn href="#" variant="text" class="text-body-2 font-weight-medium text-button">more ></v-btn>
+    <div class="d-flex justify-space-between align-center" :class="{ 'pl-13': !mobileView }">
+      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6" append-icon="mdi-chevron-right">{{ $t('AppBar.featured') }}</v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">

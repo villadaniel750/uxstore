@@ -64,6 +64,7 @@ export default { // Ucraniano
         mostSold: 'Найпродаваніші',
         offers: 'Пропозиції',
         topRated: 'Найвищий рейтинг',
+        featured: 'Рекомендовані',
     },
     Language: {
         spanish: 'Іспанська',

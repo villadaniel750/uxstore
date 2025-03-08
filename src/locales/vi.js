@@ -52,6 +52,7 @@ export default { // Tiếng Việt
         amountResolution: "Số lượng không thể có nhiều hơn 7 chữ số thập phân",
         amountInsufficient: "Số dư không đủ",
         memoMaxSize: "Độ dài của ghi chú không thể vượt quá 28 byte",
+        featured: 'Tính năng',
     },
     AppBar:{
         home: 'Trang chủ',

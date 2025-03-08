@@ -64,6 +64,7 @@ export default { // Chino (simplificado)
         mostSold: '最畅销',
         offers: '优惠',
         topRated: '最高评分',
+        featured: '推荐',
     },
     Language: {
         spanish: '西班牙语',

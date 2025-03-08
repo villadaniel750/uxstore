@@ -72,11 +72,11 @@
 
     <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
     <div class="d-flex justify-space-between align-center" :class="{ 'pl-13': !mobileView }">
-      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6" append-icon="mdi-chevron-right" >Stellar Ecosystem</v-btn>
+      <v-btn href="" variant="text" class="text-h6 font-weight-bold text-h6" :ripple="false" append-icon="mdi-chevron-right" >Stellar Ecosystem</v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
-        <v-card :class="['ma-4', selectedClass]" width="260" flat tile>          
+        <v-card :class="['ma-4', selectedClass]" width="260" flat tile color="transparent">          
           <CxVideo
             :lazy-src="img.lazySrc"
             :src="img.src"
@@ -99,11 +99,11 @@
 
   <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
     <div class="d-flex justify-space-between align-center" :class="{ 'pl-13': !mobileView }">
-      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6" append-icon="mdi-chevron-right">Community</v-btn>
+      <v-btn href="" variant="text" class="text-h6 font-weight-bold text-h6" :ripple="false" append-icon="mdi-chevron-right">Community</v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
-        <v-card :class="['ma-4', selectedClass]"  width="260" flat tile>
+        <v-card :class="['ma-4', selectedClass]"  width="260" flat tile color="transparent">
           <CxVideo
             :lazy-src="img.lazySrc"
             :src="img.src"
@@ -128,7 +128,7 @@
 
   <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
     <div class="d-flex justify-space-between align-center" :class="{ 'pl-13': !mobileView }">
-      <v-btn href="#" variant="text" class="text-h6 font-weight-bold text-h6" append-icon="mdi-chevron-right">{{ $t('AppBar.featured') }}</v-btn>
+      <v-btn href="" variant="text" class="text-h6 font-weight-bold text-h6" :ripple="false" append-icon="mdi-chevron-right">{{ $t('AppBar.featured') }}</v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">

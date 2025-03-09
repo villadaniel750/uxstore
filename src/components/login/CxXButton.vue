@@ -64,7 +64,7 @@
           response_type: "code",
           client_id: clientId,
           redirect_uri: redirectUri,
-          scope: "users.read tweet.read tweet.write",
+          scope: "users.read tweet.read",
           state: state,
           code_challenge: codeChallenge,
           code_challenge_method: "S256",

@@ -39,8 +39,8 @@
     const data = encoder.encode(codeVerifier);
     const digest = await window.crypto.subtle.digest('SHA-256', data);
     const hashArray = Array.from(new Uint8Array(digest));
-    const hashStr = hashArray.map(byte => String.fromCharCode(byte)).join('');
-    return btoa(hashStr).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    const base64String = btoa(String.fromCharCode(...hashArray));
+    return base64String.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
   }
   
   export default {

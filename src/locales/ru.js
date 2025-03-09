@@ -91,7 +91,6 @@ export default { // Ruso
         emailRequired: 'Электронная почта обязательна',
         passwordRequired: 'Пароль обязателен',
         passwordMinLength: 'Пароль должен содержать не менее 8 символов',
-        loginWithX: 'Войти с помощью X',
     },
     CxRegisterDialog: {
         createAnAccount: 'Создать аккаунт',

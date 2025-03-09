@@ -91,7 +91,6 @@ export default { // Alemán
         emailRequired: 'E-Mail ist erforderlich',
         passwordRequired: 'Passwort ist erforderlich',
         passwordMinLength: 'Passwort muss mindestens 8 Zeichen lang sein',
-        loginWithX: 'Mit X anmelden',
     },
     CxRegisterDialog: {
         createAnAccount: 'Ein Konto erstellen',

@@ -8,7 +8,7 @@
         @click="loginWithX"
     >
         <img :src="xIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
-        {{ $t("CxLoginDialog.loginWithX") }}
+        {{ $t("Common.login") }}
     </v-btn>
   </template>
   

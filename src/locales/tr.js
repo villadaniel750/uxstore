@@ -91,7 +91,6 @@ export default { // Turco
         emailRequired: 'E-posta gereklidir',
         passwordRequired: 'Şifre gereklidir',
         passwordMinLength: 'Şifre en az 8 karakter uzunluğunda olmalıdır',
-        loginWithX: 'X ile Giriş Yap',
     },
     CxRegisterDialog: {
         createAnAccount: 'Bir hesap oluşturun',

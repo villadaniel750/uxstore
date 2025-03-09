@@ -91,7 +91,6 @@ export default { // Español
         emailRequired: 'El correo electrónico es requerido',
         passwordRequired: 'La contraseña es requerida',
         passwordMinLength: 'La contraseña debe tener al menos 8 caracteres',
-        loginWithX: 'Iniciar sesión con X',
     },
     CxRegisterDialog: {
         createAnAccount: 'Crear una cuenta',

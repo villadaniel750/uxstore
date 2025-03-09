@@ -91,7 +91,6 @@ export default { // Chino (simplificado)
         emailRequired: '电子邮件是必需的',
         passwordRequired: '密码是必需的',
         passwordMinLength: '密码必须至少包含8个字符',
-        loginWithX: '使用X登录',
     },
     CxRegisterDialog: {
         createAnAccount: '创建帐户',

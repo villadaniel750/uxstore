@@ -91,7 +91,6 @@ export default { // Ucraniano
         emailRequired: 'Необхідна електронна пошта',
         passwordRequired: 'Потрібен пароль',
         passwordMinLength: 'Пароль повинен бути не менше 8 символів',
-        loginWithX: 'Увійти за допомогою X',
     },
     CxRegisterDialog: {
         createAnAccount: 'Створити акаунт',

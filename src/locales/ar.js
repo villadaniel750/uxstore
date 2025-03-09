@@ -91,7 +91,6 @@ export default { // Árabe
         emailRequired: 'البريد الإلكتروني مطلوب',
         passwordRequired: 'كلمة المرور مطلوبة',
         passwordMinLength: 'يجب أن تكون كلمة المرور 8 أحرف على الأقل',
-        loginWithX: 'تسجيل الدخول باستخدام X',
     },
     CxRegisterDialog: {
         createAnAccount: 'إنشاء حساب',

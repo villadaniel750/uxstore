@@ -2,13 +2,11 @@
   <v-container fluid>
     <v-row justify="center" align="center">
       <v-col key="0" cols="12" sm="12" md="12" lg="5" xl="5">
-        <label for="images" class="drop-container d-flex flex-column align-center justify-center cursor-pointer darken-1 rounded-10 pa-4 rounded-lg" id="dropcontainer" style="height: 280px;">
+        <label for="images1" class="drop-container d-flex flex-column align-center justify-center cursor-pointer darken-1 rounded-10 pa-4 rounded-lg" id="dropcontainer" style="height: 280px;">
           <img src="/src/assets/file-upload.svg" alt="Twitter" class="mt-3" style="height: 70px; width: 70px;" />
           <span class="text-h6 drop-title mb-6">Drag and drop files here</span>
-          <input type="file" class="d-none" id="images" accept="image/*" required>
+          <input type="file" class="d-none" id="images1" accept="image/*" required>
         </label>
-        <v-file-upload density="comfortable" variant="comfortable" title="Select Video"
-          accept="video/*"></v-file-upload>
         <v-btn class="mt-3 w-100">
           Upload
         </v-btn>
@@ -16,8 +14,16 @@
       <v-col key="1" cols="12" sm="12" md="12" lg="5" xl="5">
         <v-text-field label="Title" v-model="videoTitle" outlined></v-text-field>
         <v-text-field label="Category Tags" v-model="categoryTags" outlined></v-text-field>
-        <v-file-upload density="comfortable" variant="comfortable" title="Thumbnail" accept="image/*"></v-file-upload>
-        <v-radio-group v-model="videoType">
+        <div class="d-flex ga-4 align-center">
+          <label for="images2" class="drop-container d-flex flex-column align-center justify-center cursor-pointer darken-1 rounded-10 pa-2 rounded-lg" id="dropcontainer">
+            <span class="text-subtitle-1 drop-title">Thumbnail</span>
+            <input type="file" class="d-none" id="images2" accept="image/*" required>
+          </label>
+          <v-btn class="">
+            Upload
+          </v-btn>
+        </div>
+        <v-radio-group class="mt-1" v-model="videoType">
           <v-radio label="Free Video" value="free"></v-radio>
           <v-radio label="Paid Video" value="paid"></v-radio>
         </v-radio-group>
@@ -63,14 +69,6 @@ export default {
       videoType: 'free', // default to free
       price: '',
       agreeTerms: false,
-      images: Array.from({ length: 18 }, (_, i) => {
-        const index = i + 1;
-        return {
-          lazySrc: `https://picsum.photos/10/4?image=${index * 5 + 10}`,
-          src: `https://picsum.photos/500/300?image=${index * 5 + 10}`
-        };
-      }),
-      loading: Array(18).fill(false)
     };
   },
   methods: {

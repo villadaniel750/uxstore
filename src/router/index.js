@@ -17,6 +17,7 @@ import WaitListStats from '@/views/WaitListStats.vue'
 import AuthXCallback from '@/views/AuthXCallback.vue' // 🔹 Importar la vista de callback
 import { store } from '../store'
 import VideoUpload from '@/views/VideoUpload.vue'
+import TestApi from '@/views/TestApi.vue';
 
 const routes = [
   {
@@ -94,6 +95,11 @@ const routes = [
         component: AuthXCallback,
       },
       {
+        path: '/x/test/api',
+        name: 'TestApi',
+        component: TestApi,
+      },
+      {
         path: "/:catchAll(.*)",
         name: "fan",
         component: Fan,
@@ -109,7 +115,7 @@ const router = createRouter({
 
 // 🔹 Middleware de autenticación antes de cada ruta
 router.beforeEach((to, from, next) => {
-  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'ForFree', 'Wallet', 'Favorites', 'VideoUpload', 'AuthXCallback'];
+  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'ForFree', 'Wallet', 'Favorites', 'VideoUpload', 'AuthXCallback', 'TestApi'];
   const authRequired = !publicPages.includes(to.name);
 
   if (authRequired && !store.getters.loggedIn) {

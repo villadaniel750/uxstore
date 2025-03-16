@@ -89,7 +89,7 @@ const routes = [
         component: WaitListStats,
       },
       {
-        path: '/auth/x/callback', // 🔹 Nueva ruta para el callback de X
+        path: '/auth/callback',
         name: 'AuthXCallback',
         component: AuthXCallback,
       },

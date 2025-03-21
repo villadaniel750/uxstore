@@ -6,7 +6,7 @@
       class="mt-3" 
       size="large" 
       @click="redirectToXLogin"
-      disabled
+      
   >
       <img :src="xIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
       {{ $t("Common.login") }}
@@ -22,7 +22,7 @@ export default {
   methods: {
       redirectToXLogin() {
           localStorage.setItem("pre-login-url", window.location.pathname);
-          window.location.href = "https://api.earnlumens.org/auth/x/oauth2/authorization/twitter";
+          window.location.href = "http://localhost.dv:852/oauth2/authorization/x";
       }
   },
   computed: {

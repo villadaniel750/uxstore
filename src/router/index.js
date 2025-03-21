@@ -90,7 +90,7 @@ const routes = [
         component: WaitListStats,
       },
       {
-        path: '/auth/callback',
+        path: '/oauth2/callback',
         name: 'AuthXCallback',
         component: AuthXCallback,
       },

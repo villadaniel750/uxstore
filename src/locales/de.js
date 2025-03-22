@@ -4,6 +4,8 @@ export default { // Alemán
         wallet: 'Wallet',
         signup: 'Registrieren',
         login: 'Anmelden',
+        loginErrorTitle: 'Fehler beim Anmelden',
+        loginErrorDescription: 'Beim Anmelden ist ein Problem aufgetreten. Bitte versuche es erneut.',
         language: 'Sprache',
         close: 'Schließen',
         pleaseWait: 'Bitte warten',
@@ -21,6 +23,7 @@ export default { // Alemán
         shortAbout: 'Eine kollaborative Finanzbildung-Plattform im Stellar-Netzwerk.',
         blockquote: 'EARNLUMENS ist eine kollaborative Plattform für Finanzbildung, die dir alle möglichen Wege bietet, XLM Lumens zu verdienen, sowie die Möglichkeit bietet, Einkommen zu erzielen, indem du deine Finanzexpertise teilst.',
         messageToUsers: 'EARNLUMENS befindet sich in der Entwicklung. Folge unserem Fortschritt und sei einer der Ersten, die die Plattform testen, indem du unserer Warteliste beitrittst. Als Gründungsmitglied hast du die einzigartige Chance, deine Wallet auf der Seite zu testen, indem du ein exklusives Gründungszeichen erhältst. Bleibe informiert und erhalte frühzeitigen Zugang, indem du uns in den sozialen Medien folgst. Deine Reise zur finanziellen Ermächtigung beginnt hier.',
+        accept: 'Akzeptieren',
     },
     CxDeposit: {
         snackbarSuccess: 'Adresse in Zwischenablage kopiert',

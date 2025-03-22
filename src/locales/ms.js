@@ -4,6 +4,8 @@ export default { // Malayo
         wallet: 'Wallet',
         signup: 'Daftar',
         login: 'Log masuk',
+        loginErrorTitle: 'Ralat log masuk',
+        loginErrorDescription: 'Masalah berlaku semasa cuba log masuk. Sila cuba lagi.',
         language: 'Bahasa',
         close: 'Tutup',
         pleaseWait: 'Sila tunggu',
@@ -21,6 +23,7 @@ export default { // Malayo
         shortAbout: 'Platform pendidikan kewangan kolaboratif pada rangkaian Stellar.',
         blockquote: 'EARNLUMENS adalah platform pendidikan kewangan kolaboratif yang menyediakan semua cara yang mungkin untuk anda memperoleh XLM Lumens, serta membolehkan anda mendapatkan pendapatan dengan berkongsi kepakaran kewangan anda.',
         messageToUsers: 'EARNLUMENS sedang dalam pembangunan. Ikuti kemajuan kami dan jadilah antara yang pertama untuk menguji platform dengan menyertai senarai tunggu kami. Sebagai pengguna pengasas, anda akan mempunyai peluang unik untuk menguji dompet anda di laman web dengan memperoleh tanda semak pengasas eksklusif. Kekal maklumat dan dapatkan akses awal dengan mengikuti kami di media sosial. Perjalanan anda menuju pemberdayaan kewangan bermula di sini. ',
+        accept: 'Terima',
     },
     CxDeposit: {
         snackbarSuccess: 'Alamat disalin ke clipboard',

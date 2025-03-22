@@ -6,10 +6,10 @@
 import api from "@/api";
 export default {
   methods: {
-    // Método que redirige a la URL guardada en 'pre-login-url'
+    // Método que redirige a la URL guardada en 'preLoginUrl'
     redirectToPreLoginUrl() {
-      const preLoginUrl = localStorage.getItem("pre-login-url");
-      localStorage.removeItem("pre-login-url");
+      const preLoginUrl = localStorage.getItem("preLoginUrl");
+      localStorage.removeItem("preLoginUrl");
       if (preLoginUrl) {
         window.location.href = preLoginUrl;
       } else {

@@ -4,6 +4,8 @@ export default { // Tiếng Việt
         wallet: 'Ví',
         signup: 'Đăng ký',
         login: 'Đăng nhập',
+        loginErrorTitle: 'Lỗi đăng nhập',
+        loginErrorDescription: 'Có sự cố khi cố gắng đăng nhập. Vui lòng thử lại.',
         language: 'Ngôn ngữ',
         close: 'Đóng',
         pleaseWait: 'Vui lòng đợi',
@@ -21,6 +23,7 @@ export default { // Tiếng Việt
         shortAbout: 'Một nền tảng giáo dục tài chính cộng tác trên mạng Stellar.',
         blockquote: 'EARNLUMENS là một nền tảng giáo dục tài chính cộng tác, cung cấp cho bạn tất cả các cách có thể để kiếm XLM Lumens, cũng như cho phép bạn kiếm thu nhập bằng cách chia sẻ kiến thức tài chính của mình.',
         messageToUsers: 'EARNLUMENS đang trong quá trình phát triển. Theo dõi tiến độ của chúng tôi và là một trong những người đầu tiên thử nghiệm nền tảng bằng cách tham gia danh sách chờ của chúng tôi. Là một người dùng sáng lập, bạn sẽ có cơ hội độc đáo để thử ví của mình trên trang web bằng cách nhận một dấu kiểm sáng lập độc quyền. Hãy theo dõi chúng tôi trên mạng xã hội để được thông tin sớm và có quyền truy cập sớm. Hành trình của bạn hướng tới sự tự chủ tài chính bắt đầu từ đây.',
+        accept: 'Chấp nhận'
     },
     CxDeposit: {
         snackbarSuccess: 'Địa chỉ đã được sao chép vào bảng tạm',

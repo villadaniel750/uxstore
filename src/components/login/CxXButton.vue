@@ -21,7 +21,7 @@ import xBlackIcon from "@/assets/twitterx-black.svg";
 export default {
   methods: {
       redirectToXLogin() {
-          localStorage.setItem("pre-login-url", window.location.pathname);
+          localStorage.setItem("preLoginUrl", window.location.pathname);
           window.location.href = "http://localhost.dv:852/oauth2/authorization/x";
       }
   },

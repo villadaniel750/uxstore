@@ -4,6 +4,8 @@ export default { // Inglés
         wallet: 'Wallet',
         signup: 'Sign Up',
         login: 'Sign In',
+        loginErrorTitle: 'Error signing in',
+        loginErrorDescription: 'There was a problem trying to sign in. Please try again.',
         language: 'Language',
         close: 'Close',
         pleaseWait: 'Please wait',
@@ -21,6 +23,7 @@ export default { // Inglés
         shortAbout: 'A collaborative financial education platform on the Stellar network.',
         blockquote: 'EARNLUMENS is a collaborative financial education platform that provides you with all possible ways to earn XLM Lumens, as well as allowing you to earn income by sharing your financial expertise.',
         messageToUsers: 'EARNLUMENS is under development. Follow our progress and be among the first to test the platform by joining our waitlist. As a founding user, you will have the unique chance to test your wallet on the site by acquiring an exclusive founder\'s checkmark. Stay informed and get early access by following us on social media. Your journey towards financial empowerment starts here. ',
+        accept: 'Accept',
     },
     CxDeposit: {
         snackbarSuccess: 'Address copied to clipboard',

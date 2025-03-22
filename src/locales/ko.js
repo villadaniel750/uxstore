@@ -4,6 +4,8 @@ export default { // 한국어
         wallet: '지갑',
         signup: '가입하기',
         login: '로그인',
+        loginErrorTitle: '로그인 오류',
+        loginErrorDescription: '로그인하는 중 문제가 발생했습니다. 다시 시도하세요.',
         language: '언어',
         close: '닫기',
         pleaseWait: '기다려 주세요',
@@ -21,6 +23,7 @@ export default { // 한국어
         shortAbout: '스텔라 네트워크에서 협력적 금융 교육 플랫폼입니다.',
         blockquote: 'EARNLUMENS는 XLM Lumens를 벌 수 있는 모든 가능한 방법을 제공하며, 금융 전문 지식을 공유함으로써 수입을 얻을 수 있는 협력적 금융 교육 플랫폼입니다.',
         messageToUsers: 'EARNLUMENS는 개발 중입니다. 우리의 진행 상황을 따라가고, 우리의 대기자 명단에 가입함으로써 플랫폼을 테스트할 최초의 사람들 중 하나가 되십시오. 창립 사용자로서, 독점적인 창립자 체크마크를 획득함으로써 사이트에서 지갑을 테스트할 독특한 기회를 가질 것입니다. 소셜 미디어에서 우리를 팔로우함으로써 정보를 얻고 조기 접근 권한을 얻으세요. 여러분의 재정적 권한 획득 여정이 여기에서 시작됩니다.',
+        accept: '수락',
     },
     CxDeposit: {
         snackbarSuccess: '클립보드에 주소 복사됨',

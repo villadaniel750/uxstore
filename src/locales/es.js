@@ -4,6 +4,8 @@ export default { // Español
         wallet: 'Billetera',
         signup: 'Registrarse',
         login: 'Iniciar sesión',
+        loginErrorTitle: 'Error al iniciar sesión',
+        loginErrorDescription: 'Hubo un problema al intentar iniciar sesión. Por favor, inténtelo de nuevo.',
         language: 'Idioma',
         close: 'Cerrar',
         pleaseWait: 'Por favor espere',
@@ -21,6 +23,7 @@ export default { // Español
         shortAbout: 'Una plataforma educativa financiera colaborativa en la red Stellar.',
         blockquote: 'EARNLUMENS es una plataforma colaborativa de educación financiera que te proporciona todas las formas posibles de ganar XLM Lumens, además de permitirte obtener ingresos al compartir tu experiencia financiera.',
         messageToUsers:'EARNLUMENS está en Desarrollo! Sigue nuestra evolución y sé parte de los primeros en probar la plataforma uniéndote a nuestra waitlist. Como usuario fundador, tendrás la oportunidad única de probar tu billetera en el sitio adquiriendo un checkmark exclusivo. Mantente informado y recibe acceso anticipado siguiéndonos en redes sociales. ¡Tu viaje hacia el empoderamiento financiero comienza aquí! ',
+        accept: 'Aceptar',
     },
     CxDeposit: {
         snackbarSuccess: 'Dirección copiada al portapapeles',

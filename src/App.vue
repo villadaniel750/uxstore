@@ -8,21 +8,20 @@
       persistent
     >
       <v-card
-        title="Error al iniciar sesión"
+        :title="$t('Common.loginErrorTitle')"
         prepend-icon="mdi-alert-circle"
       >
         <v-card-text>
-          Ocurrió un problema al intentar iniciar sesión. Por favor, intentá nuevamente.
-
+          {{ $t('Common.loginErrorDescription') }}
           <div v-if="loginErrorMessage" class="text-caption font-weight-thin mt-2">
             {{ loginErrorMessage }}
           </div>
         </v-card-text>
-
+        
         <template v-slot:actions>
           <v-spacer />
           <v-btn color="primary" @click="closeLoginErrorDialog">
-            Aceptar
+            {{ $t('Common.accept') }}
           </v-btn>
         </template>
       </v-card>
@@ -33,6 +32,7 @@
 import { useStore } from 'vuex';
 import { onMounted, onBeforeUnmount, ref } from 'vue';
 import { useTheme } from 'vuetify';
+
 
 let store = useStore();
 const theme = useTheme();

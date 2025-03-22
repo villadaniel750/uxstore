@@ -5,6 +5,8 @@ export default { // Italiano
         wallet: 'Portafoglio',
         signup: 'Registrati',
         login: 'Accedi',
+        loginErrorTitle: 'Errore di accesso',
+        loginErrorDescription: 'Si è verificato un problema durante il tentativo di accesso. Riprova.',
         language: 'Lingua',
         close: 'Chiudi',
         pleaseWait: 'Attendere prego',
@@ -22,6 +24,7 @@ export default { // Italiano
         shortAbout: 'Una piattaforma collaborativa di educazione finanziaria sulla rete Stellar.',
         blockquote: 'EARNLUMENS è una piattaforma collaborativa di educazione finanziaria che ti fornisce tutti i modi possibili per guadagnare XLM Lumens, oltre a permetterti di guadagnare condividendo la tua competenza finanziaria.',
         messageToUsers: 'EARNLUMENS è in fase di sviluppo. Segui i nostri progressi e sii tra i primi a testare la piattaforma unendoti alla nostra lista d\'attesa. Come utente fondatore, avrai l\'unica opportunità di testare il tuo portafoglio sul sito acquisendo un esclusivo simbolo di fondatore. Resta informato e ottieni accesso anticipato seguendoci sui social media. Il tuo viaggio verso l\'empowerment finanziario inizia qui.',
+        accept: 'Accetta',
     },
     CxDeposit: {
         snackbarSuccess: 'Indirizzo copiato negli appunti',

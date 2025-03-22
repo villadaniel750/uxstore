@@ -4,6 +4,8 @@ export default { // Turco
         wallet: 'Cüzdan',
         signup: 'Kaydol',
         login: 'Giriş Yap',
+        loginErrorTitle: 'Giriş Hatası',
+        loginErrorDescription: 'Giriş yaparken bir sorun oluştu. Lütfen tekrar deneyin.',
         language: 'Dil',
         close: 'Kapat',
         pleaseWait: 'Lütfen bekleyin',
@@ -21,6 +23,7 @@ export default { // Turco
         shortAbout: 'Stellar ağı üzerinde işbirlikçi bir finansal eğitim platformu.',
         blockquote: 'EARNLUMENS, size tüm olası XLM Lumens kazanma yollarını sağlayan ve finansal uzmanlığınızı paylaşarak gelir elde etmenize olanak tanıyan işbirlikçi bir finansal eğitim platformudur.',
         messageToUsers: 'EARNLUMENS geliştirme aşamasındadır. Platformu test etmek için ilkler arasında olmak üzere ilerlememizi takip edin ve bekleme listemize katılın. Kurucu bir kullanıcı olarak, sitede cüzdanınızı test etme ve özel bir kurucu işareti edinme fırsatına sahip olacaksınız. Erken erişim elde etmek ve bilgilendirilmek için bizi sosyal medyada takip edin. Finansal güçlenme yolculuğunuz burada başlıyor.',
+        accept: 'Kabul et',
     },
     CxDeposit: {
         snackbarSuccess: 'Adres panoya kopyalandı',

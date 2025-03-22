@@ -25,7 +25,7 @@ export default {
     if (error) {
       console.warn("Login fallido:", error);
       // Acá podrías guardar en Vuex o mostrar un diálogo en la ruta anterior
-      localStorage.setItem("login-error", error);
+      localStorage.setItem("loginError", error);
       this.redirectToPreLoginUrl();
       return;
     }

@@ -24,6 +24,7 @@ export default { // Inglés
         blockquote: 'EARNLUMENS is a collaborative financial education platform that provides you with all possible ways to earn XLM Lumens, as well as allowing you to earn income by sharing your financial expertise.',
         messageToUsers: 'EARNLUMENS is under development. Follow our progress and be among the first to test the platform by joining our waitlist. As a founding user, you will have the unique chance to test your wallet on the site by acquiring an exclusive founder\'s checkmark. Stay informed and get early access by following us on social media. Your journey towards financial empowerment starts here. ',
         accept: 'Accept',
+        addWallet: 'Add Wallet'
     },
     CxDeposit: {
         snackbarSuccess: 'Address copied to clipboard',

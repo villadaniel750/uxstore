@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="px-6 mb-6 text-center p-5 break-word">
-      <span @click="copyTextToClipboard(this.addr)">{{ this.addr }}</span>
+      <span v-if="addr.length >= 15" @click="copyTextToClipboard(this.addr)">{{ this.addr }}</span>
     </div>
 
     <div class="text-center">

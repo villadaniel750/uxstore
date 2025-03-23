@@ -57,8 +57,9 @@ export default {
     // }
 
     // agregado para pruebas
-    var address = "GC3FXWO34T3TDTKUHO4JCFGOQEXLRZKKWP2GLKME7PZAKF4YYOIPVOJV";
-    this.$store.commit('setAddr', address);
+    // var address = "GC3FXWO34T3TDTKUHO4JCFGOQEXLRZKKWP2GLKME7PZAKF4YYOIPVOJV";
+    var btnName = "connect wallet";
+    this.$store.commit('setAddr', btnName);
   },
   beforeRouteLeave(to, from, next) {
      this.$store.commit('clearAddr');

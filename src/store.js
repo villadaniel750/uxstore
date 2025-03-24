@@ -1,6 +1,10 @@
 import { createStore } from 'vuex'
+// import lobstr from './store/lobstr'
 
 export const store = createStore({
+  // modules: {
+  //   lobstr
+  // },
   state() {
     return {
       windowWidth: window.innerWidth,
@@ -9,6 +13,7 @@ export const store = createStore({
       isDarkTheme: true,
       color: "#FFCA28",
       addr: null,
+      lobstrPublicKey: null,
     }
   },
   mutations: {
@@ -34,6 +39,9 @@ export const store = createStore({
     clearAddr(state) {
       state.addr = null;
     },
+    setLobstrPublicKey(state, publicKey) {
+      state.lobstrPublicKey = publicKey;
+    },
   },
   actions: {
     updateWindowWidth({ commit }) {
@@ -47,5 +55,6 @@ export const store = createStore({
     isDarkTheme: state => state.isDarkTheme,
     color: state => state.color,
     addr: state => state.addr,
+    lobstrPublicKey: state => state.lobstrPublicKey,
   }
 })

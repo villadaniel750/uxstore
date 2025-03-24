@@ -26,10 +26,14 @@
                     alert("Could not retrieve the public key from LOBSTR.");
                     return;
                 }
-  
-                // Display the public key in an alert
-                alert(`Your LOBSTR public address is:\n${publicKey}`);
-  
+                
+                // Store the public key in Vuex store (without namespace now)
+                this.$store.commit('setLobstrPublicKey', publicKey);
+                
+                // Debug: Check if the store was updated
+                console.log("Stored public key:", this.$store.state.lobstrPublicKey);
+                
+                this.$emit('close-dialog');
             } catch (error) {
                 console.error("Error retrieving the public key from LOBSTR:", error);
                 alert("Error retrieving the public key from LOBSTR.");

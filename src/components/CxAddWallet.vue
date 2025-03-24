@@ -36,7 +36,7 @@
   
         <!-- <cx-rabet-button></cx-rabet-button> -->
         
-        <cx-lobstr-button></cx-lobstr-button>
+        <cx-lobstr-button @close-dialog="closeDialog"></cx-lobstr-button>
   
         <!-- <cx-albedo-button></cx-albedo-button> -->
   
@@ -157,6 +157,9 @@
       },
     showDialog() {
       this.dialog = true;
+    },
+    closeDialog() {
+      this.dialog = false;
     }
     },
     computed: {

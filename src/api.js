@@ -43,7 +43,7 @@ function authenticate(username, password) {
 }
 
 function getBalance(xlmAddress) {
-    return axios.get("https://horizon-testnet.stellar.org/accounts/" + xlmAddress, { withCredentials: false })
+    return axios.get("https://horizon.stellar.org/accounts/" + xlmAddress, { withCredentials: false })
 }
 
 function getServerBalance(JWTToken) {

@@ -90,8 +90,14 @@ export default {
     methods: {
         async requestBalance() { // <-- Declara el método como async
             try {
+                
                 const result = await api.getBalance(this.lobstrPublicKey); // <-- Usa await aquí
+                console.log("result", result);
+                
                 this.saldo = result.data.balances[0].balance;
+
+                // this.saldo = 100;
+                console.log(this.saldo);
                 this.isLoading = false;
             } catch (error) {
                 console.error(error);
@@ -105,6 +111,9 @@ export default {
 
     },
     mounted() {
+        console.log("--------------------------------");
+        console.log(this.lobstrPublicKey);
+        console.log("--------------------------------");
         this.isLoading = true;
         this.intervalId = setInterval(this.requestBalance, 1100);
     },

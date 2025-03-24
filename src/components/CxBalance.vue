@@ -27,7 +27,7 @@
                             </div>
                             <v-btn v-if="lobstrPublicKeyDebug"  class="mt-4" @click="">Manage Wallet</v-btn>
                             <div v-else class="text-caption text-grey text-h6">
-                                <p class="text-h6">No Lobstr wallet connected</p>
+                                <p class="text-h6">No  wallet connected</p>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
 </v-container>
 </template>
 
-f
+
 
 <script>
 import CxAddWallet from "@/components/CxAddWallet.vue";
@@ -90,7 +90,7 @@ export default {
     methods: {
         async requestBalance() { // <-- Declara el método como async
             try {
-                const result = await api.getBalance(this.addr); // <-- Usa await aquí
+                const result = await api.getBalance(this.lobstrPublicKey); // <-- Usa await aquí
                 this.saldo = result.data.balances[0].balance;
                 this.isLoading = false;
             } catch (error) {

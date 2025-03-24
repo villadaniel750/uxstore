@@ -138,10 +138,22 @@ export default {
   mounted() {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
+    
+    // Set addr to lobstrPublicKey if available
+    if (this.lobstrPublicKey) {
+      this.$store.commit('setAddr', this.lobstrPublicKey);
+    }
+  },
+  watch: {
+    lobstrPublicKey(newValue) {
+      if (newValue) {
+        this.$store.commit('setAddr', newValue);
+      }
+    }
   },
   computed: {
     ...mapGetters([
-      'windowWidth', 'addr'
+      'windowWidth', 'addr', 'lobstrPublicKey'
     ])
   },
 };

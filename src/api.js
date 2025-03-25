@@ -43,7 +43,25 @@ function authenticate(username, password) {
 }
 
 function getBalance(xlmAddress) {
-    return axios.get("https://horizon.stellar.org/accounts/" + xlmAddress, { withCredentials: false })
+    return axios.get(`https://horizon.stellar.org/accounts/${xlmAddress}`, { withCredentials: false })
+        .then(response => {
+            // Find the native asset balance
+            const nativeBalance = response.data.balances.find(balance => balance.asset_type === 'native');
+            return {
+                data: {
+                    balances: [nativeBalance || { balance: '0' }]
+                }
+            };
+        })
+        .catch(error => {
+            console.error('Error fetching balance:', error);
+            // Return a default structure with 0 balance if there's an error
+            return {
+                data: {
+                    balances: [{ balance: '0' }]
+                }
+            };
+        });
 }
 
 function getServerBalance(JWTToken) {

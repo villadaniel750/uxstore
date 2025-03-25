@@ -111,9 +111,7 @@ export default {
 
     },
     mounted() {
-        console.log("--------------------------------");
-        console.log(this.lobstrPublicKey);
-        console.log("--------------------------------");
+        
         this.isLoading = true;
         this.intervalId = setInterval(this.requestBalance, 1100);
     },
@@ -125,7 +123,6 @@ export default {
             'addr', 'isDarkTheme', 'lobstrPublicKey'
         ]),
         lobstrPublicKeyDebug() {
-            console.log("current lobstrPublicKey ====>", this.lobstrPublicKey);
             return this.lobstrPublicKey;
         },
         iconPath() {

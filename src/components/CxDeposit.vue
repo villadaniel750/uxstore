@@ -26,17 +26,17 @@
         >{{ $t("CxDeposit.tap") }}</v-btn
       >
     </div>
-    <div class="px-6 mb-1 text-center p-5 break-word">
+    <!-- <div class="px-6 mb-1 text-center p-5 break-word hidden" >
       <p color="primary" class="text-overline font-weight-thin">
         Memo: {{ $t("CxDeposit.memo") }}
       </p>
     </div>
     <!-- agregado para pruebas -->
-    <div class="px-6 mb-6 text-center text-red p-5 break-word">
+    <!-- <div class="px-6 mb-6 text-center text-red p-5 break-word">
       <p class="text-overline font-weight-light">
         {{ $t("CxDeposit.demo") }}
       </p>
-    </div>
+    </div>  -->
     <!-- fin agregado para pruebas -->
   </v-container>
   <v-snackbar

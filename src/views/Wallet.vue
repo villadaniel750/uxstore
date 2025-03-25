@@ -8,8 +8,8 @@
   <v-card class="fill-height">
     <v-tabs v-model="tab" color="orange-accent-2" align-tabs="center">
       <v-tab value="deposit">{{ $t("Wallet.deposit") }}</v-tab>
-      <v-tab value="withdraw">{{ $t("Wallet.withdraw") }}</v-tab>
-      <v-tab value="history">{{ $t("Wallet.history") }}</v-tab>
+      <!-- <v-tab value="withdraw">{{ $t("Wallet.withdraw") }}</v-tab> -->
+      <v-tab value="history" :disabled="true">{{ $t("Wallet.history") }}</v-tab>
     </v-tabs>
     <v-window v-model="tab">
       <v-window-item value="deposit">
@@ -20,7 +20,7 @@
         <cx-withdraw></cx-withdraw>
       </v-window-item>
 
-      <v-window-item value="history">
+      <v-window-item value="history" >
         <cx-history></cx-history>
       </v-window-item>
     </v-window>

@@ -31,10 +31,31 @@ export default {
     }
 
     if (token) {
-      this.$store.commit("setAccessToken", token);
-      this.redirectToPreLoginUrl();
-      return;
+      try {
+        const res = await api.createSession(token);
+        const accessToken = res.data.accessToken;
+        this.$store.commit("setAccessToken", accessToken);
+
+        // Decodificar el JWT sin validarlo (solo lectura del payload)
+        const payloadBase64 = accessToken.split('.')[1];
+        const decodedPayload = JSON.parse(atob(payloadBase64));
+
+        const username = decodedPayload.username;
+        const profileImageUrl = decodedPayload.profile_image_url;
+
+        localStorage.setItem("username", username);
+        localStorage.setItem("profile_image_url", profileImageUrl);
+        localStorage.setItem("loggedIn", "true");
+      } catch (err) {
+        console.error("Error al crear sesión:", err);
+        localStorage.setItem("Session-Error", "No se pudo crear sesión");
+      } finally {
+        this.redirectToPreLoginUrl();
+      }
     }
+
+
+
 
     // Caso inesperado: sin token ni error
     console.warn("Callback recibido sin token ni error.");

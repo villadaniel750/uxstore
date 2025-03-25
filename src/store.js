@@ -14,6 +14,7 @@ export const store = createStore({
       color: "#FFCA28",
       addr: null,
       lobstrPublicKey: null,
+      accessToken: null
     }
   },
   mutations: {
@@ -41,6 +42,14 @@ export const store = createStore({
     },
     setLobstrPublicKey(state, publicKey) {
       state.lobstrPublicKey = publicKey;
+    },
+    setAccessToken(state, token) {
+      state.accessToken = token;
+      state.loggedIn = true; // estado de login
+    },
+    clearAccessToken(state) {
+      state.accessToken = null;
+      state.loggedIn = false;
     },
   },
   actions: {

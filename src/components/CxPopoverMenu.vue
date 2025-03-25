@@ -7,16 +7,16 @@
           v-bind="props"
           nav
           class="ma-1"
-          prepend-avatar="https://randomuser.me/api/portraits/women/90.jpg"
+          :prepend-avatar="profileImageUrl"
         ></v-list-item>
       </template>
 
       <v-card min-width="300">
         <v-list>
           <v-list-item
-            prepend-avatar="https://randomuser.me/api/portraits/women/90.jpg"
-            title="sat@gmx.com"
-            subtitle="@satoshi"
+            :prepend-avatar="profileImageUrl"
+            :title="email"
+            :subtitle="username"
           >
           </v-list-item>
         </v-list>
@@ -24,8 +24,6 @@
         <v-divider></v-divider>
 
         <v-list>
-
-
           <v-list-item>
             <v-switch
               v-model="darkMode"
@@ -64,6 +62,10 @@ export default {
     const menu = ref(false);
     const darkMode = ref(false);
 
+    const profileImageUrl = ref(localStorage.getItem("profile_image_url") || "https://fastly.picsum.photos/id/903/1200/1200.jpg?hmac=8fD_XguoHwGB2RsVu_aX2XwhvCVXRSsvzNAh53Sjobc");
+    const username = ref(localStorage.getItem("username") || "@usuario");
+    const email = ref(localStorage.getItem("email") || "user@example.com"); // opcional, si lo guardás
+
     function toggleTheme() {
       const newTheme = darkMode.value ? "dark" : "light";
       theme.global.name.value = newTheme;
@@ -94,6 +96,10 @@ export default {
 
     function logout() {
       store.commit("setLoggedInFalse");
+      window.localStorage.removeItem("loggedIn");
+      window.localStorage.removeItem("username");
+      window.localStorage.removeItem("profile_image_url");
+      window.localStorage.removeItem("email");
       window.location.reload();
     }
 
@@ -102,6 +108,9 @@ export default {
       darkMode,
       toggleTheme,
       logout,
+      profileImageUrl,
+      username,
+      email,
     };
   },
 };

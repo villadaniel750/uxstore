@@ -2,10 +2,29 @@
 <v-container>
     <div class="ma-10">
         <div>
-            <v-bottom-sheet>
+            <!-- When no wallet is connected, show direct CxAddWallet button -->
+            <div v-if="!lobstrPublicKey" class="text-center">
+                <v-btn 
+                    prepend-icon="mdi-wallet" 
+                    variant="outlined" 
+                    type="submit" 
+                    color="primary" 
+                    class="mt-2 mx-auto mb-6" 
+                    rounded 
+                    max-width="250"
+                    @click="openConnectWallet"
+                >
+                    <span class="d-inline-block text-truncate" style="max-width: 140px;">
+                        Connect Wallet
+                    </span>
+                </v-btn>
+            </div>
+
+            <!-- When wallet is connected, show bottom sheet -->
+            <v-bottom-sheet v-else>
                 <template v-slot:activator="{ props: activatorProps }">
                     <div class="text-center">
-                        <v-btn v-bind="activatorProps" prepend-icon="mdi-wallet" append-icon="mdi-menu-down" variant="outlined" type="submit" color="primary" class="mt-2 mx-auto mb-6" rounded max-width="250" @click="copyTextToClipboard(addr)">
+                        <v-btn v-bind="activatorProps" prepend-icon="mdi-wallet" append-icon="mdi-menu-down" variant="outlined" type="submit" color="primary" class="mt-2 mx-auto mb-6" rounded max-width="250">
                             <span class="d-inline-block text-truncate" style="max-width: 140px;">
                                 {{ formattedAddr }}
                             </span>
@@ -15,24 +34,29 @@
 
                 <v-card text="" class="px-6 rounded-t-lg pb-3">
                     <div class="d-flex justify-space-between flex-column">
-                        <div class="d-flex justify-space-between">
-
-                            <span class="text-h4 text-md-h5 text-lg-h7">Choose Wallet</span>
-
-                            <CxAddWallet />
+                        <div class="d-flex justify-space-between align-center">
+                            <span class="text-h4 text-md-h5 text-lg-h7">Connected Wallets</span>
+                            <!-- Add Wallet button always shown -->
+                            <v-btn 
+                                @click="openConnectWallet"
+                               class="text-blue-accent-2"
+                            >
+                                Add Wallet
+                            </v-btn>
                         </div>
                         <div class="mt-2 d-flex flex-column align-center text-center">
                             <div v-if="lobstrPublicKeyDebug" class="text-caption text-grey text-h6">
                                 <p class="text-h6">Lobstr: {{ lobstrPublicKeyDebug }}</p>
                             </div>
-                            <v-btn v-if="lobstrPublicKeyDebug"  class="mt-4" @click="">Manage Wallet</v-btn>
-                            <div v-else class="text-caption text-grey text-h6">
-                                <p class="text-h6">No  wallet connected</p>
-                            </div>
+                            <v-btn v-if="lobstrPublicKeyDebug" class="mt-4" @click="">Manage Wallet</v-btn>
                         </div>
                     </div>
                 </v-card>
             </v-bottom-sheet>
+
+            <!-- Standalone CxAddWallet component for both cases -->
+            <CxAddWallet ref="addWalletDialog" />
+            
             <div class="d-flex justify-center align-center">
 
                 <img :src="iconPath" width="63" class="mr-3" />
@@ -88,19 +112,17 @@ export default {
         CxAddWallet,
     },
     methods: {
-        async requestBalance() { // <-- Declara el método como async
+        async requestBalance() {
             try {
-                
-                const result = await api.getBalance(this.lobstrPublicKey); // <-- Usa await aquí
-                console.log("result", result);
-                
-                this.saldo = result.data.balances[0].balance;
-
-                // this.saldo = 100;
-                console.log(this.saldo);
-                this.isLoading = false;
+                if (this.lobstrPublicKey) {
+                    const result = await api.getBalance(this.lobstrPublicKey);
+                    console.log("result", result);
+                    this.saldo = result.data.balances[0].balance;
+                    this.isLoading = false;
+                }
             } catch (error) {
                 console.error(error);
+                this.isLoading = true;
             }
         },
         theFormat(number) {
@@ -108,15 +130,42 @@ export default {
             return Math.trunc(number * calcDec) / calcDec;
             //return number.toFixed(2);
         },
+        openConnectWallet() {
+            this.$refs.addWalletDialog.showDialog();
 
+            // if (!this.lobstrPublicKey) {
+            //     // If no wallet connected, open the dialog directly
+            //     this.$refs.addWalletDialog.showDialog();
+            // }
+        }
     },
     mounted() {
-        
+        // Start with loading state when no wallet is connected
         this.isLoading = true;
-        this.intervalId = setInterval(this.requestBalance, 1100);
+    },
+    watch: {
+        lobstrPublicKey: {
+            immediate: true,
+            handler(newValue) {
+                if (newValue) {
+                    // When wallet is connected
+                    this.requestBalance(); // Initial balance request
+                    this.intervalId = setInterval(this.requestBalance, 1100);
+                } else {
+                    // When no wallet is connected
+                    if (this.intervalId) {
+                        clearInterval(this.intervalId);
+                    }
+                    this.saldo = 0;
+                    this.isLoading = true; // Keep loading state when no wallet
+                }
+            }
+        }
     },
     unmounted() {
-        clearInterval(this.intervalId);
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+        }
     },
     computed: {
         ...mapGetters([

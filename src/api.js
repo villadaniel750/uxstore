@@ -43,6 +43,7 @@ function authenticate(username, password) {
 }
 
 function getBalance(xlmAddress) {
+    console.log("xlmAddress ======>")
     return axios.get(`https://horizon.stellar.org/accounts/${xlmAddress}`, { withCredentials: false })
         .then(response => {
             // Find the native asset balance

@@ -22,7 +22,14 @@ export default {
   methods: {
       redirectToXLogin() {
           localStorage.setItem("preLoginUrl", window.location.pathname);
-          window.location.href = "http://localhost.dv:852/oauth2/authorization/x";
+            var hostname = window.location.hostname;
+           
+            if (hostname === "www.earnlumens.org" || hostname === "earnlumens.org") {
+                window.location.href = "https://api.earnlumens.org/oauth2/authorization/x";
+            } else {
+                window.location.href = "http://localhost.dv:852/oauth2/authorization/x";
+            }
+          
       }
   },
   computed: {

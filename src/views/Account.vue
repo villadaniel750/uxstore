@@ -6,7 +6,7 @@
       <v-card-text>
         <v-row align="center" justify="center">
           <v-avatar size="80">
-            <v-img src="https://randomuser.me/api/portraits/women/90.jpg" alt="User Avatar"></v-img>
+            <v-img :src="profileImageUrl" alt="User Avatar"></v-img>
           </v-avatar>
         </v-row>
         <v-row justify="center" class="mt-4">
@@ -29,9 +29,11 @@
 export default {
   data() {
     return {
+      profileImageUrl: localStorage.getItem("profile_image_url") ||
+        "https://fastly.picsum.photos/id/903/1200/1200.jpg?hmac=8fD_XguoHwGB2RsVu_aX2XwhvCVXRSsvzNAh53Sjobc",
       user: {
-        username: "@satoshi",
-        email: "sat@gmx.com",
+        username: localStorage.getItem("username") || "@usuario",
+        email: localStorage.getItem("email") || "",
       },
     };
   },

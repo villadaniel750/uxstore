@@ -64,7 +64,7 @@ export default {
 
     const profileImageUrl = ref(localStorage.getItem("profile_image_url") || "https://fastly.picsum.photos/id/903/1200/1200.jpg?hmac=8fD_XguoHwGB2RsVu_aX2XwhvCVXRSsvzNAh53Sjobc");
     const username = ref(localStorage.getItem("username") || "@usuario");
-    const email = ref(localStorage.getItem("email") || "user@example.com"); // opcional, si lo guardás
+    const email = ref(localStorage.getItem("email") || ""); // opcional
 
     function toggleTheme() {
       const newTheme = darkMode.value ? "dark" : "light";

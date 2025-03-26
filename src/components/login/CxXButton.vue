@@ -6,7 +6,7 @@
       class="mt-3" 
       size="large" 
       @click="redirectToXLogin"
-      disabled
+      
   >
       <img :src="xIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
       {{ $t("Common.login") }}

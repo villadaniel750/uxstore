@@ -109,6 +109,20 @@ function processXLogin(code, codeVerifier, redirectUri) {
     return axios.post(ENDPOINT_PATH + "auth/x/processXLogin", { code, codeVerifier, redirectUri });
   }
 
+function createSession(tempToken) {
+    return axios.post(
+        ENDPOINT_PATH + 'api/auth/session',
+        {},
+        {
+            headers: {
+                Authorization: `Bearer ${tempToken}`,
+            },
+            withCredentials: true,
+        }
+    );
+}
+
+
 export default {
     subscribe,
     signup,
@@ -123,5 +137,6 @@ export default {
     getWaitlistStats,
     requestSep10Challenge,
     submitSignedTransaction,
-    processXLogin
+    processXLogin,
+    createSession
 }

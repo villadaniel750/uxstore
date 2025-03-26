@@ -61,6 +61,16 @@ onMounted(() => {
     }
   }
 
+    const loggedInString = localStorage.getItem('loggedIn');
+  if (loggedInString !== null) {
+    const loggedIn = loggedInString === 'true';
+    if (loggedIn) {
+      store.commit("setLoggedInTrue");
+    } else {
+      store.commit("setLoggedInFalse");
+    }
+  }
+
   // Verificamos si hay un loginError
   const error = localStorage.getItem("loginError");
   if (error) {

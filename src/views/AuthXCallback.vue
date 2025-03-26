@@ -4,16 +4,20 @@
 
 <script>
 import api from "@/api";
+
 export default {
   methods: {
-    // Método que redirige a la URL guardada en 'preLoginUrl'
     redirectToPreLoginUrl() {
+      console.log("Redirigiendo a la URL previa al login");
       const preLoginUrl = localStorage.getItem("preLoginUrl");
       localStorage.removeItem("preLoginUrl");
+
       if (preLoginUrl) {
-        window.location.href = preLoginUrl;
+        console.log("Redirigiendo a:", preLoginUrl);
+        this.$router.push(preLoginUrl);
       } else {
-        window.location.href = "/";
+        console.log("Redirigiendo a la página principal");
+        this.$router.push("/");
       }
     },
   },
@@ -24,23 +28,39 @@ export default {
 
     if (error) {
       console.warn("Login fallido:", error);
-      // Acá podrías guardar en Vuex o mostrar un diálogo en la ruta anterior
       localStorage.setItem("loginError", error);
       this.redirectToPreLoginUrl();
-      return;
+      return; // 👈 Evita redirecciones múltiples
     }
 
     if (token) {
-      this.$store.commit("setAccessToken", token);
-      this.redirectToPreLoginUrl();
-      return;
+      try {
+        const res = await api.createSession(token);
+        const accessToken = res.data.accessToken;
+        this.$store.commit("setAccessToken", accessToken);
+
+        // Decodificar el JWT (solo payload, sin validar)
+        const payloadBase64 = accessToken.split(".")[1];
+        const decodedPayload = JSON.parse(atob(payloadBase64));
+
+        const username = decodedPayload.username;
+        const profileImageUrl = decodedPayload.profile_image_url;
+
+        localStorage.setItem("username", username);
+        localStorage.setItem("profile_image_url", profileImageUrl);
+        localStorage.setItem("loggedIn", "true");
+      } catch (err) {
+        console.error("Error al crear sesión:", err);
+        localStorage.setItem("Session-Error", "No se pudo crear sesión");
+      } finally {
+        this.redirectToPreLoginUrl();
+        return; // 👈 Evita que siga ejecutando el bloque final
+      }
     }
 
-    // Caso inesperado: sin token ni error
+    // Solo se ejecuta si no hay ni token ni error
     console.warn("Callback recibido sin token ni error.");
     this.redirectToPreLoginUrl();
   },
 };
 </script>
-
-  

@@ -36,19 +36,38 @@
                     <div class="d-flex justify-space-between flex-column">
                         <div class="d-flex justify-space-between align-center">
                             <span class="text-h4 text-md-h5 text-lg-h7">Connected Wallets</span>
-                            <!-- Add Wallet button always shown -->
                             <v-btn 
                                 @click="openConnectWallet"
-                               class="text-blue-accent-2"
+                                class="text-blue-accent-2"
                             >
                                 Add Wallet
                             </v-btn>
                         </div>
-                        <div class="mt-2 d-flex flex-column align-center text-center">
-                            <div v-if="lobstrPublicKeyDebug" class="text-caption text-grey text-h6">
-                                <p class="text-h6">Lobstr: {{ lobstrPublicKeyDebug }}</p>
-                            </div>
-                            <v-btn v-if="lobstrPublicKeyDebug" class="mt-4" @click="">Manage Wallet</v-btn>
+                        <div class="mt-2">
+                            <v-list>
+                                <v-list-item
+                                    v-for="(wallet, index) in connectedWallets"
+                                    :key="index"
+                                    :title="wallet.name"
+                                    :subtitle="formatAddress(wallet.address)"
+                                >
+                                    <template v-slot:prepend>
+                                        <v-avatar color="grey-lighten-1">
+                                            <v-icon>mdi-wallet</v-icon>
+                                        </v-avatar>
+                                    </template>
+                                    <template v-slot:append>
+                                        <v-btn
+                                            variant="text"
+                                            color="grey"
+                                            @click="manageWallet(wallet)"
+                                        >
+                                            <v-icon class="mr-2">mdi-dots-vertical</v-icon>
+                                            Manage Wallet
+                                        </v-btn>
+                                    </template>
+                                </v-list-item>
+                            </v-list>
                         </div>
                     </div>
                 </v-card>
@@ -137,6 +156,14 @@ export default {
             //     // If no wallet connected, open the dialog directly
             //     this.$refs.addWalletDialog.showDialog();
             // }
+        },
+        formatAddress(address) {
+            if (!address || address.length <= 15) return address;
+            return `${address.substring(0, 6)}...${address.substring(address.length - 6)}`;
+        },
+        manageWallet(wallet) {
+            // Implement wallet management functionality
+            console.log('Managing wallet:', wallet);
         }
     },
     mounted() {
@@ -181,7 +208,18 @@ export default {
             if (!this.addr || this.addr.length <= 15) return this.addr; // Si es corta, no truncar
             return `${this.addr.substring(0, 6)}...${this.addr.substring(this.addr.length - 6)}`;
         },
-
+        connectedWallets() {
+            const wallets = [];
+            if (this.lobstrPublicKey) {
+                wallets.push({
+                    name: 'Lobstr',
+                    address: this.lobstrPublicKey,
+                    type: 'lobstr'
+                });
+            }
+            // Add more wallet types here when implemented
+            return wallets;
+        }
     },
     components: {
         Loading,

@@ -29,15 +29,17 @@
     </template>
     <div>
       <v-card
-        class="mx-auto pa-12 pb-8"
+        class="mx-auto pa-8 pb-14"
         elevation="8"
-        max-width="640"
+        max-width="480"
         rounded="lg"
+        
       >
 
       <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
 
       <cx-x-button></cx-x-button>
+
 
       <!-- <cx-rabet-button></cx-rabet-button> -->
       
@@ -52,7 +54,7 @@
         
       <!-- <cx-freighter-button></cx-freighter-button> -->
           
-          <v-divider
+       <!--    <v-divider
             class="border-opacity-50 my-5"
             
           ></v-divider>
@@ -111,11 +113,19 @@
 
         <v-alert type="error" v-if="loginError" variant="tonal" >
           {{ $t("Common.invalidLogin") }} 
-        </v-alert>
+        </v-alert>-->
 
         <v-card-text class="text-center">
-          <p class="text-disabled text-caption">Dev purpose | user: sat@gmx.com | pass: trustline</p>
-        </v-card-text>
+          <p class="text-disabled text-caption">
+            This site is under development. To be notified when it’s ready, join the
+            <span
+              class="text-primary text-decoration-none cursor-pointer"
+              @click="goToWaitlist"
+            >
+              waitlist
+            </span>
+          </p>
+        </v-card-text> 
       </v-card>
     </div>
 
@@ -131,6 +141,10 @@ import CxAlbedoButton from './login/CxAlbedoButton.vue';
 import CxLobstrButton from './login/CxLobstrButton.vue';
 import CxRabetButton from "./login/CxRabetButton.vue";
 import CxFreighterButton from "./login/CxFreighterButton.vue";
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
 // Función independiente3
 function validateEmail(email) {
   let wep = email.match(
@@ -162,6 +176,10 @@ export default {
     CxAlbedoButton, CxLobstrButton, CxRabetButton, CxFreighterButton, CxXButton
     },
   methods: {
+    goToWaitlist() {
+      this.dialog = false
+      this.$router.push('/waitlist')
+    },
     async login() {
       this.loginError = false;
       if (this.isValid) {

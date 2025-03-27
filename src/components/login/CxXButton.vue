@@ -6,7 +6,7 @@
       class="mt-3" 
       size="large" 
       @click="redirectToXLogin"
-      disabled
+      
   >
       <img :src="xIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
       {{ $t("Common.login") }}
@@ -22,7 +22,14 @@ export default {
   methods: {
       redirectToXLogin() {
           localStorage.setItem("preLoginUrl", window.location.pathname);
-          window.location.href = "http://localhost.dv:852/oauth2/authorization/x";
+            var hostname = window.location.hostname;
+           
+            if (hostname === "www.earnlumens.org" || hostname === "earnlumens.org") {
+                window.location.href = "https://api.earnlumens.org/oauth2/authorization/x";
+            } else {
+                window.location.href = "http://localhost.dv:852/oauth2/authorization/x";
+            }
+          
       }
   },
   computed: {

@@ -24,6 +24,8 @@ export default { // Malayo
         blockquote: 'EARNLUMENS adalah platform pendidikan kewangan kolaboratif yang menyediakan semua cara yang mungkin untuk anda memperoleh XLM Lumens, serta membolehkan anda mendapatkan pendapatan dengan berkongsi kepakaran kewangan anda.',
         messageToUsers: 'EARNLUMENS sedang dalam pembangunan. Ikuti kemajuan kami dan jadilah antara yang pertama untuk menguji platform dengan menyertai senarai tunggu kami. Sebagai pengguna pengasas, anda akan mempunyai peluang unik untuk menguji dompet anda di laman web dengan memperoleh tanda semak pengasas eksklusif. Kekal maklumat dan dapatkan akses awal dengan mengikuti kami di media sosial. Perjalanan anda menuju pemberdayaan kewangan bermula di sini. ',
         accept: 'Terima',
+        nonAccount: 'Akaun ini tidak wujud.',
+        nonAccountTry: 'Cari akaun lain.',
     },
     CxDeposit: {
         snackbarSuccess: 'Alamat disalin ke clipboard',

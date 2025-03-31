@@ -24,6 +24,8 @@ export default { // Chino (simplificado)
         blockquote: 'EARNLUMENS 是一个合作式金融教育平台，为您提供赚取 XLM Lumens 的所有可能方式，同时还可以通过分享您的金融专业知识来赚取收入。',
         messageToUsers: 'EARNLUMENS正在开发中。关注我们的进展，并通过加入我们的等候名单成为最先测试平台的人之一。作为创始用户，您将有独特的机会在网站上测试您的钱包，并获得独家创始人的勾选标记。通过在社交媒体上关注我们，保持了解最新信息并获得早期访问权限。您的财务赋权之旅从这里开始。 ',
         accept: '接受',
+        nonAccount: '此帐户不存在。',
+        nonAccountTry: '尝试搜索其他帐户。',
     },
     CxDeposit: {
         snackbarSuccess: '地址已复制到剪贴板',

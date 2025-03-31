@@ -24,6 +24,8 @@ export default { // Turco
         blockquote: 'EARNLUMENS, size tüm olası XLM Lumens kazanma yollarını sağlayan ve finansal uzmanlığınızı paylaşarak gelir elde etmenize olanak tanıyan işbirlikçi bir finansal eğitim platformudur.',
         messageToUsers: 'EARNLUMENS geliştirme aşamasındadır. Platformu test etmek için ilkler arasında olmak üzere ilerlememizi takip edin ve bekleme listemize katılın. Kurucu bir kullanıcı olarak, sitede cüzdanınızı test etme ve özel bir kurucu işareti edinme fırsatına sahip olacaksınız. Erken erişim elde etmek ve bilgilendirilmek için bizi sosyal medyada takip edin. Finansal güçlenme yolculuğunuz burada başlıyor.',
         accept: 'Kabul et',
+        nonAccount: 'Bu hesap mevcut değildir.',
+        nonAccountTry: 'Başka bir hesap arayın.',
     },
     CxDeposit: {
         snackbarSuccess: 'Adres panoya kopyalandı',

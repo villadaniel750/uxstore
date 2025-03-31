@@ -75,7 +75,7 @@
       <v-btn href="" variant="text" class="text-h6 font-weight-bold text-h6" :ripple="false" append-icon="mdi-chevron-right" >Stellar Ecosystem</v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
-      <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
+      <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }" class="">
         <v-card :class="['ma-4', selectedClass]" width="260" flat tile color="transparent">          
           <CxVideo
             :lazy-src="img.lazySrc"

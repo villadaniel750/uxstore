@@ -24,6 +24,8 @@ export default { // Português
         blockquote: 'EARNLUMENS é uma plataforma de educação financeira colaborativa que oferece todas as maneiras possíveis de ganhar XLM Lumens, além de permitir que você ganhe renda compartilhando sua expertise financeira.',
         messageToUsers: 'EARNLUMENS está em desenvolvimento. Siga nosso progresso e seja um dos primeiros a testar a plataforma ao se juntar à nossa lista de espera. Como um usuário fundador, você terá a chance única de testar sua carteira no site adquirindo um checkmark exclusivo de fundador. Mantenha-se informado e obtenha acesso antecipado seguindo-nos nas redes sociais. Sua jornada em direção ao empoderamento financeiro começa aqui. ',
         accept: 'Aceitar',
+        nonAccount: 'Este conta não existe.',
+        nonAccountTry: 'Tente procurar outro.',
     },
     CxDeposit: {
         snackbarSuccess: 'Endereço copiado para a área de transferência',

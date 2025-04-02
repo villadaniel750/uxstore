@@ -263,6 +263,11 @@
   border-radius: 6px;
 }
 
+/* Dark mode specific styling */
+:deep(.v-theme--dark) .v-skeleton-loader {
+  background: rgb(18, 18, 18) !important;
+}
+
 .v-skeleton-loader ::v-deep .v-skeleton-loader__avatar {
   width: 24px;
   height: 24px;

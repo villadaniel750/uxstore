@@ -75,21 +75,27 @@
       <v-btn href="" variant="text" class="text-h6 font-weight-bold text-h6" :ripple="false" append-icon="mdi-chevron-right" >Stellar Ecosystem</v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
-      <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }" class="">
+      <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
         <v-card :class="['ma-4', selectedClass]" width="260" flat tile color="transparent">          
-          <CxVideo
-            :lazy-src="img.lazySrc"
-            :src="img.src"
-            :blocked="index%3===1"
-            :isPlaylist="index%4===1"
-            :playlist-count="index + 1"
-            title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
-            username="Shamus"
-            uploadDate="2024/10/7"
-            :profileBadge="index%3"
-            @loadstart="loading[index] = true"
-            @load="loading[index] = false"
-          />
+          <div v-if="loading[index]">
+            <v-skeleton-loader
+              height="240"
+              type="image, list-item-two-line"
+            ></v-skeleton-loader>
+          </div>
+          <div v-else>
+            <CxVideo
+              :lazy-src="img.lazySrc"
+              :src="img.src"
+              :blocked="index % 3 === 1"
+              :is-playlist="index % 4 === 1"
+              :playlist-count="index + 1"
+              :title="'One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it'"
+              :username="'Shamus'"
+              :upload-date="'2024/10/7'"
+              :profile-badge="index % 3"
+            />
+          </div>
         </v-card>
       </v-slide-group-item>
     </v-slide-group>
@@ -99,26 +105,30 @@
 
   <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
     <div class="d-flex justify-space-between align-center" :class="{ 'pl-13': !mobileView }">
-      <v-btn href="" variant="text" class="text-h6 font-weight-bold text-h6" :ripple="false" append-icon="mdi-chevron-right">Community</v-btn>
+      <v-btn href="" variant="text" class="text-h6 font-weight-bold" :ripple="false" append-icon="mdi-chevron-right">Community</v-btn>
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
         <v-card :class="['ma-4', selectedClass]"  width="260" flat tile color="transparent">
-          <CxVideo
-            :lazy-src="img.lazySrc"
-            :src="img.src"
-            :blocked="index%3===1"
-            :isPlaylist="index%4===1"
-            :playlist-count="index + 1"
-            title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
-            username="Shamus"
-            uploadDate="2024/10/7"
-            :profileBadge="index%3"
-            @loadstart="loading[index] = true"
-            @load="loading[index] = false"
-          />
-          <!-- <v-img :lazy-src="img.lazySrc" :src="img.src" alt="Image" cover class="fill-height" rounded="lg" /> -->
-
+          <div v-if="loading[index]">
+            <v-skeleton-loader
+              height="240"
+              type="image, list-item-two-line"
+            ></v-skeleton-loader>
+          </div>
+          <div v-else>
+            <CxVideo
+              :lazy-src="img.lazySrc"
+              :src="img.src"
+              :blocked="index%3===1"
+              :isPlaylist="index%4===1"
+              :playlist-count="index + 1"
+              title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
+              username="Shamus"
+              uploadDate="2024/10/7"
+              :profileBadge="index%3"
+            />
+          </div>
         </v-card>
       </v-slide-group-item>
     </v-slide-group>
@@ -197,12 +207,18 @@
           src: `https://picsum.photos/500/300?image=${index * 5 + 10}`
         };
       }),
-      loading: Array(15).fill(false)
+      loading: Array(15).fill(true)
     }),
     methods: {
-
+      initializeLoading() {
+        this.loading = Array(15).fill(true);
+        setTimeout(() => {
+          this.loading = Array(15).fill(false);
+        }, 2000);
+      }
     },
     mounted() {
+      this.initializeLoading();
     },
     watch: {
     },
@@ -219,5 +235,11 @@
         return this.isDarkTheme ? xIcon : xBlackIcon;
       }
     },
-  };//ss
+  };
 </script>
+
+<style scoped>
+.v-skeleton-loader {
+  border-radius: 4px;
+}
+</style>

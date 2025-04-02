@@ -228,7 +228,7 @@
         this.loading = Array(15).fill(true);
         setTimeout(() => {
           this.loading = Array(15).fill(false);
-        }, 1000);
+        }, 2000);
       }
     },
     mounted() {

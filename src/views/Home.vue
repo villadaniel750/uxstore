@@ -79,9 +79,16 @@
         <v-card :class="['ma-4', selectedClass]" width="260" flat tile color="transparent">          
           <div v-if="loading[index]">
             <v-skeleton-loader
-              height="240"
-              type="image, list-item-two-line"
-            ></v-skeleton-loader>
+              height="200"
+              :type="`card-avatar, list-item-avatar-two-line`"
+              class="mx-auto"
+            >
+              <template v-slot:default>
+                <v-card-text class="pa-0">
+                  <v-skeleton-loader type="image, list-item-avatar-two-line"></v-skeleton-loader>
+                </v-card-text>
+              </template>
+            </v-skeleton-loader>
           </div>
           <div v-else>
             <CxVideo
@@ -113,8 +120,15 @@
           <div v-if="loading[index]">
             <v-skeleton-loader
               height="240"
-              type="image, list-item-two-line"
-            ></v-skeleton-loader>
+              :type="`card-avatar, list-item-avatar-two-line`"
+              class="mx-auto"
+            >
+              <template v-slot:default>
+                <v-card-text>
+                  <v-skeleton-loader type="image, list-item-avatar-two-line"></v-skeleton-loader>
+                </v-card-text>
+              </template>
+            </v-skeleton-loader>
           </div>
           <div v-else>
             <CxVideo
@@ -214,7 +228,7 @@
         this.loading = Array(15).fill(true);
         setTimeout(() => {
           this.loading = Array(15).fill(false);
-        }, 2000);
+        }, 100000000);
       }
     },
     mounted() {
@@ -240,6 +254,26 @@
 
 <style scoped>
 .v-skeleton-loader {
-  border-radius: 4px;
+  border-radius: 6px;
+  width: 290px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__image {
+  height: 146px;
+  border-radius: 6px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__avatar {
+  width: 24px;
+  height: 24px;
+  margin-right: 2px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__text {
+  margin-top: 6px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__list-item-avatar-two-line {
+  padding: 2px;
 }
 </style>

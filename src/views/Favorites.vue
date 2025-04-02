@@ -13,8 +13,15 @@
         <template v-if="loading[index]">
           <v-skeleton-loader
             height="240"
-            type="image, list-item-two-line"
-          ></v-skeleton-loader>
+            :type="`card-avatar, list-item-avatar-two-line`"
+            class="mx-auto"
+            >
+              <template v-slot:default>
+                <v-card-text>
+                  <v-skeleton-loader type="image, list-item-avatar-two-line"></v-skeleton-loader>
+                </v-card-text>
+              </template>
+            </v-skeleton-loader>
         </template>
         <template v-else>
           <CxVideo
@@ -56,7 +63,33 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loading = this.loading.map(() => false);
-    }, 2000);
+    }, 1000);
   }
 };
 </script>
+
+<style scoped>
+.v-skeleton-loader {
+  border-radius: 6px;
+  width: 290px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__image {
+  height: 165px;
+  border-radius: 6px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__avatar {
+  width: 24px;
+  height: 24px;
+  margin-right: 2px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__text {
+  margin-top: 6px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__list-item-avatar-two-line {
+  padding: 2px;
+}
+</style>

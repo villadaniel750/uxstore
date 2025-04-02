@@ -10,19 +10,25 @@
         lg="3"
         xl="2"
       >
-        <CxVideo
-          :lazy-src="img.lazySrc"
-          :src="img.src"
-          :blocked="index%3===1"
-          :isPlaylist="index%4===1"
-          :playlist-count="index + 1"
-          title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
-          username="Shamus"
-          uploadDate="2024/10/7"
-          :profileBadge="index%3"
-          @loadstart="loading[index] = true"
-          @load="loading[index] = false"
-        />
+        <template v-if="loading[index]">
+          <v-skeleton-loader
+            height="240"
+            type="image, list-item-two-line"
+          ></v-skeleton-loader>
+        </template>
+        <template v-else>
+          <CxVideo
+            :lazy-src="img.lazySrc"
+            :src="img.src"
+            :blocked="index%3===1"
+            :isPlaylist="index%4===1"
+            :playlist-count="index + 1"
+            title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
+            username="Shamus"
+            uploadDate="2024/10/7"
+            :profileBadge="index%3"
+          />
+        </template>
       </v-col>
     </v-row>
   </v-container>
@@ -44,8 +50,13 @@ export default {
           src: `https://picsum.photos/500/300?image=${index * 5 + 10}`
         };
       }),
-      loading: Array(18).fill(false)
+      loading: Array(18).fill(true)
     };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.loading = this.loading.map(() => false);
+    }, 2000);
   }
 };
 </script>

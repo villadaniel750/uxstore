@@ -7,7 +7,7 @@
       aspect-ratio="16/9"
       rounded="lg"
       @loadstart="$emit('loadstart')"
-      @load="$emit('load')"
+      @load="loadFinished"
     >
       <template #placeholder>
         <v-row class="fill-height ma-0" align="center" justify="center">
@@ -46,7 +46,7 @@
         <b class="opacity-100">{{ playlistCount }}</b>
     </div>
   </v-card>
-  <div class="d-flex justify-space-between">
+  <div v-if="imageLoaded" class="d-flex justify-space-between">
 
     <div class="d-flex align-center">
       <v-card :class="['ma-4', selectedClass]" height="45" width="45" min-width="45" min-height="45" flat tile color="transparent">
@@ -150,6 +150,16 @@ export default {
       default: 0
     }
   },
+  data() {
+    return {
+      imageLoaded: false, // Define variable
+    };
+  },
+  methods: {
+    loadFinished() {
+      this.imageLoaded = true;
+    }
+  }
 };
 </script>
 

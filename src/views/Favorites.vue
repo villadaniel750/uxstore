@@ -10,7 +10,7 @@
         lg="3"
         xl="2"
       >
-        <template v-if="loading[index]">
+        <div v-if="loading[index]">
           <v-skeleton-loader
             height="240"
             :type="`card-avatar, list-item-avatar-two-line`"
@@ -22,8 +22,8 @@
                 </v-card-text>
               </template>
             </v-skeleton-loader>
-        </template>
-        <template v-else>
+        </div>
+        <div v-else>
           <CxVideo
             :lazy-src="img.lazySrc"
             :src="img.src"
@@ -35,7 +35,7 @@
             uploadDate="2024/10/7"
             :profileBadge="index%3"
           />
-        </template>
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -63,7 +63,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loading = this.loading.map(() => false);
-    }, 1000);
+    }, 1500);
   }
 };
 </script>
@@ -75,7 +75,7 @@ export default {
 }
 
 .v-skeleton-loader ::v-deep .v-skeleton-loader__image {
-  height: 165px;
+  height: 146px;
   border-radius: 6px;
 }
 

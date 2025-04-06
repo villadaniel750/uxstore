@@ -10,16 +10,13 @@
         lg="3"
         xl="2"
       >
-        <CxVideo
+        <CxVideoFan
           :lazy-src="img.lazySrc"
           :src="img.src"
           :blocked="index%3===1"
           :isPlaylist="index%4===1"
           :playlist-count="index + 1"
           title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
-          username="Shamus"
-          uploadDate="2024/10/7"
-          :profileBadge="index%3"
           @loadstart="loading[index] = true"
           @load="loading[index] = false"
         />
@@ -29,11 +26,11 @@
 </template>
 
 <script>
-import CxVideo from '@/components/media/CxVideo.vue';
+import CxVideoFan from '@/components/fan/CxVideoFan.vue';
 
 export default {
   components: {
-    CxVideo
+    CxVideoFan
   },
   data() {
     return {

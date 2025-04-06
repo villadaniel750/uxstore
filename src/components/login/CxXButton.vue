@@ -41,6 +41,6 @@ export default {
 </script>
 <style>
 .btn-shadow {
-  box-shadow: 0px 0px 13px 0px #FFFFFF !important;
+  box-shadow: 0px 0px 10px 0px #FFFFFF !important;
 }
 </style>

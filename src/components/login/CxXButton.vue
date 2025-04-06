@@ -3,7 +3,7 @@
       block 
       rel="noopener noreferrer" 
       variant="outlined" 
-      class="mt-3" 
+      class="mt-3 btn-shadow" 
       size="large" 
       @click="redirectToXLogin"
       
@@ -29,7 +29,6 @@ export default {
             } else {
                 window.location.href = "http://localhost.dv:852/oauth2/authorization/x";
             }
-          
       }
   },
   computed: {
@@ -40,3 +39,8 @@ export default {
   }
 };
 </script>
+<style>
+.btn-shadow {
+  box-shadow: 0px 0px 13px 0px #FFFFFF !important;
+}
+</style>

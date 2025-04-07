@@ -173,8 +173,8 @@
               v-bind="props"
               prepend-icon="mdi-compass-outline"
               :title="$t('AppBar.Explore')"
-              value="Explore"
-              to="/Explore"
+              value="explore"
+              to="/explore"
               exact
               :disabled="!loggedIn"
             ></v-list-item>

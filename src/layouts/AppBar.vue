@@ -105,7 +105,7 @@
         <v-tooltip :text="$t('AppBar.purchased')">
           <template v-slot:activator="{ props }">
             <v-list-item
-              :active="activeItem === 'ForPurchased'"
+              :active="activeItem === 'Purchased'"
               v-bind="props"
               prepend-icon="mdi-shopping-outline"
               :title="$t('AppBar.purchased')"

@@ -29,86 +29,103 @@ const routes = [
         path: '',
         name: 'Home',
         component: Home,
+     
       },
       {
         path: '/wallet',
         name: 'Wallet',
         component: Wallet,
+     
       },
       {
         path: '/firststeps',
         name: 'FirstSteps',
         component: FirstSteps,
+       
       },
       {
         path: '/purchased',
         name: 'Purchased',
         component: Purchased,
+       
       },
       {
         path: '/favorites',
         name: 'Favorites',
         component: Favorites,
+      
       },
       {
         path: '/videoupload',
         name: 'VideoUpload',
         component: VideoUpload,
+      
       },
       {
         path: '/Ecosystem',
         name: 'Ecosystem',
         component: Ecosystem,
+        
       },
       {
         path: '/community',
         name: 'Community',
         component: Community,
+      
       },
       {
         path: '/featured',
         name: 'Featured',
         component: Featured,
+       
       },
       {
         path: '/Explore',
         name: 'Explore',
         component: Explore,
+      
       },
       {
         path: '/account',
         name: 'Account',
         component: Account,
+    
       },
       {
         path: '/waitlist',
         name: 'WaitList',
         component: WaitList,
+     
       },
       {
         path: '/waitliststats',
         name: 'WaitListStats',
         component: WaitListStats,
+       
       },
       {
         path: '/oauth2/callback',
         name: 'AuthXCallback',
         component: AuthXCallback,
+      
       },
       {
         path: '/x/test/api',
         name: 'TestApi',
         component: TestApi,
+      
       },
       {
         path: "/fan",
         name: "fan",
         component: Fan,
-      },
+       
+        },
       {
         path: "/:catchAll(.*)",
         name: "nonAccount",
         component: NonAccount,
+        
       },
     ],
   },
@@ -124,7 +141,7 @@ const router = createRouter({
 
 // 🔹 Middleware de autenticación antes de cada ruta
 router.beforeEach((to, from, next) => {
-  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'FirstSteps', 'Wallet', 'Favorites', 'VideoUpload', 'AuthXCallback', 'TestApi', 'nonAccount'];
+  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'FirstSteps', 'Wallet', 'VideoUpload', 'AuthXCallback', 'TestApi', 'nonAccount'];
   const authRequired = !publicPages.includes(to.name);
 
   if (authRequired && !store.getters.loggedIn) {

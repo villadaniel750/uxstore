@@ -128,8 +128,8 @@
               v-bind="props"
               prepend-icon="mdi-creation"
               :title="$t('AppBar.Ecosystem')"
-              value="Ecosystem"
-              to="/Ecosystem"
+              value="ecosystem"
+              to="/ecosystem"
               exact
               :disabled="!loggedIn"
             ></v-list-item>

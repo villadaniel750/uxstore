@@ -62,7 +62,7 @@ const routes = [
       
       },
       {
-        path: '/Ecosystem',
+        path: '/ecosystem',
         name: 'Ecosystem',
         component: Ecosystem,
         
@@ -80,7 +80,7 @@ const routes = [
        
       },
       {
-        path: '/Explore',
+        path: '/explore',
         name: 'Explore',
         component: Explore,
       

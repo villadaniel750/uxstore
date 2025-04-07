@@ -3,14 +3,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Default from '@/layouts/Default.vue'
 import Home from '@/views/Home.vue'
 import Wallet from '@/views/Wallet.vue'
-import ForFree from '@/views/ForFree.vue'
+import firstSteps from '@/views/firstSteps.vue'
 import Fan from '@/views/Fan.vue'
 import Purchased from '@/views/Purchased.vue'
 import Favorites from '@/views/Favorites.vue'
-import Premieres from '@/views/Premieres.vue'
-import MostSold from '@/views/MostSold.vue'
-import Offers from '@/views/Offers.vue'
-import TopRated from '@/views/TopRated.vue'
+import Ecosystem from '@/views/Ecosystem.vue'
+import community from '@/views/community.vue'
+import featured from '@/views/featured.vue'
+import Explore from '@/views/Explore.vue'
 import Account from '@/views/Account.vue'
 import WaitList from '@/views/WaitList.vue'
 import WaitListStats from '@/views/WaitListStats.vue'
@@ -36,9 +36,9 @@ const routes = [
         component: Wallet,
       },
       {
-        path: '/forFree',
-        name: 'ForFree',
-        component: ForFree,
+        path: '/firstSteps',
+        name: 'firstSteps',
+        component: firstSteps,
       },
       {
         path: '/purchased',
@@ -56,24 +56,24 @@ const routes = [
         component: VideoUpload,
       },
       {
-        path: '/premieres',
-        name: 'Premieres',
-        component: Premieres,
+        path: '/Ecosystem',
+        name: 'Ecosystem',
+        component: Ecosystem,
       },
       {
-        path: '/mostsold',
-        name: 'MostSold',
-        component: MostSold,
+        path: '/community',
+        name: 'Community',
+        component: community,
       },
       {
-        path: '/offers',
-        name: 'Offers',
-        component: Offers,
+        path: '/featured',
+        name: 'Featured',
+        component: featured,
       },
       {
-        path: '/topRated',
-        name: 'TopRated',
-        component: TopRated,
+        path: '/Explore',
+        name: 'Explore',
+        component: Explore,
       },
       {
         path: '/account',
@@ -124,7 +124,7 @@ const router = createRouter({
 
 // 🔹 Middleware de autenticación antes de cada ruta
 router.beforeEach((to, from, next) => {
-  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'ForFree', 'Wallet', 'Favorites', 'VideoUpload', 'AuthXCallback', 'TestApi', 'nonAccount'];
+  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'firstSteps', 'Wallet', 'Favorites', 'VideoUpload', 'AuthXCallback', 'TestApi', 'nonAccount'];
   const authRequired = !publicPages.includes(to.name);
 
   if (authRequired && !store.getters.loggedIn) {

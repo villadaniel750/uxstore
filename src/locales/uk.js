@@ -61,14 +61,13 @@ export default { // Ucraniano
     AppBar:{
         home: 'Домашня',
         wallet: 'Гаманець',
-        forFree: 'Безкоштовно',
+        firstSteps: 'Перші кроки',
         purchased: 'Куплено',
         favorites: 'Улюблені',
         account: 'Аккаунт',
-        premieres: 'Прем\'єри',
-        mostSold: 'Найпродаваніші',
-        offers: 'Пропозиції',
-        topRated: 'Найвищий рейтинг',
+        Ecosystem: 'Екосистема',
+        community: 'Спільнота',
+        Explore: 'Дослідити',
         featured: 'Рекомендовані',
     },
     Language: {

@@ -63,7 +63,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loading = this.loading.map(() => false);
-    }, 1500);
+    }, 1000);
   }
 };
 </script>

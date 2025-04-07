@@ -62,15 +62,14 @@ export default { // Inglés
     AppBar:{
         home: 'Home',
         wallet: 'Wallet',
-        forFree: 'For Free',
+        firstSteps: 'First Steps',
         purchased: 'Purchased',
         favorites: 'Favorites',
         account: 'Account',
-        premieres: 'Premieres',
-        mostSold: 'Most Sold',
-        offers: 'Offers',
-        topRated: 'Top Rated',
-        featured: 'Featured'
+        Ecosystem: 'Ecosystem',
+        community: 'Community',
+        featured: 'Featured',
+        Explore: 'Explore',
     },
     Language: {
         spanish: 'Spanish',

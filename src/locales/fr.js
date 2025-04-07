@@ -61,14 +61,13 @@ export default { // Français
     AppBar:{
         home: 'Accueil',
         wallet: 'Portefeuille',
-        forFree: 'Gratuitement',
+        firstSteps: 'Premiers pas',
         purchased: 'Acheté',
         favorites: 'Favoris',
         account: 'Compte',
-        premieres: 'Premières',
-        mostSold: 'Plus Vendus',
-        offers: 'Offres',
-        topRated: 'Les mieux notés',
+        Ecosystem: 'Écosystème',
+        community: 'Communauté',
+        Explore: 'Explorer',
         featured: 'En vedette',
     },
     Language: {

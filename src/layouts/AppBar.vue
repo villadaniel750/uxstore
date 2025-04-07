@@ -74,21 +74,34 @@
           </template>
         </v-tooltip>
   
-        <v-tooltip :text="$t('AppBar.forFree')">
+        <v-tooltip :text="$t('AppBar.firstSteps')">
           <template v-slot:activator="{ props }">
             <v-list-item
-              :active="activeItem === 'ForFree'"
+              :active="activeItem === 'firstSteps'"
               v-bind="props"
-              prepend-icon="mdi-lock-open-outline"
-              :title="$t('AppBar.forFree')"
-              value="forFree"
-              to="/forFree"
+              prepend-icon="mdi-sprout-outline"
+              :title="$t('AppBar.firstSteps')"
+              value="firstSteps"
+              to="/firstSteps"
               exact
               :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>
-  
+        <v-tooltip :text="$t('AppBar.favorites')">
+          <template v-slot:activator="{ props }">
+            <v-list-item
+              :active="activeItem === 'Favorites'"
+              v-bind="props"
+              prepend-icon="mdi-heart-outline"
+              :title="$t('AppBar.favorites')"
+              value="favorites"
+              to="/favorites"
+              exact
+            ></v-list-item>
+          </template>
+        </v-tooltip>
+        
         <v-tooltip :text="$t('AppBar.purchased')">
           <template v-slot:activator="{ props }">
             <v-list-item
@@ -104,76 +117,64 @@
           </template>
         </v-tooltip>
   
-        <v-tooltip :text="$t('AppBar.favorites')">
-          <template v-slot:activator="{ props }">
-            <v-list-item
-              :active="activeItem === 'Favorites'"
-              v-bind="props"
-              prepend-icon="mdi-heart-outline"
-              :title="$t('AppBar.favorites')"
-              value="favorites"
-              to="/favorites"
-              exact
-            ></v-list-item>
-          </template>
-        </v-tooltip>
+      
   
         <v-divider></v-divider>
-  
-        <v-tooltip :text="$t('AppBar.premieres')">
+     
+        <v-tooltip :text="$t('AppBar.Ecosystem')">
           <template v-slot:activator="{ props }">
             <v-list-item
-              :active="activeItem === 'Premieres'"
+              :active="activeItem === 'Ecosystem'"
               v-bind="props"
-              prepend-icon="mdi-filmstrip"
-              :title="$t('AppBar.premieres')"
-              value="premieres"
-              to="/premieres"
+              prepend-icon="mdi-creation"
+              :title="$t('AppBar.Ecosystem')"
+              value="Ecosystem"
+              to="/Ecosystem"
               exact
               :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>
   
-        <v-tooltip :text="$t('AppBar.mostSold')">
+        <v-tooltip :text="$t('AppBar.community')">
           <template v-slot:activator="{ props }">
             <v-list-item
-              :active="activeItem === 'MostSold'"
+              :active="activeItem === 'community'"
               v-bind="props"
-              prepend-icon="mdi-fire"
-              :title="$t('AppBar.mostSold')"
-              value="mostSold"
-              to="/mostsold"
+              prepend-icon="mdi-handshake-outline"
+              :title="$t('AppBar.community')"
+              value="community"
+              to="/community"
               exact
               :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>
   
-        <v-tooltip :text="$t('AppBar.offers')">
+        <v-tooltip :text="$t('AppBar.featured')">
           <template v-slot:activator="{ props }">
             <v-list-item
-              :active="activeItem === 'Offers'"
-              v-bind="props"
-              prepend-icon="mdi-tag-outline"
-              :title="$t('AppBar.offers')"
-              value="offers"
-              to="/offers"
-              exact
-              :disabled="!loggedIn"
-            ></v-list-item>
-          </template>
-        </v-tooltip>
-  
-        <v-tooltip :text="$t('AppBar.topRated')">
-          <template v-slot:activator="{ props }">
-            <v-list-item
-              :active="activeItem === 'TopRated'"
+              :active="activeItem === 'featured'"
               v-bind="props"
               prepend-icon="mdi-star-outline"
-              :title="$t('AppBar.topRated')"
-              value="topRated"
-              to="/toprated"
+              :title="$t('AppBar.featured')"
+              value="featured"
+              to="/featured"
+              exact
+              :disabled="!loggedIn"
+            ></v-list-item>
+          </template>
+        </v-tooltip>
+  
+        <v-tooltip :text="$t('AppBar.Explore')">
+          <template v-slot:activator="{ props }">
+            <v-list-item
+              :active="activeItem === 'Explore'"
+              v-bind="props"
+              prepend-icon="mdi-compass-outline"
+              :title="$t('AppBar.Explore')"
+              value="Explore"
+              to="/Explore"
               exact
               :disabled="!loggedIn"
             ></v-list-item>

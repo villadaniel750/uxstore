@@ -62,14 +62,13 @@ export default { // Hindi
     AppBar:{
         home: 'होम',
         wallet: 'बटुआ',
-        forFree: 'मुफ्त',
+        firstSteps: 'प्रथम कदम',
         purchased: 'खरीदा हुआ',
         favorites: 'पसंदीदा',
         account: 'खाता',
-        premieres: 'प्रीमियर',
-        mostSold: 'सबसे ज्यादा बिका',
-        offers: 'ऑफर',
-        topRated: 'शीर्ष रेटेड',
+        Ecosystem: 'प्रीमियर',
+        community: 'समुदाय',
+        Explore: 'खोजें',
         featured: 'फीचर्ड',
     },
     Language: {

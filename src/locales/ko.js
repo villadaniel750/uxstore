@@ -26,7 +26,7 @@ export default { // 한국어
         accept: '수락',
         nonAccount: '이 계정이 존재하지 않습니다.',
         nonAccountTry: '다른 계정을 검색하세요.',
-    },
+    },      
     CxDeposit: {
         snackbarSuccess: '클립보드에 주소 복사됨',
         snackbarError: '클립보드에 주소를 복사하는 중 오류 발생. 다시 시도하거나 수동으로 복사하세요.',
@@ -61,14 +61,13 @@ export default { // 한국어
     AppBar:{
         home: '홈',
         wallet: '지갑',
-        forFree: '무료로',
+        firstSteps: '첫 번째 단계',
         purchased: '구매함',
         favorites: '즐겨찾기',
         account: '계정',
-        premieres: '최초 공개',
-        mostSold: '가장 많이 팔린',
-        offers: '제안',
-        topRated: '최고 평점',
+        Ecosystem: '생태계',
+        community: '커뮤니티',
+        Explore: '탐색',
         featured: '추천',
     },
     Language: {

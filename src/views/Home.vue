@@ -156,8 +156,11 @@
     </div>
     <v-slide-group v-model="model" selected-class="bg-success" :show-arrows="!mobileView">
       <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
-        <v-card :class="['ma-4', selectedClass]" height="150" width="150" flat tile color="transparent">
-          <v-img :lazy-src="img.lazySrc" :src="img.src" alt="Image" cover class="fill-height" rounded="circle" />
+        <v-card :class="['ma-4', selectedClass]" width="150"  flat tile color="transparent">
+          <CxUser
+            :username="'test very long username '"
+            :profile_image_url="img.src"
+          />
         </v-card>
       </v-slide-group-item>
     </v-slide-group>
@@ -200,10 +203,12 @@
   import xIcon from "@/assets/twitterx.svg";
   import xBlackIcon from "@/assets/twitterx-black.svg";
   import CxVideo from "@/components/media/CxVideo.vue";
-
+  import CxUser from "@/components/media/CxUser.vue";
+// 
   export default {
     components: {
-      CxVideo
+      CxVideo,
+      CxUser
     },
     data: () => ({
       drawer: false,

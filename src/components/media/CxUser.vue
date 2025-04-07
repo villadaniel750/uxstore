@@ -5,30 +5,15 @@
     :class="{ 'is-loading': !profile_image_url }"
   >
     <v-card-item class="pa-0">
-      <div class="d-flex flex-column align-center">
+      <div class="flex flex-col items-center whitespace-nowrap">
         <v-avatar
-          v-if="profile_image_url"
           :image="profile_image_url"
           size="120"
           class="mb-2"
-        />
-        <v-skeleton-loader
-          v-else
-          type="avatar"
-          width="120"
-          height="120"
-          class="mb-2"
-        />
-        
-        <div v-if="username" class="text-subtitle-1 font-weight-medium text-center">
-          {{ username }}
-        </div>
-        <v-skeleton-loader
-          v-else
-          type="text"
-          width="80"
-          class="mt-1"
-        />
+        />        
+        <div class="text-subtitle-1 text-truncate font-weight-medium text-center">
+            {{ username }} 
+        </div>            
       </div>
     </v-card-item>
   </v-card>
@@ -62,5 +47,9 @@ export default {
 
 .cx-user :deep(.v-skeleton-loader__text) {
   border-radius: 4px;
+}
+
+.flex.flex-col.items-center.whitespace-nowrap > * {
+  white-space: nowrap;
 }
 </style>

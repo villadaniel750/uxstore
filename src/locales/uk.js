@@ -61,7 +61,7 @@ export default { // Ucraniano
     AppBar:{
         home: 'Домашня',
         wallet: 'Гаманець',
-        firstSteps: 'Перші кроки',
+        firststeps: 'Перші кроки',
         purchased: 'Куплено',
         favorites: 'Улюблені',
         account: 'Аккаунт',

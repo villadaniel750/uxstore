@@ -62,7 +62,7 @@ export default { // Italiano
     AppBar:{
         home: 'Home',
         wallet: 'Portafoglio',
-        firstSteps: 'Primi passi',
+        firststeps: 'Primi passi',
         purchased: 'Acquistati',
         favorites: 'Preferiti',
         account: 'Account',

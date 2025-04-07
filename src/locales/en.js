@@ -62,7 +62,7 @@ export default { // Inglés
     AppBar:{
         home: 'Home',
         wallet: 'Wallet',
-        firstSteps: 'First Steps',
+        firststeps: 'First Steps',
         purchased: 'Purchased',
         favorites: 'Favorites',
         account: 'Account',

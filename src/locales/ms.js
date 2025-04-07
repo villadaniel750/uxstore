@@ -61,7 +61,7 @@ export default { // Malayo
     AppBar:{
         home: 'Laman Utama',
         wallet: 'Wallet',
-        firstSteps: 'Langkah Pertama',
+        firststeps: 'Langkah Pertama',
         purchased: 'Dibeli',
         favorites: 'Kegemaran',
         account: 'Akaun',

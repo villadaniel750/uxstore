@@ -61,7 +61,7 @@ export default { // Alemán
     AppBar:{
         home: 'Startseite',
         wallet: 'Wallet',
-        firstSteps: 'Kostenlos',
+        firststeps: 'Kostenlos',
         purchased: 'Gekauft',
         favorites: 'Favoriten',
         account: 'Konto',

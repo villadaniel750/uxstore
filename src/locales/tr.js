@@ -61,7 +61,7 @@ export default { // Turco
     AppBar:{
         home: 'Ana Sayfa',
         wallet: 'Cüzdan',
-        firstSteps: 'İlk Adımlar',
+        firststeps: 'İlk Adımlar',
         purchased: 'Satın Alınan',
         favorites: 'Favoriler',
         account: 'Hesap',

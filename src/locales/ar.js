@@ -61,7 +61,7 @@ export default { // Árabe
     AppBar:{
         home: 'الصفحة الرئيسية',
         wallet: 'محفظة',
-        firstSteps: 'الخطوات الأولى',
+        firststeps: 'الخطوات الأولى',
         purchased: 'تم الشراء',
         favorites: 'المفضلة',
         account: 'الحساب',

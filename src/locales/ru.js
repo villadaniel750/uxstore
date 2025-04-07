@@ -61,7 +61,7 @@ export default { // Ruso
     AppBar:{
         home: 'Главная',
         wallet: 'кошелек',
-        firstSteps: 'первые шаги',
+        firststeps: 'первые шаги',
         purchased: 'приобретенный',
         favorites: 'избранное',
         account: 'учетная запись',

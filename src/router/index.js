@@ -36,9 +36,9 @@ const routes = [
         component: Wallet,
       },
       {
-        path: '/firstSteps',
-        name: 'firstSteps',
-        component: firstSteps,
+        path: '/firststeps',
+        name: 'FirstSteps',
+        component: FirstSteps,
       },
       {
         path: '/purchased',
@@ -63,12 +63,12 @@ const routes = [
       {
         path: '/community',
         name: 'Community',
-        component: community,
+        component: Community,
       },
       {
         path: '/featured',
         name: 'Featured',
-        component: featured,
+        component: Featured,
       },
       {
         path: '/Explore',
@@ -124,7 +124,7 @@ const router = createRouter({
 
 // 🔹 Middleware de autenticación antes de cada ruta
 router.beforeEach((to, from, next) => {
-  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'firstSteps', 'Wallet', 'Favorites', 'VideoUpload', 'AuthXCallback', 'TestApi', 'nonAccount'];
+  const publicPages = ['Home', 'fan', 'WaitList', 'WaitListStats', 'FirstSteps', 'Wallet', 'Favorites', 'VideoUpload', 'AuthXCallback', 'TestApi', 'nonAccount'];
   const authRequired = !publicPages.includes(to.name);
 
   if (authRequired && !store.getters.loggedIn) {

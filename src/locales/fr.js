@@ -61,7 +61,7 @@ export default { // Français
     AppBar:{
         home: 'Accueil',
         wallet: 'Portefeuille',
-        firstSteps: 'Premiers pas',
+        firststeps: 'Premiers pas',
         purchased: 'Acheté',
         favorites: 'Favoris',
         account: 'Compte',

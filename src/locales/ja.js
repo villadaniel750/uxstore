@@ -61,7 +61,7 @@ export default { //japonés
     AppBar:{
         home: 'ホームページ',
         wallet: '財布',
-        firstSteps: '最初のステップ',
+        firststeps: '最初のステップ',
         purchased: '購入済み',
         favorites: 'お気に入り',
         account: 'アカウント',

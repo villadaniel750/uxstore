@@ -74,15 +74,15 @@
           </template>
         </v-tooltip>
   
-        <v-tooltip :text="$t('AppBar.firstSteps')">
+        <v-tooltip :text="$t('AppBar.firststeps')">
           <template v-slot:activator="{ props }">
             <v-list-item
-              :active="activeItem === 'firstSteps'"
+              :active="activeItem === 'FirstSteps'"
               v-bind="props"
               prepend-icon="mdi-sprout-outline"
-              :title="$t('AppBar.firstSteps')"
-              value="firstSteps"
-              to="/firstSteps"
+              :title="$t('AppBar.firststeps')"
+              value="firststeps"
+              to="/firststeps"
               exact
               :disabled="!loggedIn"
             ></v-list-item>

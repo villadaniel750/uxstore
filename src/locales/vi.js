@@ -62,7 +62,7 @@ export default { // Tiếng Việt
     AppBar:{
         home: 'Trang chủ',
         wallet: 'Ví',
-        firstSteps: 'Bước đầu',
+        firststeps: 'Bước đầu',
         purchased: 'Đã mua',
         favorites: 'Yêu thích',
         account: 'Tài khoản',

@@ -61,7 +61,7 @@ export default { // 한국어
     AppBar:{
         home: '홈',
         wallet: '지갑',
-        firstSteps: '첫 번째 단계',
+        firststeps: '첫 번째 단계',
         purchased: '구매함',
         favorites: '즐겨찾기',
         account: '계정',

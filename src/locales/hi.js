@@ -62,7 +62,7 @@ export default { // Hindi
     AppBar:{
         home: 'होम',
         wallet: 'बटुआ',
-        firstSteps: 'प्रथम कदम',
+        firststeps: 'प्रथम कदम',
         purchased: 'खरीदा हुआ',
         favorites: 'पसंदीदा',
         account: 'खाता',

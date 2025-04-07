@@ -61,7 +61,7 @@ export default { // Chino (simplificado)
     AppBar:{
         home: '主页',
         wallet: '钱包',
-        firstSteps: '第一步',
+        firststeps: '第一步',
         purchased: '已购买',
         favorites: '收藏夹',
         account: '帐户',

@@ -1,57 +1,89 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
-      <!-- <v-img contain height="300" src="@/assets/fire.svg" />
+      <v-img contain height="300" src="@/assets/fire.svg" />
 
-        <div class="text-body-2 font-weight-light mb-n1">{{ $t("Common.welcome") }}</div>
+      <div class="text-body-2 font-weight-light mb-n1">
+        {{ $t("Common.welcome") }}
+      </div>
 
-        <h1 class="text-h3">
-            <b class="font-weight-medium">EARNLUMENS</b>
-        </h1>
+      <h1 class="text-h3">
+        <b class="font-weight-medium">EARNLUMENS</b>
+      </h1>
 
-        <div class="text-body-2 font-weight-regular pt-1 text-medium-emphasis">{{ $t("Common.shortAbout") }}</div>
+      <div class="text-body-2 font-weight-regular pt-1 text-medium-emphasis">
+        {{ $t("Common.shortAbout") }}
+      </div>
 
-        <div class="py-3" />
+      <div class="py-3" />
 
-        <div class="d-flex justify-center">
-            <v-row justify="center">
-                <v-col cols="12" md="10" lg="8" xl="6">
-                    <blockquote class="v-blockquote">
-                        <span class="text-body-1 text-high-emphasis">{{ $t("Common.blockquote") }}</span>
-                    </blockquote>
-                </v-col>
-            </v-row>
-        </div>
-
-        <div class="py-3" />
-
-        <v-row class="d-flex align-center justify-center">
-            <v-col cols="auto">
-                <v-btn href="https://stellar.org/learn/lumens" min-width="164" rel="noopener noreferrer" target="_blank" variant="text">
-                    <img :src="stellarIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;" />
-                    {{ $t("Home.aboutXLM") }}
-                </v-btn>
-            </v-col>
-
-            <v-col cols="auto">
-
-                <v-btn color="primary" min-width="228" rel="noopener noreferrer" size="x-large" variant="flat" @click="this.$router.push({ name: 'WaitList' });">
-                    <v-icon icon="mdi-calendar-clock" size="large" start />
-
-                    {{ $t("Home.joinWaitlist") }}
-                </v-btn>
-            </v-col>
-
-            <v-col cols="auto">
-                <v-btn href="https://twitter.com/earnlumens" min-width="164" rel="noopener noreferrer" target="_blank" variant="text">
-                    <img :src="xIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;" />
-                    {{ $t("Home.community") }}
-                </v-btn>
-            </v-col>
+      <div class="d-flex justify-center">
+        <v-row justify="center">
+          <v-col cols="12" md="10" lg="8" xl="6">
+            <blockquote class="v-blockquote">
+              <span class="text-body-1 text-high-emphasis">{{
+                $t("Common.blockquote")
+              }}</span>
+            </blockquote>
+          </v-col>
         </v-row>
+      </div>
 
-        <div class="py-3" />
-        <div class="py-3" /> -->
+      <div class="py-3" />
+
+      <v-row class="d-flex align-center justify-center">
+        <v-col cols="auto">
+          <v-btn
+            href="https://stellar.org/learn/lumens"
+            min-width="164"
+            rel="noopener noreferrer"
+            target="_blank"
+            variant="text"
+          >
+            <img
+              :src="stellarIconPath"
+              alt="Twitter"
+              style="height: 24px; width: 24px; margin-right: 8px"
+            />
+            {{ $t("Home.aboutXLM") }}
+          </v-btn>
+        </v-col>
+
+        <v-col cols="auto">
+          <v-btn
+            color="primary"
+            min-width="228"
+            rel="noopener noreferrer"
+            size="x-large"
+            variant="flat"
+            @click="this.$router.push({ name: 'WaitList' })"
+          >
+            <v-icon icon="mdi-calendar-clock" size="large" start />
+
+            {{ $t("Home.joinWaitlist") }}
+          </v-btn>
+        </v-col>
+
+        <v-col cols="auto">
+          <v-btn
+            href="https://twitter.com/earnlumens"
+            min-width="164"
+            rel="noopener noreferrer"
+            target="_blank"
+            variant="text"
+          >
+            <img
+              :src="xIconPath"
+              alt="Twitter"
+              style="height: 24px; width: 24px; margin-right: 8px"
+            />
+            {{ $t("Home.community") }}
+          </v-btn>
+        </v-col>
+      </v-row>
+
+      <div class="py-3" />
+      <div class="py-3" />
 
       <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
         <div

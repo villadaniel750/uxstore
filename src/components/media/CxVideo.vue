@@ -18,6 +18,15 @@
       </template>
       <template v-else>
         <div class="position-relative">
+          <v-overlay
+            :model-value="blocked"
+            class="align-end pb-3 pl-3"
+            scrim="grey-darken-1"
+            opacity="0.6"
+            persistent
+            contained
+          >
+          </v-overlay>
           <v-img
             :lazy-src="lazySrc"
             :src="src"
@@ -144,15 +153,6 @@
           </v-list>
         </v-menu>
       </div>
-      <v-overlay
-        :model-value="blocked"
-        class="align-end pb-3 pl-3"
-        scrim="grey-darken-1"
-        opacity="0.6"
-        persistent
-        contained
-      >
-      </v-overlay>
     </div>
   </v-card>
 </template>

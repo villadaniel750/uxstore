@@ -1,6 +1,6 @@
 <template>
     <v-container >
-        <cx-fan-header></cx-fan-header>
+        <cx-fan-header :profileBadge="1"></cx-fan-header>
         <cx-tab-body></cx-tab-body>
     </v-container>
   </template>

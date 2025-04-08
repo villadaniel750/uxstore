@@ -61,14 +61,13 @@ export default { // Malayo
     AppBar:{
         home: 'Laman Utama',
         wallet: 'Wallet',
-        forFree: 'Percuma',
+        firststeps: 'Langkah Pertama',
         purchased: 'Dibeli',
         favorites: 'Kegemaran',
         account: 'Akaun',
-        premieres: 'Premier',
-        mostSold: 'Paling laris',
-        offers: 'Tawaran',
-        topRated: 'Top Rated',
+        Ecosystem: 'Ecosystem',
+        community: 'Komuniti',
+        Explore: 'Cari',
         featured: 'Ditampilkan',
     },
     Language: {

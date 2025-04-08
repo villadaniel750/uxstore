@@ -61,14 +61,13 @@ export default { //japonés
     AppBar:{
         home: 'ホームページ',
         wallet: '財布',
-        forFree: '無料',
+        firststeps: '最初のステップ',
         purchased: '購入済み',
         favorites: 'お気に入り',
         account: 'アカウント',
-        premieres: '新作映画',
-        mostSold: '最も売れている',
-        offers: 'オファー',
-        topRated: 'トップ評価',
+        Ecosystem: 'エコシステム',
+        community: 'コミュニティ',
+        Explore: '探索',
         featured: '注目',
     },
     Language: {

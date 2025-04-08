@@ -61,14 +61,13 @@ export default { // Chino (tradicional)
     AppBar:{
         home: '主頁',
         wallet: '錢包',
-        forFree: '免費',
+        firststeps: '第一步',
         purchased: '已購買',
         favorites: '收藏夾',
         account: '帳戶',
-        premieres: '首映',
-        mostSold: '最暢銷',
-        offers: '優惠',
-        topRated: '最高評分',
+        Ecosystem: '生態系統',
+        community: '社區',
+        Explore: '探索',
         featured: '推薦',
     },
     Language: {

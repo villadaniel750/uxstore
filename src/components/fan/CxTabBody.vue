@@ -6,7 +6,7 @@
         color="orange-accent-2"
       >
       <v-tab :value="1" prepend-icon="mdi-view-grid">Entries</v-tab>
-      <v-tab :value="2" prepend-icon="mdi-post">Posts</v-tab>
+      <v-tab :value="2" prepend-icon="mdi-post" disabled>Posts</v-tab>
       </v-tabs>
   
       <v-tabs-window v-model="tab">

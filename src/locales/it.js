@@ -62,14 +62,13 @@ export default { // Italiano
     AppBar:{
         home: 'Home',
         wallet: 'Portafoglio',
-        forFree: 'Gratis',
+        firststeps: 'Primi passi',
         purchased: 'Acquistati',
         favorites: 'Preferiti',
         account: 'Account',
-        premieres: 'Prime Visioni',
-        mostSold: 'Più Venduti',
-        offers: 'Offerte',
-        topRated: 'Più Votati',
+        Ecosystem: 'Ecosistema',
+        community: 'Comunità',
+        Explore: 'Esplora',
         featured: 'In Evidenza',
     },
     Language: {

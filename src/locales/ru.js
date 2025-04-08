@@ -61,14 +61,13 @@ export default { // Ruso
     AppBar:{
         home: 'Главная',
         wallet: 'кошелек',
-        forFree: 'бесплатно',
+        firststeps: 'первые шаги',
         purchased: 'приобретенный',
         favorites: 'избранное',
         account: 'учетная запись',
-        premieres: 'премьеры',
-        mostSold: 'самый продаваемый',
-        offers: 'предложения',
-        topRated: 'самый популярный',
+        Ecosystem: 'экосистема',
+        community: 'сообщество',
+        Explore: 'исследовать',
         featured: 'рекомендуемый',
     },
     Language: {

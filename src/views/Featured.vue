@@ -13,22 +13,6 @@
         <div class="pa-0 ma-0 d-flex justify-center">
           <CxUser :username="'test username'" :profile_image_url="img.src" />
         </div>
-        <!-- <v-img
-          :lazy-src="img.lazySrc"
-          :src="img.src"
-          alt="Image"
-          class="mb-2"
-          aspect-ratio="16/9"
-          rounded="lg"
-          @loadstart="loading[index] = true"
-          @load="loading[index] = false"
-        >
-          <template #placeholder>
-            <v-row class="fill-height ma-0" align="center" justify="center">
-              <v-progress-circular indeterminate color="primary" />
-            </v-row>
-          </template>
-        </v-img> -->
       </v-col>
     </v-row>
   </v-container>

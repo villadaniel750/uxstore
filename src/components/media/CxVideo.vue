@@ -1,7 +1,7 @@
 <template>
   <v-card
-    variant="plain"
     rounded="lg"
+    variant="text"
     style="height: 230px"
     class="d-flex flex-column bg-transparent"
   >

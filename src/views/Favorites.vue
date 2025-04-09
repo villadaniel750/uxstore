@@ -10,30 +10,18 @@
         lg="3"
         xl="2"
       >
-        <div v-if="loading[index]">
-          <v-skeleton-loader
-            height="240"
-            :type="`card-avatar, list-item-avatar-two-line`"
-            class="mx-auto"
-            >
-              <template v-slot:default>
-                <v-card-text>
-                  <v-skeleton-loader type="image, list-item-avatar-two-line"></v-skeleton-loader>
-                </v-card-text>
-              </template>
-            </v-skeleton-loader>
-        </div>
-        <div v-else>
+        <div>
           <CxVideo
+            :loading="loading[index]"
             :lazy-src="img.lazySrc"
             :src="img.src"
-            :blocked="index%3===1"
-            :isPlaylist="index%4===1"
+            :blocked="index % 3 === 1"
+            :isPlaylist="index % 4 === 1"
             :playlist-count="index + 1"
             title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
             username="Shamus"
             uploadDate="2024/10/7"
-            :profileBadge="index%3"
+            :profileBadge="index % 3"
           />
         </div>
       </v-col>
@@ -42,11 +30,11 @@
 </template>
 
 <script>
-import CxVideo from '@/components/media/CxVideo.vue';
+import CxVideo from "@/components/media/CxVideo.vue";
 
 export default {
   components: {
-    CxVideo
+    CxVideo,
   },
   data() {
     return {
@@ -54,17 +42,17 @@ export default {
         const index = i + 1;
         return {
           lazySrc: `https://picsum.photos/10/6?image=${index * 5 + 10}`,
-          src: `https://picsum.photos/500/300?image=${index * 5 + 10}`
+          src: `https://picsum.photos/500/300?image=${index * 5 + 10}`,
         };
       }),
-      loading: Array(18).fill(true)
+      loading: Array(18).fill(true),
     };
   },
   mounted() {
     setTimeout(() => {
       this.loading = this.loading.map(() => false);
     }, 1000);
-  }
+  },
 };
 </script>
 

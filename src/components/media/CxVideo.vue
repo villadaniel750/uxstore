@@ -53,7 +53,7 @@
         <div class="position-relative">
           <v-btn
             v-if="blocked"
-            class="text-none position-absolute left-0 bottom-0 bg-black ml-3 mb-3"
+            class="text-none position-absolute left-0 bottom-0 ml-3 mb-3"
             style="z-index: 2"
             size="small"
             prepend-icon="mdi-lock"

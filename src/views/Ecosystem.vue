@@ -10,41 +10,79 @@
         lg="3"
         xl="2"
       >
-        <v-img
-          :lazy-src="img.lazySrc"
-          :src="img.src"
-          alt="Image"
-          class="mb-2"
-          aspect-ratio="16/9"
-          rounded="lg"
-          @loadstart="loading[index] = true"
-          @load="loading[index] = false"
-        >
-          <template #placeholder>
-            <v-row class="fill-height ma-0" align="center" justify="center">
-              <v-progress-circular indeterminate color="primary" />
-            </v-row>
-          </template>
-        </v-img>
+        <div>
+          <CxVideo
+            :loading="loading[index]"
+            :lazy-src="img.lazySrc"
+            :src="img.src"
+            :blocked="index % 3 === 1"
+            :isPlaylist="index % 4 === 1"
+            :playlist-count="index + 1"
+            title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it"
+            username="Shamus"
+            uploadDate="2024/10/7"
+            :profileBadge="index % 3"
+          />
+        </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import CxVideo from "@/components/media/CxVideo.vue";
+
 export default {
+  components: {
+    CxVideo,
+  },
   data() {
     return {
-      // Array de imágenes, que luego puedes reemplazar con la respuesta de tu webservice.
       images: Array.from({ length: 18 }, (_, i) => {
         const index = i + 1;
         return {
           lazySrc: `https://picsum.photos/10/6?image=${index * 5 + 10}`,
-          src: `https://picsum.photos/500/300?image=${index * 5 + 10}`
+          src: `https://picsum.photos/500/300?image=${index * 5 + 10}`,
         };
       }),
-      loading: Array(18).fill(false) // loading state for each image
+      loading: Array(18).fill(true),
     };
-  }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.loading = this.loading.map(() => false);
+    }, 1000);
+  },
 };
 </script>
+
+<style scoped>
+.v-skeleton-loader {
+  border-radius: 6px;
+  width: 290px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__image {
+  height: 146px;
+  border-radius: 6px;
+}
+
+/* Dark mode specific styling */
+:deep(.v-theme--dark) .v-skeleton-loader {
+  background: rgb(18, 18, 18) !important;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__avatar {
+  width: 24px;
+  height: 24px;
+  margin-right: 2px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__text {
+  margin-top: 6px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__list-item-avatar-two-line {
+  padding: 2px;
+}
+</style>

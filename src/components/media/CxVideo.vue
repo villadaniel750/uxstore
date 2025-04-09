@@ -233,4 +233,12 @@ export default {
   text-overflow: ellipsis;
   white-space: normal; /* Allows text to wrap */
 }
+.v-skeleton-loader {
+  border-radius: 10px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__image {
+  height: 146px;
+  border-radius: 10px;
+}
 </style>

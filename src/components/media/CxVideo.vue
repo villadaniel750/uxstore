@@ -1,9 +1,14 @@
 <template>
-  <v-card rounded="lg" style="height: 250px" class="d-flex flex-column">
+  <v-card
+    variant="plain"
+    rounded="lg"
+    style="height: 230px"
+    class="d-flex flex-column bg-transparent"
+  >
     <div class="flex-grow-1 relative">
       <template v-if="loading">
         <v-skeleton-loader
-          style="height: 250px"
+          style="height: 230px"
           :type="`card-avatar, list-item-avatar-two-line`"
           class="mx-auto"
         >
@@ -20,7 +25,7 @@
         <div class="position-relative">
           <v-overlay
             :model-value="blocked"
-            class="align-end pb-3 pl-3"
+            class="align-end pb-3 pl-3 rounded-lg"
             scrim="grey-darken-1"
             opacity="0.6"
             persistent

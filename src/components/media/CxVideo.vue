@@ -26,6 +26,7 @@
           <v-overlay
             :model-value="blocked"
             class="align-end pb-3 pl-3 rounded-lg"
+            style="z-index: 1"
             scrim="grey-darken-1"
             opacity="0.6"
             persistent
@@ -38,6 +39,7 @@
             alt="Image"
             aspect-ratio="16/9"
             rounded="lg"
+            :class="{ 'opacity-60': blocked }"
             @loadstart="$emit('loadstart')"
             @load="loadFinished"
           >
@@ -47,9 +49,12 @@
               </v-row>
             </template>
           </v-img>
+        </div>
+        <div class="position-relative">
           <v-btn
             v-if="blocked"
-            class="text-none position-absolute left-0 bottom-0 text-body-2 bg-black rounded pb-1 pt-1 pl-1 pr-1 ml-3 mb-3 elevation-2"
+            class="text-none position-absolute left-0 bottom-0 bg-black ml-3 mb-3"
+            style="z-index: 2"
             size="small"
             prepend-icon="mdi-lock"
           >

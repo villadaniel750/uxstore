@@ -111,6 +111,7 @@
               value="purchased"
               to="/purchased"
               exact
+              :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>
@@ -187,6 +188,7 @@
               value="account"
               to="/account"
               exact
+              :disabled="!loggedIn"
               ></v-list-item>
             </template>
           </v-tooltip>

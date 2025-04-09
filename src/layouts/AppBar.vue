@@ -84,7 +84,6 @@
               value="firststeps"
               to="/firststeps"
               exact
-              :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>
@@ -131,7 +130,6 @@
               value="ecosystem"
               to="/ecosystem"
               exact
-              :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>
@@ -146,7 +144,6 @@
               value="community"
               to="/community"
               exact
-              :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>
@@ -161,7 +158,6 @@
               value="featured"
               to="/featured"
               exact
-              :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>
@@ -176,7 +172,6 @@
               value="explore"
               to="/explore"
               exact
-              :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>
@@ -194,10 +189,11 @@
               to="/account"
               exact
               :disabled="!loggedIn"
-            ></v-list-item>
-          </template>
-        </v-tooltip>
-  
+              ></v-list-item>
+            </template>
+          </v-tooltip>
+          
+          <!-- :disabled="!loggedIn" -->
         <!-- Rail item is positioned at the bottom -->
   
         <v-list-item style="position: fixed; bottom: 0" @click="rail = !rail">

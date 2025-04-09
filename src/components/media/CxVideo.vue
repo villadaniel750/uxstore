@@ -2,7 +2,7 @@
   <v-card
     rounded="lg"
     variant="text"
-    style="height: 230px"
+    style="min-height: 230px"
     class="d-flex flex-column bg-transparent"
   >
     <div class="flex-grow-1 relative">

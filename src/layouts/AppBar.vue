@@ -97,6 +97,7 @@
               value="favorites"
               to="/favorites"
               exact
+              :disabled="!loggedIn"
             ></v-list-item>
           </template>
         </v-tooltip>

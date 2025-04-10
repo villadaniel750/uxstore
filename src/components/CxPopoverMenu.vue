@@ -17,8 +17,9 @@
                 <v-list-item>
                     <v-switch v-model="darkMode" color="amber-lighten-1" label="Dark Mode" hide-details @change="toggleTheme"></v-switch>
                 </v-list-item>
-                <v-list-item>
+                <v-list-item> 
                     <v-btn color="primary" variant="text" @click="navigateToVideoUpload">
+                        <v-icon class="me-2">mdi-cloud-upload-outline</v-icon>
                         {{ $t("Common.upload") }}                        
                     </v-btn>
                 </v-list-item>

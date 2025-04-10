@@ -3,7 +3,7 @@
     <v-row justify="center" align="center">
       <v-col key="0" cols="12" sm="12" md="12" lg="5" xl="5">
         <label for="images1" class="drop-container d-flex flex-column align-center justify-center cursor-pointer darken-1 rounded-10 pa-4 rounded-lg" id="dropcontainer" style="height: 280px;">
-          <img src="/src/assets/file-upload.svg" alt="Twitter" class="mt-3" style="height: 70px; width: 70px;" />
+          <img src="/src/assets/file-upload.svg" alt="FileUpload" class="mt-3" style="height: 70px; width: 70px;" />
           <span class="text-h6 drop-title mb-6">Drag and drop files here</span>
           <input type="file" class="d-none" id="images1" accept="image/*" required>
         </label>
@@ -33,10 +33,10 @@
     <v-row justify="center">
       <v-col key="0" cols="12" sm="12" md="12" lg="4" xl="4">
         <v-checkbox v-model="agreeTerms" label="I agree to the terms and conditions"></v-checkbox>
-        <div class="d-flex">
-          <v-btn class="me-4" @click="preview">Preview</v-btn>
-          <v-btn class="me-4" @click="saveAsDraft">Save as Draft</v-btn>
-          <v-btn @click="publish">Publish</v-btn>
+        <div class="d-flex flex-wrap justify-center align-center mt-4">
+          <v-btn class="me-4 my-2" @click="preview">Preview</v-btn>
+          <v-btn class="me-4 my-2" @click="saveAsDraft">Save as Draft</v-btn>
+          <v-btn class="my-2" @click="publish">Publish</v-btn>
         </div>
       </v-col>
     </v-row>

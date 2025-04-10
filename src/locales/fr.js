@@ -26,6 +26,7 @@ export default { // Français
         accept: 'Accepter',
         nonAccount: 'Ce compte n’existe pas.',
         nonAccountTry: 'Essayez de rechercher un autre.',
+        upload: 'Télécharger',
     },
     CxDeposit: {
         snackbarSuccess: 'Adresse copiée dans le presse-papiers',

@@ -26,6 +26,7 @@ export default { // Português
         accept: 'Aceitar',
         nonAccount: 'Este conta não existe.',
         nonAccountTry: 'Tente procurar outro.',
+        upload: 'Carregar',
     },
     CxDeposit: {
         snackbarSuccess: 'Endereço copiado para a área de transferência',

@@ -121,13 +121,13 @@
   
         <v-divider></v-divider>
      
-        <v-tooltip :text="$t('AppBar.Ecosystem')">
+        <v-tooltip :text="$t('AppBar.ecosystem')">
           <template v-slot:activator="{ props }">
             <v-list-item
               :active="activeItem === 'Ecosystem'"
               v-bind="props"
               prepend-icon="mdi-creation"
-              :title="$t('AppBar.Ecosystem')"
+              :title="$t('AppBar.ecosystem')"
               value="ecosystem"
               to="/ecosystem"
               exact
@@ -163,13 +163,13 @@
           </template>
         </v-tooltip>
   
-        <v-tooltip :text="$t('AppBar.Explore')">
+        <v-tooltip :text="$t('AppBar.explore')">
           <template v-slot:activator="{ props }">
             <v-list-item
               :active="activeItem === 'Explore'"
               v-bind="props"
               prepend-icon="mdi-compass-outline"
-              :title="$t('AppBar.Explore')"
+              :title="$t('AppBar.explore')"
               value="explore"
               to="/explore"
               exact

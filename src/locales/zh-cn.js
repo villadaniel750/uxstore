@@ -26,6 +26,7 @@ export default { // Chino (simplificado)
         accept: '接受',
         nonAccount: '此帐户不存在。',
         nonAccountTry: '尝试搜索其他帐户。',
+        upload: '上传',
     },
     CxDeposit: {
         snackbarSuccess: '地址已复制到剪贴板',

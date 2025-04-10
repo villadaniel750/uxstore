@@ -26,6 +26,7 @@ export default { // Ucraniano
         accept: 'Прийняти',
         nonAccount: 'Цей обліковий запис не існує.',
         nonAccountTry: 'Спробуйте знайти інший.',
+        upload: 'Завантажити',
     },
     CxDeposit: {
         snackbarSuccess: 'Адреса скопійована до буфера обміну',

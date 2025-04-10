@@ -26,6 +26,7 @@ export default { // Alemán
         accept: 'Akzeptieren',
         nonAccount: 'Dieser Account existiert nicht.',
         nonAccountTry: 'Versuche, einen anderen zu suchen.',
+        upload: 'Hochladen',
     },
     CxDeposit: {
         snackbarSuccess: 'Adresse in Zwischenablage kopiert',

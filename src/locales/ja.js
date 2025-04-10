@@ -26,6 +26,7 @@ export default { //japonés
         accept: '受け入れる',
         nonAccount: 'このアカウントは存在しません。',
         nonAccountTry: '別のアカウントを検索してください。',
+        upload: 'アップロード',
     },
     CxDeposit: {
         snackbarSuccess: 'アドレスがクリップボードにコピーされました',

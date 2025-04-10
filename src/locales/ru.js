@@ -26,6 +26,7 @@ export default { // Ruso
         accept: 'принять',
         nonAccount: 'Этот аккаунт не существует.',
         nonAccountTry: 'Попробуйте найти другой.',
+        upload: 'загрузить',
     },
     CxDeposit: {
         snackbarSuccess: 'Адрес скопирован в буфер обмена',

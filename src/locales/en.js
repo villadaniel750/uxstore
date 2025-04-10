@@ -27,6 +27,7 @@ export default { // Inglés
         nonAccount: 'This account doesn\'t exist.',
         addWallet: 'Add Wallet',
         nonAccountTry: 'Try searching for another.',
+        upload: 'Upload',
     },
     CxDeposit: {
         snackbarSuccess: 'Address copied to clipboard',
@@ -66,10 +67,10 @@ export default { // Inglés
         purchased: 'Purchased',
         favorites: 'Favorites',
         account: 'Account',
-        Ecosystem: 'Ecosystem',
+        ecosystem: 'Ecosystem',
         community: 'Community',
         featured: 'Featured',
-        Explore: 'Explore',
+        explore: 'Explore',
     },
     Language: {
         spanish: 'Spanish',

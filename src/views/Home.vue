@@ -223,7 +223,7 @@
               color="transparent"
             >
               <CxUser
-                :username="'test username'"
+                :username="'username'"
                 :profile_image_url="img.src"
               />
             </v-card>

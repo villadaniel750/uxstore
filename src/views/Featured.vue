@@ -2,16 +2,15 @@
   <v-container fluid>
     <v-row>
       <v-col
-        v-for="(img, index) in images"
-        :key="index"
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
-        xl="2"
-      >
+  v-for="(img, index) in images"
+  :key="index"
+  sm="6"
+  md="4"
+  lg="3"
+  xl="2"
+>
         <div class="pa-0 ma-0 d-flex justify-center">
-          <CxUser :username="'test username'" :profile_image_url="img.src" />
+          <CxUser :username="'username'" :profile_image_url="img.src" />
         </div>
       </v-col>
     </v-row>

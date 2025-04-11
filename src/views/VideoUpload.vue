@@ -1,9 +1,9 @@
 <template>
   <v-container fluid>
-    <v-list-item :active="activeItem === 'videoUpload'" v-slot:prepend="" class="my-4">
+    <v-list-item :active="activeItem === 'videoUpload'" v-slot:prepend="" class="mb-4">
       <v-icon color="primary" size="24">mdi-cloud-upload-outline</v-icon>
       <v-list-item-title  class="ml-3 text-h6">
-        {{ $t('AppBar.upload') }}
+        {{ $t('Common.upload') }}
       </v-list-item-title>
     </v-list-item>
     <v-row justify="center" align="center">
@@ -19,7 +19,7 @@
       </v-col>
       <v-col key="1" cols="12" sm="12" md="12" lg="5" xl="5">
         <v-text-field label="Title" v-model="videoTitle" outlined></v-text-field>
-        <v-text-field label="Category Tags" v-model="categoryTags" outlined></v-text-field>
+        <v-textarea label="Category Tags" v-model="categoryTags" outlined :maxlength="600" :counter="600"></v-textarea>
         <div class="d-flex ga-4 align-center">
           <label for="images2" class="drop-container d-flex flex-column align-center justify-center cursor-pointer darken-1 rounded-10 pa-2 rounded-lg" id="dropcontainer">
             <span class="text-subtitle-1 drop-title">Thumbnail</span>

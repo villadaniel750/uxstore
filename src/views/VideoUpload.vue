@@ -1,13 +1,9 @@
 <template>
   <v-container fluid>
-    <v-list-item
-      :active="activeItem === 'videoUpload'"
-      v-slot:prepend=""
-      class="my-4"
-    >
+    <v-list-item :active="activeItem === 'videoUpload'" v-slot:prepend="" class="my-4">
       <v-icon color="primary" size="24">mdi-cloud-upload-outline</v-icon>
-      <v-list-item-title class="ml-3 text-h6">
-        {{ $t("AppBar.upload") }}
+      <v-list-item-title  class="ml-3 text-h6">
+        {{ $t('Common.upload') }}
       </v-list-item-title>
     </v-list-item>
     <v-row justify="center" align="center">
@@ -36,16 +32,8 @@
         <v-btn class="mt-3 w-100"> Upload </v-btn>
       </v-col>
       <v-col key="1" cols="12" sm="12" md="12" lg="5" xl="5">
-        <v-text-field
-          label="Title"
-          v-model="videoTitle"
-          outlined
-        ></v-text-field>
-        <v-text-field
-          label="Category Tags"
-          v-model="categoryTags"
-          outlined
-        ></v-text-field>
+        <v-text-field label="Title" v-model="videoTitle" outlined></v-text-field>
+        <v-text-field label="Category Tags" v-model="categoryTags" outlined></v-text-field>
         <div class="d-flex ga-4 align-center">
           <label
             for="images2"

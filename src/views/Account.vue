@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-list-item :active="activeItem === 'account'" v-slot:prepend="" class="my-4">
+    <v-list-item :active="activeItem === 'account'" v-slot:prepend="" class="mb-4">
       <v-icon color="primary" size="24">mdi-account-outline</v-icon>
       <v-list-item-title  class="ml-3 text-h6">
         {{ $t('AppBar.account') }}

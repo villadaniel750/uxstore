@@ -1,5 +1,11 @@
 <template>
   <v-container fluid>
+    <v-list-item :active="activeItem === 'firstSteps'" v-slot:prepend="" class="mb-4">
+      <v-icon color="primary" size="24">mdi-lightbulb-on-outline</v-icon>
+      <v-list-item-title  class="ml-3 text-h6">
+        {{ $t('AppBar.firststeps') }}
+      </v-list-item-title>
+    </v-list-item>
     <v-row>
       <v-col
         v-for="(img, index) in images"

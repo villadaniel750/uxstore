@@ -66,10 +66,10 @@ export default { // Turco
         purchased: 'Satın Alınan',
         favorites: 'Favoriler',
         account: 'Hesap',
-        Ecosystem: 'Ecosystem',
+        ecosystem: 'Ecosystem',
         community: 'Topluluk',
         featured: 'Öne Çıkan',
-        Explore: 'Keşfet',
+        explore: 'Keşfet',
         featured: 'Öne Çıkan',
     },
     Language: {

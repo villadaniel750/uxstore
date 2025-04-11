@@ -66,10 +66,10 @@ export default { // Chino (simplificado)
         purchased: '已购买',
         favorites: '收藏夹',
         account: '帐户',
-        Ecosystem: '生态系统',
+        ecosystem: '生态系统',
         community: '社区',
         featured: '推荐',
-        Explore: '探索',
+        explore: '探索',
         featured: '推荐',
     },
     Language: {

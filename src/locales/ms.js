@@ -66,10 +66,10 @@ export default { // Malayo
         purchased: 'Dibeli',
         favorites: 'Kegemaran',
         account: 'Akaun',
-        Ecosystem: 'Ecosystem',
+        ecosystem: 'Ecosystem',
         community: 'Komuniti',
-        Explore: 'Cari',
-        featured: 'Ditampilkan',
+        explore: 'Cari',
+        featured: 'Ditampilkan',    
     },
     Language: {
         spanish: 'Sepanyol',

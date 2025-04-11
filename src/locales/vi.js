@@ -67,9 +67,9 @@ export default { // Tiếng Việt
         purchased: 'Đã mua',
         favorites: 'Yêu thích',
         account: 'Tài khoản',
-        Ecosystem: 'Ecosystem',
+        ecosystem: 'Ecosystem',
         community: 'Cộng đồng',
-        Explore: 'Khám phá',
+        explore: 'Khám phá',
         featured: 'Ưu đãi',
     },
     Language: {

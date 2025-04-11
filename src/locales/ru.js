@@ -66,9 +66,9 @@ export default { // Ruso
         purchased: 'приобретенный',
         favorites: 'избранное',
         account: 'учетная запись',
-        Ecosystem: 'экосистема',
+        ecosystem: 'экосистема',
         community: 'сообщество',
-        Explore: 'исследовать',
+        explore: 'исследовать',
         featured: 'рекомендуемый',
     },
     Language: {

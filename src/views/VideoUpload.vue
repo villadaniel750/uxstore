@@ -6,7 +6,7 @@
         {{ $t('Common.upload') }}
       </v-list-item-title>
     </v-list-item>
-    <v-row justify="center" align="center">
+    <v-row justify="center">
       <v-col key="0" cols="12" sm="12" md="12" lg="5" xl="5">
         <label
           for="images1"

@@ -33,7 +33,7 @@
       </v-col>
       <v-col key="1" cols="12" sm="12" md="12" lg="5" xl="5">
         <v-text-field label="Title" v-model="videoTitle" outlined></v-text-field>
-        <v-text-field label="Category Tags" v-model="categoryTags" outlined></v-text-field>
+        <v-textarea label="Description" v-model="categoryTags" outlined :maxlength="600" :counter="600"></v-textarea>
         <div class="d-flex ga-4 align-center">
           <label
             for="images2"
@@ -69,10 +69,10 @@
           v-model="agreeTerms"
           label="I agree to the terms and conditions"
         ></v-checkbox>
-        <div class="d-flex">
-          <v-btn class="me-4" @click="preview">Preview</v-btn>
-          <v-btn class="me-4" @click="saveAsDraft">Save as Draft</v-btn>
-          <v-btn @click="publish">Publish</v-btn>
+        <div class="d-flex flex-wrap">
+          <v-btn class="me-4 my-2" @click="preview">Preview</v-btn>
+          <v-btn class="me-4 my-2" @click="saveAsDraft">Save as Draft</v-btn>
+          <v-btn class="my-2" @click="publish">Publish</v-btn>
         </div>
       </v-col>
     </v-row>

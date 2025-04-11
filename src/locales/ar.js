@@ -26,6 +26,7 @@ export default { // Árabe
         accept: 'قبول',
         nonAccount: 'هذا الحساب غير موجود',
         nonAccountTry: 'حاول البحث عن حساب آخر',
+        upload: 'تحميل',
     },
     CxDeposit: {
         snackbarSuccess: 'تم نسخ العنوان إلى الحافظة',

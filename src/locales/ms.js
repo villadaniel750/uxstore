@@ -26,6 +26,7 @@ export default { // Malayo
         accept: 'Terima',
         nonAccount: 'Akaun ini tidak wujud.',
         nonAccountTry: 'Cari akaun lain.',
+        upload: 'Muat naik',
     },
     CxDeposit: {
         snackbarSuccess: 'Alamat disalin ke clipboard',

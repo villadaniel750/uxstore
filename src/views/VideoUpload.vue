@@ -1,5 +1,15 @@
 <template>
   <v-container fluid>
+    <v-list-item
+      :active="activeItem === 'videoUpload'"
+      v-slot:prepend=""
+      class="my-4"
+    >
+      <v-icon color="primary" size="24">mdi-cloud-upload-outline</v-icon>
+      <v-list-item-title class="ml-3 text-h6">
+        {{ $t("AppBar.upload") }}
+      </v-list-item-title>
+    </v-list-item>
     <v-row justify="center" align="center">
       <v-col key="0" cols="12" sm="12" md="12" lg="5" xl="5">
         <label

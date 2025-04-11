@@ -27,6 +27,7 @@ export default { // Italiano
         accept: 'Accetta',
         nonAccount: 'Questo account non esiste.',
         nonAccountTry: 'Prova a cercare un altro.',
+        upload: 'Carica',
     },
     CxDeposit: {
         snackbarSuccess: 'Indirizzo copiato negli appunti',

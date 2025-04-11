@@ -26,6 +26,7 @@ export default { // Chino (tradicional)
         accept: '接受',
         nonAccount: '此帳戶不存在。',
         nonAccountTry: '嘗試搜索其他帳戶。',
+        upload: '上傳',
     },
     CxDeposit: {
         snackbarSuccess: '地址已複製到剪貼簿',

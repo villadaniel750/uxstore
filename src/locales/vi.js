@@ -26,6 +26,7 @@ export default { // Tiếng Việt
         accept: 'Chấp nhận',
         nonAccount: 'Tài khoản này không tồn tại.',
         nonAccountTry: 'Tìm kiếm tài khoản khác.',
+        upload: 'Tải lên',
     },
     CxDeposit: {
         snackbarSuccess: 'Địa chỉ đã được sao chép vào bảng tạm',

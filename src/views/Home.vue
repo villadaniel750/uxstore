@@ -97,7 +97,7 @@
             :ripple="false"
             append-icon="mdi-chevron-right"
           >
-            Stellar {{ $t("AppBar.Ecosystem") }}
+            Stellar {{ $t("AppBar.ecosystem") }}
           </v-btn>
         </div>
         <v-slide-group

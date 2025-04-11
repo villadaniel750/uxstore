@@ -66,9 +66,9 @@ export default { // Ucraniano
         purchased: 'Куплено',
         favorites: 'Улюблені',
         account: 'Аккаунт',
-        Ecosystem: 'Екосистема',
+        ecosystem: 'Екосистема',
         community: 'Спільнота',
-        Explore: 'Дослідити',
+        explore: 'Дослідити',
         featured: 'Рекомендовані',
     },
     Language: {

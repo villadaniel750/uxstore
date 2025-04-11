@@ -66,9 +66,9 @@ export default { // Hindi
         purchased: 'खरीदा हुआ',
         favorites: 'पसंदीदा',
         account: 'खाता',
-        Ecosystem: 'प्रीमियर',
+        ecosystem: 'प्रीमियर',
         community: 'समुदाय',
-        Explore: 'खोजें',
+        explore: 'खोजें',
         featured: 'फीचर्ड',
     },
     Language: {

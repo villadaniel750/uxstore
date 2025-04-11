@@ -66,9 +66,9 @@ export default { //japonés
         purchased: '購入済み',
         favorites: 'お気に入り',
         account: 'アカウント',
-        Ecosystem: 'エコシステム',
+        ecosystem: 'エコシステム',
         community: 'コミュニティ',
-        Explore: '探索',
+        explore: '探索',
         featured: '注目',
     },
     Language: {

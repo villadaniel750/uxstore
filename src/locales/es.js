@@ -66,9 +66,9 @@ export default { // Español
         purchased: 'Comprados',
         favorites: 'Favoritos',
         account: 'Cuenta',
-        Ecosystem: 'Ecosistema',
+        ecosystem: 'Ecosistema',
         community: 'Comunidad',
-        Explore: 'Explorar',
+        explore: 'Explorar',
         featured: 'Destacados',
     },
     Language: {

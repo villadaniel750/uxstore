@@ -66,9 +66,9 @@ export default { // Chino (tradicional)
         purchased: '已購買',
         favorites: '收藏夾',
         account: '帳戶',
-        Ecosystem: '生態系統',
+        ecosystem: '生態系統',
         community: '社區',
-        Explore: '探索',
+        explore: '探索',
         featured: '推薦',
     },
     Language: {

@@ -66,9 +66,9 @@ export default { // 한국어
         purchased: '구매함',
         favorites: '즐겨찾기',
         account: '계정',
-        Ecosystem: '생태계',
+        ecosystem: '생태계',
         community: '커뮤니티',
-        Explore: '탐색',
+        explore: '탐색',
         featured: '추천',
     },
     Language: {

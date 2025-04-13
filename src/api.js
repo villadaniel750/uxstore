@@ -109,13 +109,13 @@ function processXLogin(code, codeVerifier, redirectUri) {
     return axios.post(ENDPOINT_PATH + "auth/x/processXLogin", { code, codeVerifier, redirectUri });
   }
 
-function createSession(tempToken) {
+function createSession(tempUUID) {
     return axios.post(
         ENDPOINT_PATH + 'api/auth/session',
         {},
         {
             headers: {
-                Authorization: `Bearer ${tempToken}`,
+                UUID: tempUUID,
             },
             withCredentials: true,
         }

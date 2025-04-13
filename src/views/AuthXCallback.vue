@@ -24,7 +24,7 @@ export default {
   async mounted() {
     const query = new URLSearchParams(window.location.search);
     const error = query.get("error");
-    const token = query.get("token");
+    const token = query.get("UUID");
 
     if (error) {
       console.warn("Login fallido:", error);

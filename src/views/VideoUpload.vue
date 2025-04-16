@@ -53,7 +53,7 @@
         </div>
         <v-radio-group class="mt-1" v-model="videoType">
           <v-radio label="Free Video" value="free"></v-radio>
-          <v-radio label="Paid Video" value="paid"></v-radio>
+          <v-radio label="Paid Video" value="paid" @click="showPaidVideoDialog = true"></v-radio>
         </v-radio-group>
         <v-text-field
           label="Price"
@@ -76,6 +76,95 @@
         </div>
       </v-col>
     </v-row>
+
+    <v-dialog
+      v-model="showPaidVideoDialog"
+      max-width="600"
+      @update:model-value="onDialogClose"
+    >
+      <v-card class="px-4 pt-6">
+        <v-card-title class="text-h5 pa-4">
+          Transaction Details
+        </v-card-title>
+
+        <v-card-text>
+          <v-container>
+
+            <div class="">
+              <h2 class=" font-weight-bold mb-2">Video Information</h2>
+              <v-divider class="mb-3"></v-divider>
+              <h3 class="">Title: {{ videoTitle || 'Untitled Video' }}</h3>
+              <h4 class=" text-medium-emphasis mb-4">Description: {{ categoryTags || 'No description provided' }}</h4>
+            </div>
+
+
+            <div class="d-flex justify-space-between align-center mb-6">
+              <div class="text-h5 font-weight-bold">Total Amount</div>
+              <div class="text-h4 font-weight-bold primary--text">
+                {{ calculateTotal }} XLM
+              </div>
+            </div>
+
+
+            <div class="">
+              <h2 class=" font-weight-bold mb-2">Transaction Breakdown</h2>
+              <v-divider class="mb-3"></v-divider>
+
+              <v-list>
+                <v-list-item v-for="(operation, index) in transactionBreakdown" :key="index">
+                  <template v-slot:prepend>
+                    <v-chip
+                      size="small"
+                      :color="operation.color"
+                      class="font-weight-bold mr-2"
+                    >
+                      {{ operation.percentage }}%
+                    </v-chip>
+                  </template>
+
+                  <v-list-item-title>{{ operation.name }}</v-list-item-title>
+
+                  <template v-slot:append>
+                    <div class="text-body-1 font-weight-medium">
+                      {{ operation.amount }} XLM
+                    </div>
+                  </template>
+                </v-list-item>
+              </v-list>
+            </div>
+
+            <!-- Network Fee Warning -->
+            <v-alert
+              type="info"
+              variant="tonal"
+              density="comfortable"
+              class=""
+            >
+              Network fees may apply to this transaction
+            </v-alert>
+          </v-container>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="grey-darken-1"
+            variant="text"
+            @click="cancelPaidVideo"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            color="primary"
+            variant="elevated"
+            :loading="isProcessing"
+            @click="processPayment"
+          >
+            Pay {{ calculateTotal }} XLM
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -101,6 +190,10 @@
 .drop-container:hover .drop-title {
   color: #222;
 }
+
+.v-list-item {
+  min-height: 44px;
+}
 </style>
 
 <script>
@@ -112,18 +205,76 @@ export default {
       videoType: "free", // default to free
       price: "",
       agreeTerms: false,
+      showPaidVideoDialog: false,
+      priceAmount: 0,
+      isProcessing: false,
+      transactionBreakdown: [
+        {
+          name: 'Content Creator Share',
+          percentage: 85,
+          amount: 0,
+          color: 'primary'
+        },
+        {
+          name: 'Platform Fee',
+          percentage: 10,
+          amount: 0,
+          color: 'secondary'
+        },
+        {
+          name: 'Network Fee',
+          percentage: 5,
+          amount: 0,
+          color: 'grey'
+        }
+      ]
     };
   },
+  computed: {
+    calculateTotal() {
+      return this.priceAmount || 0;
+    }
+  },
+  watch: {
+    priceAmount: {
+      handler(newValue) {
+        // Update breakdown amounts when price changes
+        this.updateBreakdownAmounts(newValue);
+      },
+      immediate: true
+    }
+  },
   methods: {
-    preview() {
-      // Logic for previewing the video
+    updateBreakdownAmounts(total) {
+      this.transactionBreakdown = this.transactionBreakdown.map(item => ({
+        ...item,
+        amount: ((total * item.percentage) / 100).toFixed(2)
+      }));
     },
-    saveAsDraft() {
-      // Logic for saving as draft
+    cancelPaidVideo() {
+      this.showPaidVideoDialog = false;
+      this.videoType = 'free';
+      this.priceAmount = 0;
     },
-    publish() {
-      // Logic for publishing the video
+    async processPayment() {
+      this.isProcessing = true;
+      try {
+        // Payment processing logic will go here
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Simulated delay
+        this.showPaidVideoDialog = false;
+        this.videoType = 'paid';
+      } catch (error) {
+        console.error('Payment failed:', error);
+      } finally {
+        this.isProcessing = false;
+      }
     },
+    onDialogClose(value) {
+      if (!value) {
+        this.videoType = 'free';
+        this.priceAmount = 0;
+      }
+    }
   },
 };
 </script>

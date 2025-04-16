@@ -82,7 +82,7 @@
       max-width="600"
       @update:model-value="onDialogClose"
     >
-      <v-card class="px-4 pt-6">
+      <v-card class="px-4 py-6">
         <v-card-title class="text-h5 pa-4">
           Transaction Details
         </v-card-title>

@@ -1,9 +1,13 @@
 <template>
   <v-container fluid>
-    <v-list-item :active="activeItem === 'videoUpload'" v-slot:prepend="" class="my-4">
+    <v-list-item
+      :active="activeItem === 'videoUpload'"
+      v-slot:prepend=""
+      class="my-4"
+    >
       <v-icon color="primary" size="24">mdi-cloud-upload-outline</v-icon>
-      <v-list-item-title  class="ml-3 text-h6">
-        {{ $t('Common.upload') }}
+      <v-list-item-title class="ml-3 text-h6">
+        {{ $t("Common.upload") }}
       </v-list-item-title>
     </v-list-item>
     <v-row justify="center">
@@ -32,8 +36,18 @@
         <v-btn class="mt-3 w-100"> Upload </v-btn>
       </v-col>
       <v-col key="1" cols="12" sm="12" md="12" lg="5" xl="5">
-        <v-text-field label="Title" v-model="videoTitle" outlined></v-text-field>
-        <v-textarea label="Description" v-model="categoryTags" outlined :maxlength="600" :counter="600"></v-textarea>
+        <v-text-field
+          label="Title"
+          v-model="videoTitle"
+          outlined
+        ></v-text-field>
+        <v-textarea
+          label="Description"
+          v-model="categoryTags"
+          outlined
+          :maxlength="600"
+          :counter="600"
+        ></v-textarea>
         <div class="d-flex ga-4 align-center">
           <label
             for="images2"
@@ -53,7 +67,11 @@
         </div>
         <v-radio-group class="mt-1" v-model="videoType">
           <v-radio label="Free Video" value="free"></v-radio>
-          <v-radio label="Paid Video" value="paid" @click="showPaidVideoDialog = true"></v-radio>
+          <v-radio
+            label="Paid Video"
+            value="paid"
+            @click="showPaidVideoDialog = true"
+          ></v-radio>
         </v-radio-group>
         <v-text-field
           label="Price"
@@ -81,37 +99,51 @@
       v-model="showPaidVideoDialog"
       max-width="600"
       @update:model-value="onDialogClose"
+      class="pa-2"
     >
-      <v-card class="px-4 py-6">
-        <v-card-title class="text-h5 pa-4">
+      <v-card class="pa-2 pa-sm-4">
+        <v-card-title class="text-h5 text-sm-h4 pa-2 pa-sm-4">
           Transaction Details
         </v-card-title>
 
         <v-card-text>
-          <v-container>
-
-            <div class="">
-              <h2 class=" font-weight-bold mb-2">Video Information</h2>
+          <v-container class="pa-0">
+            <div class="mb-4">
+              <h2 class="text-subtitle-1 text-sm-h6 font-weight-bold mb-2">
+                Video Information
+              </h2>
               <v-divider class="mb-3"></v-divider>
-              <h3 class="">Title: {{ videoTitle || 'Untitled Video' }}</h3>
-              <h4 class=" text-medium-emphasis mb-4">Description: {{ categoryTags || 'No description provided' }}</h4>
+              <h3 class="text-body-1 text-sm-subtitle-1">
+                Title: {{ videoTitle || "Untitled Video" }}
+              </h3>
+              <h4
+                class="text-body-2 text-sm-subtitle-2 text-medium-emphasis mb-2"
+              >
+                Description: {{ categoryTags || "No description provided" }}
+              </h4>
             </div>
 
-
-            <div class="d-flex justify-space-between align-center mb-6">
-              <div class="text-h5 font-weight-bold">Total Amount</div>
-              <div class="text-h4 font-weight-bold primary--text">
+            <div class="d-flex justify-space-between align-center mb-4">
+              <div class="text-subtitle-1 text-sm-h6 font-weight-bold">
+                Total Amount
+              </div>
+              <div class="text-h6 text-sm-h5 font-weight-bold primary--text">
                 {{ calculateTotal }} XLM
               </div>
             </div>
 
-
-            <div class="">
-              <h2 class=" font-weight-bold mb-2">Transaction Breakdown</h2>
+            <div class="mb-4">
+              <h2 class="text-subtitle-1 text-sm-h6 font-weight-bold mb-2">
+                Transaction Breakdown
+              </h2>
               <v-divider class="mb-3"></v-divider>
 
-              <v-list>
-                <v-list-item v-for="(operation, index) in transactionBreakdown" :key="index">
+              <v-list class="pa-0">
+                <v-list-item
+                  v-for="(operation, index) in transactionBreakdown"
+                  :key="index"
+                  class="px-0"
+                >
                   <template v-slot:prepend>
                     <v-chip
                       size="small"
@@ -122,10 +154,14 @@
                     </v-chip>
                   </template>
 
-                  <v-list-item-title>{{ operation.name }}</v-list-item-title>
+                  <v-list-item-title class="text-body-2 text-sm-subtitle-2">{{
+                    operation.name
+                  }}</v-list-item-title>
 
                   <template v-slot:append>
-                    <div class="text-body-1 font-weight-medium">
+                    <div
+                      class="text-body-2 text-sm-subtitle-2 font-weight-medium"
+                    >
                       {{ operation.amount }} XLM
                     </div>
                   </template>
@@ -133,24 +169,24 @@
               </v-list>
             </div>
 
-            <!-- Network Fee Warning -->
             <v-alert
               type="info"
               variant="tonal"
               density="comfortable"
-              class=""
+              class="mb-0"
             >
               Network fees may apply to this transaction
             </v-alert>
           </v-container>
         </v-card-text>
 
-        <v-card-actions>
+        <v-card-actions class="pa-2 pa-sm-4">
           <v-spacer></v-spacer>
           <v-btn
             color="grey-darken-1"
             variant="text"
             @click="cancelPaidVideo"
+            class="me-2"
           >
             Cancel
           </v-btn>
@@ -210,30 +246,30 @@ export default {
       isProcessing: false,
       transactionBreakdown: [
         {
-          name: 'Content Creator Share',
+          name: "Content Creator Share",
           percentage: 85,
           amount: 0,
-          color: 'primary'
+          color: "primary",
         },
         {
-          name: 'Platform Fee',
+          name: "Platform Fee",
           percentage: 10,
           amount: 0,
-          color: 'secondary'
+          color: "secondary",
         },
         {
-          name: 'Network Fee',
+          name: "Network Fee",
           percentage: 5,
           amount: 0,
-          color: 'grey'
-        }
-      ]
+          color: "grey",
+        },
+      ],
     };
   },
   computed: {
     calculateTotal() {
       return this.priceAmount || 0;
-    }
+    },
   },
   watch: {
     priceAmount: {
@@ -241,40 +277,40 @@ export default {
         // Update breakdown amounts when price changes
         this.updateBreakdownAmounts(newValue);
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     updateBreakdownAmounts(total) {
-      this.transactionBreakdown = this.transactionBreakdown.map(item => ({
+      this.transactionBreakdown = this.transactionBreakdown.map((item) => ({
         ...item,
-        amount: ((total * item.percentage) / 100).toFixed(2)
+        amount: ((total * item.percentage) / 100).toFixed(2),
       }));
     },
     cancelPaidVideo() {
       this.showPaidVideoDialog = false;
-      this.videoType = 'free';
+      this.videoType = "free";
       this.priceAmount = 0;
     },
     async processPayment() {
       this.isProcessing = true;
       try {
         // Payment processing logic will go here
-        await new Promise(resolve => setTimeout(resolve, 2000)); // Simulated delay
+        await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulated delay
         this.showPaidVideoDialog = false;
-        this.videoType = 'paid';
+        this.videoType = "paid";
       } catch (error) {
-        console.error('Payment failed:', error);
+        console.error("Payment failed:", error);
       } finally {
         this.isProcessing = false;
       }
     },
     onDialogClose(value) {
       if (!value) {
-        this.videoType = 'free';
+        this.videoType = "free";
         this.priceAmount = 0;
       }
-    }
+    },
   },
 };
 </script>

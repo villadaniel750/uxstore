@@ -138,7 +138,7 @@
         <v-tooltip :text="$t('AppBar.community')">
           <template v-slot:activator="{ props }">
             <v-list-item
-              :active="activeItem === 'community'"
+              :active="activeItem === 'Community'"
               v-bind="props"
               prepend-icon="mdi-handshake-outline"
               :title="$t('AppBar.community')"
@@ -152,7 +152,7 @@
         <v-tooltip :text="$t('AppBar.featured')">
           <template v-slot:activator="{ props }">
             <v-list-item
-              :active="activeItem === 'featured'"
+              :active="activeItem === 'Featured'"
               v-bind="props"
               prepend-icon="mdi-star-outline"
               :title="$t('AppBar.featured')"

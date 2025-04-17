@@ -7,9 +7,28 @@
         </v-list-item-title>
     </v-list-item>
     <v-row>
-        <v-col v-for="(img, index) in paginatedImages" :key="index" cols="12" sm="6" md="4" lg="3" xl="2">
+        <v-col 
+            v-for="(img, index) in paginatedImages" 
+            :key="getAbsoluteIndex(index)"
+            cols="12" 
+            sm="6" 
+            md="4" 
+            lg="3" 
+            xl="2"
+        >
             <div>
-                <CxVideo :loading="loading[index]" :lazy-src="img.lazySrc" :src="img.src" :blocked="index % 3 === 1" :isPlaylist="index % 4 === 1" :playlist-count="index + 1" title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it" username="Shamus" uploadDate="2024/10/7" :profileBadge="index % 3" />
+                <CxVideo 
+                    :loading="isItemLoading(index)" 
+                    :lazy-src="img.lazySrc" 
+                    :src="img.src" 
+                    :blocked="getAbsoluteIndex(index) % 3 === 1" 
+                    :isPlaylist="getAbsoluteIndex(index) % 4 === 1" 
+                    :playlist-count="getAbsoluteIndex(index) + 1" 
+                    title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it" 
+                    username="Shamus" 
+                    uploadDate="2024/10/7" 
+                    :profileBadge="getAbsoluteIndex(index) % 3" 
+                />
             </div>
         </v-col>
     </v-row>
@@ -44,9 +63,11 @@ export default {
                 return {
                     lazySrc: `https://picsum.photos/10/6?image=${index * 5 + 10}`,
                     src: `https://picsum.photos/500/300?image=${index * 5 + 10}`,
+                    id: i, // Add unique id for each image
                 };
             }),
-            loading: Array(150).fill(true),
+            pageLoading: true,
+            loadedPages: new Set(),
         };
     },
     computed: {
@@ -59,40 +80,44 @@ export default {
             return this.images.slice(start, end);
         }
     },
-    watch: {
-        currentPage() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-
+    methods: {
+        getAbsoluteIndex(localIndex) {
+            // Calculate the absolute index in the full list
+            return (this.currentPage - 1) * this.itemsPerPage + localIndex;
+        },
+        isItemLoading(index) {
+            // Check if the current page is still loading
+            return !this.loadedPages.has(this.currentPage);
+        },
+        loadCurrentPage() {
+            this.pageLoading = true;
             
-            const start = (this.currentPage - 1) * this.itemsPerPage;
-            const end = start + this.itemsPerPage;
-            this.loading = Array(this.images.length).fill(true);
-            
+            // Simulate loading delay
             setTimeout(() => {
-                const newLoading = [...this.loading];
-                for (let i = start; i < end; i++) {
-                    if (i < this.loading.length) {
-                        newLoading[i] = false;
-                    }
-                }
-                this.loading = newLoading;
+                this.loadedPages.add(this.currentPage);
+                this.pageLoading = false;
             }, 1000);
         }
     },
-    mounted() {
-        
-        setTimeout(() => {
-            const newLoading = [...this.loading];
-            for (let i = 0; i < this.itemsPerPage; i++) {
-                if (i < this.loading.length) {
-                    newLoading[i] = false;
+    watch: {
+        currentPage: {
+            immediate: true,
+            handler(newPage) {
+                // Reset loading state for new page
+                if (!this.loadedPages.has(newPage)) {
+                    this.loadCurrentPage();
                 }
+                
+                // Scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             }
-            this.loading = newLoading;
-        }, 1000);
+        }
+    },
+    mounted() {
+        this.loadCurrentPage();
     },
 };
 </script>

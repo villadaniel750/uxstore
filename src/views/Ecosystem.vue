@@ -61,13 +61,12 @@ export default {
     },
     watch: {
         currentPage() {
-            // Scroll to top
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth' // This makes it smooth scroll
+                behavior: 'smooth'
             });
 
-            // Existing loading state code
+            
             const start = (this.currentPage - 1) * this.itemsPerPage;
             const end = start + this.itemsPerPage;
             this.loading = Array(this.images.length).fill(true);
@@ -84,7 +83,7 @@ export default {
         }
     },
     mounted() {
-        // Initial loading state
+        
         setTimeout(() => {
             const newLoading = [...this.loading];
             for (let i = 0; i < this.itemsPerPage; i++) {

@@ -27,6 +27,7 @@ export default { // Alemán
         nonAccount: 'Dieser Account existiert nicht.',
         nonAccountTry: 'Versuche, einen anderen zu suchen.',
         upload: 'Hochladen',
+        viewMore: 'Mehr anzeigen',
     },
     CxDeposit: {
         snackbarSuccess: 'Adresse in Zwischenablage kopiert',

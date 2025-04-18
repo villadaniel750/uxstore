@@ -27,6 +27,7 @@ export default { // 한국어
         nonAccount: '이 계정이 존재하지 않습니다.',
         nonAccountTry: '다른 계정을 검색하세요.',
         upload: '업로드',
+        viewMore: '더 보기',
     },      
     CxDeposit: {
         snackbarSuccess: '클립보드에 주소 복사됨',

@@ -27,6 +27,7 @@ export default { // Chino (tradicional)
         nonAccount: '此帳戶不存在。',
         nonAccountTry: '嘗試搜索其他帳戶。',
         upload: '上傳',
+        viewMore: '查看更多',
     },
     CxDeposit: {
         snackbarSuccess: '地址已複製到剪貼簿',

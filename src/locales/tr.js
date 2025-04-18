@@ -27,6 +27,7 @@ export default { // Turco
         nonAccount: 'Bu hesap mevcut değildir.',
         nonAccountTry: 'Başka bir hesap arayın.',
         upload:"Yükle",
+        viewMore: 'Daha fazla görüntüle',
     },
     CxDeposit: {
         snackbarSuccess: 'Adres panoya kopyalandı',

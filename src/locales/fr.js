@@ -27,6 +27,7 @@ export default { // Français
         nonAccount: 'Ce compte n’existe pas.',
         nonAccountTry: 'Essayez de rechercher un autre.',
         upload: 'Télécharger',
+        viewMore: 'Voir plus',
     },
     CxDeposit: {
         snackbarSuccess: 'Adresse copiée dans le presse-papiers',

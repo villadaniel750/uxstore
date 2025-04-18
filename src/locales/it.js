@@ -28,6 +28,7 @@ export default { // Italiano
         nonAccount: 'Questo account non esiste.',
         nonAccountTry: 'Prova a cercare un altro.',
         upload: 'Carica',
+        viewMore: 'Vedi di più',
     },
     CxDeposit: {
         snackbarSuccess: 'Indirizzo copiato negli appunti',

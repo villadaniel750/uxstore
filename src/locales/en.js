@@ -28,6 +28,7 @@ export default { // Inglés
         addWallet: 'Add Wallet',
         nonAccountTry: 'Try searching for another.',
         upload: 'Upload',
+        viewMore: 'View More',
     },
     CxDeposit: {
         snackbarSuccess: 'Address copied to clipboard',

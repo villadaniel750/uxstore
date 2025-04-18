@@ -27,6 +27,7 @@ export default { // Ucraniano
         nonAccount: 'Цей обліковий запис не існує.',
         nonAccountTry: 'Спробуйте знайти інший.',
         upload: 'Завантажити',
+        viewMore: 'Показати більше',
     },
     CxDeposit: {
         snackbarSuccess: 'Адреса скопійована до буфера обміну',

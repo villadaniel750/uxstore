@@ -27,6 +27,7 @@ export default { // Hindi
         nonAccount: 'यह खाता मौजूद नहीं है',
         nonAccountTry: 'अन्य खाता ढूंढें',
         upload: 'अपलोड करें',
+        viewMore: 'अधिक देखें',
     },
     CxDeposit: {
         snackbarSuccess: 'पता क्लिपबोर्ड पर कॉपी किया गया',

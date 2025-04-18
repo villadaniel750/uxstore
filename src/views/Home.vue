@@ -147,10 +147,10 @@
                 </v-col>
             </v-row>
 
-            <div class="d-flex justify-center mt-6 mb-16">
+            <div class="d-flex justify-end mt-2 mb-16">
                 <v-btn
                     @click="$router.push({ name: 'Explore' })"
-                    size="large"
+                    size="small"
                     variant="outlined"
                     color="primary"
                     prepend-icon="mdi-compass-outline"

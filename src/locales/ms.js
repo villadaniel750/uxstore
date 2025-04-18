@@ -27,6 +27,7 @@ export default { // Malayo
         nonAccount: 'Akaun ini tidak wujud.',
         nonAccountTry: 'Cari akaun lain.',
         upload: 'Muat naik',
+        viewMore: 'Lihat lebih banyak',
     },
     CxDeposit: {
         snackbarSuccess: 'Alamat disalin ke clipboard',

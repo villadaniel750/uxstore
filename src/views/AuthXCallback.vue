@@ -28,10 +28,11 @@ export default {
 
     if (error) {
       console.warn("Login fallido:", error);
-      localStorage.setItem("loginError", error);
+      this.$store.commit("setLoginError", error);
       this.redirectToPreLoginUrl();
       return; // 👈 Evita redirecciones múltiples
     }
+
 
     if (token) {
       try {

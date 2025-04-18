@@ -14,7 +14,8 @@ export const store = createStore({
       color: "#FFCA28",
       addr: null,
       lobstrPublicKey: null,
-      accessToken: null
+      accessToken: null,
+      loginError: null,
     }
   },
   mutations: {
@@ -51,6 +52,12 @@ export const store = createStore({
       state.accessToken = null;
       state.loggedIn = false;
     },
+    setLoginError(state, error) {
+      state.loginError = error;
+    },
+    clearLoginError(state) {
+      state.loginError = null;
+    },
   },
   actions: {
     updateWindowWidth({ commit }) {
@@ -65,5 +72,6 @@ export const store = createStore({
     color: state => state.color,
     addr: state => state.addr,
     lobstrPublicKey: state => state.lobstrPublicKey,
+    loginError: (state) => state.loginError,
   }
 })

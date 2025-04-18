@@ -109,18 +109,18 @@ function processXLogin(code, codeVerifier, redirectUri) {
     return axios.post(ENDPOINT_PATH + "auth/x/processXLogin", { code, codeVerifier, redirectUri });
   }
 
-function createSession(tempUUID) {
+  function createSession(tempUUID) {
     return axios.post(
         ENDPOINT_PATH + 'api/auth/session',
         {},
         {
             headers: {
                 UUID: tempUUID,
-            },
-            withCredentials: true,
+            }
         }
     );
 }
+
 
 
 export default {

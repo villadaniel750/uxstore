@@ -1,81 +1,84 @@
 <template>
   <router-view />
 
-   <!-- Dialogo de error de login estilo Vuetify moderno -->
-   <v-dialog
-      v-model="loginErrorDialog"
-      max-width="400"
-      persistent
+  <!-- Diálogo de error de inicio de sesión estilo Vuetify moderno -->
+  <v-dialog
+    v-model="loginErrorDialog"
+    max-width="400"
+    persistent
+  >
+    <v-card
+      :title="$t('Common.loginErrorTitle')"
+      prepend-icon="mdi-alert-circle"
     >
-      <v-card
-        :title="$t('Common.loginErrorTitle')"
-        prepend-icon="mdi-alert-circle"
-      >
-        <v-card-text>
-          {{ $t('Common.loginErrorDescription') }}
-          <div v-if="loginErrorMessage" class="text-caption font-weight-thin mt-2">
-            {{ loginErrorMessage }}
-          </div>
-        </v-card-text>
-        
-        <template v-slot:actions>
-          <v-spacer />
-          <v-btn color="primary" @click="closeLoginErrorDialog">
-            {{ $t('Common.accept') }}
-          </v-btn>
-        </template>
-      </v-card>
-    </v-dialog>
+      <v-card-text>
+        {{ $t('Common.loginErrorDescription') }}
+        <div v-if="loginErrorMessage" class="text-caption font-weight-thin mt-2">
+          {{ loginErrorMessage }}
+        </div>
+      </v-card-text>
+
+      <template v-slot:actions>
+        <v-spacer />
+        <v-btn color="primary" @click="closeLoginErrorDialog">
+          {{ $t('Common.accept') }}
+        </v-btn>
+      </template>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script setup>
 import { useStore } from 'vuex';
-import { onMounted, onBeforeUnmount, ref } from 'vue';
+import { onMounted, onBeforeUnmount, ref, computed, watch } from 'vue';
 import { useTheme } from 'vuetify';
 
-
-let store = useStore();
+const store = useStore();
 const theme = useTheme();
 
 const loginErrorDialog = ref(false);
-const loginErrorMessage = ref("");
+const loginErrorMessage = ref('');
+
+// Computed property para acceder a loginError desde Vuex
+const loginError = computed(() => store.state.loginError);
+
+// Watch para observar cambios en loginError y mostrar el diálogo
+watch(loginError, (error) => {
+  if (error) {
+    loginErrorMessage.value = decodeURIComponent(error);
+    loginErrorDialog.value = true;
+  }
+});
 
 function closeLoginErrorDialog() {
   loginErrorDialog.value = false;
-  localStorage.removeItem("loginError");
+  store.commit('clearLoginError');
 }
 
 onMounted(() => {
   window.addEventListener('resize', updateWindowWidth);
   updateWindowWidth();
-  
-  const isDarkThemeString = localStorage.getItem('isDarkTheme'); 
+
+  const isDarkThemeString = localStorage.getItem('isDarkTheme');
   if (isDarkThemeString !== null) {
     const isDarkTheme = isDarkThemeString === 'true';
-    if(isDarkTheme){
-      store.commit("setDarkThemeTrue");
+    if (isDarkTheme) {
+      store.commit('setDarkThemeTrue');
       theme.global.name.value = 'dark';
-    }else{
-      store.commit("setDarkThemeFalse");
+    } else {
+      store.commit('setDarkThemeFalse');
       theme.global.name.value = 'light';
     }
   }
 
-    const loggedInString = localStorage.getItem('loggedIn');
+  const loggedInString = localStorage.getItem('loggedIn');
   if (loggedInString !== null) {
     const loggedIn = loggedInString === 'true';
     if (loggedIn) {
-      store.commit("setLoggedInTrue");
+      store.commit('setLoggedInTrue');
     } else {
-      store.commit("setLoggedInFalse");
+      store.commit('setLoggedInFalse');
     }
-  }
-
-  // Verificamos si hay un loginError
-  const error = localStorage.getItem("loginError");
-  if (error) {
-    loginErrorMessage.value = decodeURIComponent(error);
-    loginErrorDialog.value = true;
   }
 });
 

@@ -1,66 +1,46 @@
 <template>
-  <v-dialog v-model="dialog" width="640" scrollable>
+<v-dialog v-model="dialog" width="640" scrollable @click:outside="closeDialog">
     <template v-slot:activator="{ props }">
-      <v-btn 
-        v-if="mobileView"
-        v-bind="props"
-        class="ma-2"
-        icon="mdi-login"
-        variant="outlined"
-        type="submit"
-        color="primary"
-        
-        size="small">
-      </v-btn>
+        <v-btn v-if="mobileView" v-bind="props" class="ma-2" icon="mdi-login" variant="outlined" type="submit" color="primary" size="small">
+        </v-btn>
 
-      <v-btn 
-        v-else
-        v-bind="props"
-        class="ma-2"
-        prepend-icon="mdi-login"
-        variant="outlined"
-        type="submit"
-        color="primary"
-        >
-        {{ $t("Common.login") }}
-      </v-btn>
+        <v-btn v-else v-bind="props" class="ma-2" prepend-icon="mdi-login" variant="outlined" type="submit" color="primary">
+            {{ $t("Common.login") }}
+        </v-btn>
 
-    
     </template>
     <div>
-      <v-card
-        class="mx-auto pa-8 pb-14"
-        elevation="8"
-        max-width="480"
-        rounded="lg"
-        
-      >
+        <v-card class="mx-auto pa-8 pb-14" elevation="8" max-width="480" rounded="lg">
 
-      <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
+            <v-btn
+                icon="mdi-close"
+                size="small"
+                variant="text"
+                @click="closeDialog"
+                style="position: absolute; right: 8px; top: 8px;"
+            ></v-btn>
 
-      <cx-x-button></cx-x-button>
+            <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.login") }}</v-card-title>
 
+            <cx-x-button></cx-x-button>
 
-      <!-- <cx-rabet-button></cx-rabet-button> -->
-      
-      <!-- <cx-lobstr-button></cx-lobstr-button> -->
+            <!-- <cx-rabet-button></cx-rabet-button> -->
 
-      <!-- <cx-albedo-button></cx-albedo-button> -->
+            <!-- <cx-lobstr-button></cx-lobstr-button> -->
 
-      <!-- <v-btn disabled @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #3B99FC; color: #3B99FC;" class="text-capitalize mt-3" size="large">
+            <!-- <cx-albedo-button></cx-albedo-button> -->
+
+            <!-- <v-btn disabled @click="underDevelopment" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #3B99FC; color: #3B99FC;" class="text-capitalize mt-3" size="large">
             <img src="@/assets/wallet-connect.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
             WalletConnect
           </v-btn> -->
-        
-      <!-- <cx-freighter-button></cx-freighter-button> -->
-          
-       <!--    <v-divider
+
+            <!-- <cx-freighter-button></cx-freighter-button> -->
+
+            <!--    <v-divider
             class="border-opacity-50 my-5"
-            
+
           ></v-divider>
-
-
-        
 
         <div class="text-subtitle-1 text-medium-emphasis">{{ $t("Common.email") }}</div>
 
@@ -115,25 +95,24 @@
           {{ $t("Common.invalidLogin") }} 
         </v-alert>-->
 
-        <v-card-text class="text-center">
-          <p class="text-disabled text-caption">
-            This site is under development. To be notified when it’s ready, join the
-            <span
-              class="text-primary text-decoration-none cursor-pointer"
-              @click="goToWaitlist"
-            >
-              waitlist
-            </span>
-          </p>
-        </v-card-text> 
-      </v-card>
+            <v-card-text class="text-center">
+                <p class="text-disabled text-caption">
+                    This site is under development. To be notified when it's ready, join the
+                    <span class="text-primary text-decoration-none cursor-pointer" @click="goToWaitlist">
+                        waitlist
+                    </span>
+                </p>
+            </v-card-text>
+        </v-card>
     </div>
 
-  </v-dialog>
+</v-dialog>
 </template>
-  
+
 <script>
-import { mapGetters } from "vuex";
+import {
+    mapGetters
+} from "vuex";
 // import CryptoJS from "crypto-js";
 import api from "@/api";
 import CxXButton from "./login/CxXButton.vue";
@@ -142,101 +121,109 @@ import CxLobstrButton from './login/CxLobstrButton.vue';
 import CxRabetButton from "./login/CxRabetButton.vue";
 import CxFreighterButton from "./login/CxFreighterButton.vue";
 
-import { useRouter } from 'vue-router'
+import {
+    useRouter
+} from 'vue-router'
 const router = useRouter()
 
 // Función independiente3
 function validateEmail(email) {
-  let wep = email.match(
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  );
-  return !!wep;
+    let wep = email.match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+    return !!wep;
 }
 
 export default {
-  data() {
-      return {
-      dialog: false,
-      email: '',
-      password: '',
-      emailRules: [
-        v => !!v || this.$t('CxLoginDialog.emailRequired'),
-        v => validateEmail(v) || this.$t('CxLoginDialog.emailMostBeValid') // Uso de la función independiente
-      ],
-      passwordRules: [
-        v => !!v || this.$t('CxLoginDialog.passwordRequired'),
-        v => (v && v.length >= 8) || this.$t('CxLoginDialog.passwordMinLength')
-      ],
-      visible: false,
-      isLoading: false,
-      loginError: false,
-      };
-  },
-  components: {
-    CxAlbedoButton, CxLobstrButton, CxRabetButton, CxFreighterButton, CxXButton
+    data() {
+        return {
+            dialog: false,
+            email: '',
+            password: '',
+            emailRules: [
+                v => !!v || this.$t('CxLoginDialog.emailRequired'),
+                v => validateEmail(v) || this.$t('CxLoginDialog.emailMostBeValid') // Uso de la función independiente
+            ],
+            passwordRules: [
+                v => !!v || this.$t('CxLoginDialog.passwordRequired'),
+                v => (v && v.length >= 8) || this.$t('CxLoginDialog.passwordMinLength')
+            ],
+            visible: false,
+            isLoading: false,
+            loginError: false,
+        };
     },
-  methods: {
-    goToWaitlist() {
-      this.dialog = false
-      this.$router.push('/waitlist')
+    components: {
+        CxAlbedoButton,
+        CxLobstrButton,
+        CxRabetButton,
+        CxFreighterButton,
+        CxXButton
     },
-    async login() {
-      this.loginError = false;
-      if (this.isValid) {
-        this.isLoading = true;
-        try {         
-          const result = await api.authenticate(this.email, this.password);
-          console.log(result.status);
-          console.log(result.data);
+    methods: {
+        closeDialog() {
+            this.dialog = false;
+        },
+        goToWaitlist() {
+            this.dialog = false
+            this.$router.push('/waitlist')
+        },
+        async login() {
+            this.loginError = false;
+            if (this.isValid) {
+                this.isLoading = true;
+                try {
+                    const result = await api.authenticate(this.email, this.password);
+                    console.log(result.status);
+                    console.log(result.data);
 
-          if (result.status === 200) {
-            this.$store.commit("setLoggedInTrue");
+                    if (result.status === 200) {
+                        this.$store.commit("setLoggedInTrue");
 
-            //   window.localStorage.PUK = CryptoJS.AES.encrypt(
-            //   result.data.xlmAddress,
-            //   this.color
-            // ).toString();
-            
-            // var encToken = CryptoJS.AES.encrypt(
-            //   result.data.accessToken,
-            //   result.data.xlmAddress
-            // ).toString();
-            // api.setUserLogged(encToken);
-          }
-          
-          
-        } catch (error) {
-          this.loginError = true;
-          if (error.response) {
-            console.log("Error");
-            console.log(error.response.status);
-            console.log(error.response.headers);
-            this.loginError = true;
-          }
-        } finally {
-          this.isLoading = false;
+                        //   window.localStorage.PUK = CryptoJS.AES.encrypt(
+                        //   result.data.xlmAddress,
+                        //   this.color
+                        // ).toString();
+
+                        // var encToken = CryptoJS.AES.encrypt(
+                        //   result.data.accessToken,
+                        //   result.data.xlmAddress
+                        // ).toString();
+                        // api.setUserLogged(encToken);
+                    }
+
+                } catch (error) {
+                    this.loginError = true;
+                    if (error.response) {
+                        console.log("Error");
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+                        this.loginError = true;
+                    }
+                } finally {
+                    this.isLoading = false;
+                }
+            }
+        },
+        handleEnterPress() {
+            if (this.isValid && !this.isLoading) {
+                this.login();
+            }
+        },
+        showDialog() {
+            this.dialog = true;
         }
-      }
     },
-    handleEnterPress() {
-    if (this.isValid && !this.isLoading) {
-      this.login();
-    }
+    computed: {
+        ...mapGetters([
+            'windowWidth', 'mobileView', 'color'
+        ]),
+        isValid() {
+            return (
+                this.emailRules.every(rule => rule(this.email) === true) &&
+                this.passwordRules.every(rule => rule(this.password) === true)
+            );
+        }
     },
-  showDialog() {
-    this.dialog = true;
-  }
-  },
-  computed: {
-    ...mapGetters([
-      'windowWidth', 'mobileView', 'color'
-    ]),
-    isValid() {
-      return (
-        this.emailRules.every(rule => rule(this.email) === true) &&
-        this.passwordRules.every(rule => rule(this.password) === true)
-      );
-    }
-  },
 }
 </script>

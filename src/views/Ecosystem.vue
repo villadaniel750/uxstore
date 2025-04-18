@@ -9,7 +9,7 @@
     <v-row>
         <v-col 
             v-for="(img, index) in paginatedImages" 
-            :key="getAbsoluteIndex(index)"
+            :key="`video-${img.id}`"
             cols="12" 
             sm="6" 
             md="4" 
@@ -21,13 +21,13 @@
                     :loading="isItemLoading(index)" 
                     :lazy-src="img.lazySrc" 
                     :src="img.src" 
-                    :blocked="getAbsoluteIndex(index) % 3 === 1" 
-                    :isPlaylist="getAbsoluteIndex(index) % 4 === 1" 
-                    :playlist-count="getAbsoluteIndex(index) + 1" 
+                    :blocked="img.id % 3 === 1" 
+                    :isPlaylist="img.id % 4 === 1" 
+                    :playlist-count="img.id + 1" 
                     title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it" 
                     username="Shamus" 
                     uploadDate="2024/10/7" 
-                    :profileBadge="getAbsoluteIndex(index) % 3" 
+                    :profileBadge="img.id % 3" 
                 />
             </div>
         </v-col>
@@ -38,7 +38,7 @@
         <v-pagination
             v-model="currentPage"
             :length="totalPages"
-            :total-visible="7"
+            :total-visible="10"
             rounded="circle"
         ></v-pagination>
     </div>
@@ -56,14 +56,12 @@ export default {
         return {
             currentPage: 1,
             itemsPerPage: 48,
-            images: Array.from({
-                length: 150
-            }, (_, i) => {
-                const index = i + 1;
+            images: Array.from({ length: 160 }, (_, i) => {
+                const imageNumber = (i + 1) % 48;
                 return {
-                    lazySrc: `https://picsum.photos/10/6?image=${index * 5 + 10}`,
-                    src: `https://picsum.photos/500/300?image=${index * 5 + 10}`,
-                    id: i, // Add unique id for each image
+                    id: i,
+                    lazySrc: `https://picsum.photos/10/6?image=${imageNumber}`,
+                    src: `https://picsum.photos/500/300?image=${imageNumber}`,
                 };
             }),
             pageLoading: true,
@@ -77,6 +75,7 @@ export default {
         paginatedImages() {
             const start = (this.currentPage - 1) * this.itemsPerPage;
             const end = start + this.itemsPerPage;
+            console.log(this.images.slice(start, end));
             return this.images.slice(start, end);
         }
     },

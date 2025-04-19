@@ -3,7 +3,7 @@
     <v-responsive class="d-flex align-center text-center fill-height">
         <v-img contain height="300" src="@/assets/fire.svg" />
 
-        <div class="text-body-2 font-weight-light mb-n1">
+        <div class="text-caption text-uppercase text-medium-emphasis">
             {{ $t("Common.welcome") }}
         </div>
 
@@ -11,7 +11,7 @@
             <b class="font-weight-medium">EARNLUMENS</b>
         </h1>
 
-        <div class="text-body-2 font-weight-regular pt-1 text-medium-emphasis">
+        <div class="text-caption text-uppercase text-medium-emphasis">
             {{ $t("Common.shortAbout") }}
         </div>
 
@@ -21,7 +21,7 @@
             <v-row justify="center">
                 <v-col cols="12" md="10" lg="8" xl="6">
                     <blockquote class="v-blockquote">
-                        <span class="text-body-1 text-high-emphasis">{{
+                        <span class="text-caption text-uppercase">{{
                 $t("Common.blockquote")
               }}</span>
                     </blockquote>
@@ -55,10 +55,7 @@
             </v-col>
         </v-row>
 
-        <div class="py-3" />
-        <div class="py-3" />
-
-        <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
+        <v-sheet class="mx-auto mt-12" width="100%" color="transparent" elevation="0">
             <div class="d-flex justify-space-between align-center" :class="{ 'pl-1': !mobileView }">
                 <v-btn @click="$router.push({ name: 'Ecosystem' })" variant="text" class="text-h6 font-weight-bold text-h6" :ripple="false" append-icon="mdi-chevron-right">
                     Stellar {{ $t("AppBar.ecosystem") }}
@@ -75,9 +72,7 @@
             </v-slide-group>
         </v-sheet>
 
-        <div class="py-3" />
-
-        <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
+        <v-sheet class="mx-auto mt-6" width="100%" color="transparent" elevation="0">
             <div class="d-flex justify-space-between align-center" :class="{ 'pl-1': !mobileView }">
                 <v-btn @click="$router.push({ name: 'Community' })" variant="text" class="text-h6 font-weight-bold" :ripple="false" append-icon="mdi-chevron-right">Community</v-btn>
             </div>
@@ -92,9 +87,7 @@
             </v-slide-group>
         </v-sheet>
 
-        <div class="py-3" />
-
-        <v-sheet class="mx-auto" width="100%" color="transparent" elevation="0">
+        <v-sheet class="mx-auto mt-6" width="100%" color="transparent" elevation="0">
             <div class="d-flex justify-space-between align-center" :class="{ 'pl-1': !mobileView }">
                 <v-btn @click="$router.push({ name: 'Featured' })" variant="text" class="text-h6 font-weight-bold text-h6" :ripple="false" append-icon="mdi-chevron-right">{{ $t("AppBar.featured") }}</v-btn>
             </div>
@@ -107,7 +100,7 @@
             </v-slide-group>
         </v-sheet>
 
-        <v-sheet class="mx-auto mt-16" width="100%" color="transparent" elevation="0">
+        <v-sheet class="mx-auto mt-6" width="100%" color="transparent" elevation="0">
             <div class="d-flex justify-space-between align-center" :class="{ 'pl-1': !mobileView }, pb-2">
                 <v-btn 
                     @click="$router.push({ name: 'Explore' })" 
@@ -160,25 +153,12 @@
             </div>
         </v-sheet>
 
-        <v-divider></v-divider>
-
         <v-footer class="text-center d-flex flex-column">
-            <!-- <div class="d-flex justify-center">
-          <v-row justify="center">
-              <v-col cols="12" md="10" lg="8" xl="6">
-                      <span class="text-caption">{{ $t("Common.messageToUsers") }}</span>
-              </v-col>
-          </v-row>
-      </div>
-
-      <v-divider></v-divider> -->
-
             <div class="text-overline text-medium-emphasis">
-                &copy;{{ new Date().getFullYear() }} <strong>. EARNLUMENS</strong>
+                &copy;{{ new Date().getFullYear() }} <strong>- EARNLUMENS</strong>
             </div>
         </v-footer>
 
-       
     </v-responsive>
 </v-container>
 </template>

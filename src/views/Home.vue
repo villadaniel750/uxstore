@@ -120,7 +120,7 @@
                 </v-btn>
             </div>
 
-            <v-row>
+            <v-row class="mt-1">
                 <v-col 
                     v-for="(img, index) in exploreVideos" 
                     :key="`explore-${index}`" 
@@ -147,7 +147,7 @@
                 </v-col>
             </v-row>
 
-            <div class="d-flex justify-end mt-2 mb-16">
+            <div class="d-flex justify-end mt-4 mb-16">
                 <v-btn
                     @click="$router.push({ name: 'Explore' })"
                     size="small"
@@ -228,7 +228,7 @@ export default {
             };
         }),
         recommendedLoading: Array(48).fill(true),
-        exploreVideos: Array.from({ length: 8 }, (_, i) => {
+        exploreVideos: Array.from({ length: 12 }, (_, i) => {
             const imageNumber = i + 1;
             return {
                 lazySrc: `https://picsum.photos/10/6?image=${imageNumber}`,

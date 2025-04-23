@@ -160,34 +160,25 @@ export default {
     isPlaylist: {
       type: Boolean,
       default: false,
-      type: Boolean,
-      default: false,
     },
     playlistCount: {
-      type: Number,
-      default: 0,
       type: Number,
       default: 0,
     },
     title: {
       type: String,
       default: "",
-      default: "",
     },
     username: {
       type: String,
-      default: "",
       default: "",
     },
     uploadDate: {
       type: String,
       default: "",
-      default: "",
     },
     profileBadge: {
       type: Number,
-      default: 0,
-    },
       default: 0,
     },
   },
@@ -197,7 +188,6 @@ export default {
       isLoginModalVisible: false,
       isWalletModalVisible: false,
       isVideoModalVisible: false,
-
       videoOptions: {
         autoplay: true,
         controls: true,
@@ -213,8 +203,6 @@ export default {
   methods: {
     loadFinished() {
       this.imageLoaded = true;
-    },
-  },
     },
     handleModalOpen() {
       if (!this.loggedIn) {

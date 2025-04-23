@@ -12,6 +12,9 @@ import QrcodeVue from 'qrcode.vue'
 import { store } from './store'
 import VueNumber from 'vue-number-animation'
 
+import 'video.js/dist/video-js.css'
+
+
 const app = createApp(App)
 
 // Crear la instancia de i18n
@@ -44,7 +47,7 @@ export const loadLanguage = (language) => {
 
 // Función para determinar si se debe mostrar chino tradicional o simplificado
 export const determineLanguageCode = (language) => {
-    language = language.toLowerCase().substring(0, 5);   
+    language = language.toLowerCase().substring(0, 5);
     if (language.startsWith('zh')) {
         if (language === 'zh-tw' || language === 'zh-hk' || language === 'zh-ha' || language === 'zh-mo') {
             return 'zh-tw'; // Chino tradicional

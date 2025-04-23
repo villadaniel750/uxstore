@@ -165,11 +165,30 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+
+  <v-dialog v-model="isVideoModalVisible" max-width="1000">
+    <v-card>
+      <v-card-title class="headline">Video Player</v-card-title>
+      <div>
+        <CxVideoPlayer :options="videoOptions" />
+      </div>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="primary" text @click="isVideoModalVisible = false"
+          >Close</v-btn
+        >
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import CxVideoPlayer from "./CxVideoPlayer.vue";
 export default {
+  components: {
+    CxVideoPlayer,
+  },
   props: {
     lazySrc: {
       type: String,
@@ -213,6 +232,18 @@ export default {
       imageLoaded: false,
       isLoginModalVisible: false,
       isWalletModalVisible: false,
+      isVideoModalVisible: false,
+
+      videoOptions: {
+        autoplay: true,
+        controls: true,
+        sources: [
+          {
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+            type: "video/mp4",
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -222,14 +253,15 @@ export default {
     handleModalOpen() {
       if (!this.loggedIn) {
         this.isLoginModalVisible = true;
-      } else if (!this.walletConnected) {
+      } else if (!this.lobstrPublicKey) {
         this.isWalletModalVisible = true;
       } else {
+        this.isVideoModalVisible = true;
       }
     },
   },
   computed: {
-    ...mapGetters(["loggedIn", "walletConnected"]),
+    ...mapGetters(["loggedIn", "lobstrPublicKey"]),
   },
 };
 </script>

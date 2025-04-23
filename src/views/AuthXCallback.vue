@@ -46,9 +46,11 @@ export default {
 
         const username = decodedPayload.username;
         const profileImageUrl = decodedPayload.profile_image_url;
+        const followersCount = decodedPayload.followers_count;
 
         localStorage.setItem("username", username);
         localStorage.setItem("profile_image_url", profileImageUrl);
+        localStorage.setItem("followers_count", followersCount);
         localStorage.setItem("loggedIn", "true");
       } catch (err) {
         console.error("Error al crear sesión:", err);

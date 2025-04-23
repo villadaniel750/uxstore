@@ -8,6 +8,7 @@
       rounded="lg"
       @loadstart="$emit('loadstart')"
       @load="loadFinished"
+      class="cursor-pointer"
     >
       <template #placeholder>
         <v-row class="fill-height ma-0" align="center" justify="center">

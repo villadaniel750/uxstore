@@ -24,14 +24,15 @@ export default {
   async mounted() {
     const query = new URLSearchParams(window.location.search);
     const error = query.get("error");
-    const token = query.get("token");
+    const token = query.get("UUID");
 
     if (error) {
       console.warn("Login fallido:", error);
-      localStorage.setItem("loginError", error);
+      this.$store.commit("setLoginError", error);
       this.redirectToPreLoginUrl();
       return; // 👈 Evita redirecciones múltiples
     }
+
 
     if (token) {
       try {
@@ -45,9 +46,11 @@ export default {
 
         const username = decodedPayload.username;
         const profileImageUrl = decodedPayload.profile_image_url;
+        const followersCount = decodedPayload.followers_count;
 
         localStorage.setItem("username", username);
         localStorage.setItem("profile_image_url", profileImageUrl);
+        localStorage.setItem("followers_count", followersCount);
         localStorage.setItem("loggedIn", "true");
       } catch (err) {
         console.error("Error al crear sesión:", err);

@@ -8,8 +8,6 @@
       rounded="lg"
       @loadstart="$emit('loadstart')"
       @load="loadFinished"
-      class="cursor-pointer"
-      @click="handleModalOpen"
     >
       <template #placeholder>
         <v-row class="fill-height ma-0" align="center" justify="center">
@@ -133,53 +131,6 @@
       </v-menu>
     </div>
   </div>
-
-  <!-- Login Modal -->
-  <v-dialog v-model="isLoginModalVisible" max-width="500">
-    <v-card>
-      <v-card-title class="headline">Login Required</v-card-title>
-      <v-card-text>
-        <!-- Login form or message -->
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" text @click="isLoginModalVisible = false"
-          >Close</v-btn
-        >
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
-
-  <!-- Wallet Connect Modal -->
-  <v-dialog v-model="isWalletModalVisible" max-width="500">
-    <v-card>
-      <v-card-title class="headline">Connect Wallet</v-card-title>
-      <v-card-text>
-        <!-- Wallet connection form or message -->
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" text @click="isWalletModalVisible = false"
-          >Close</v-btn
-        >
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
-
-  <v-dialog v-model="isVideoModalVisible" max-width="1000">
-    <v-card>
-      <v-card-title class="headline">Video Player</v-card-title>
-      <div>
-        <CxVideoPlayer :options="videoOptions" />
-      </div>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" text @click="isVideoModalVisible = false"
-          >Close</v-btn
-        >
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
 </template>
 
 <script>
@@ -190,6 +141,10 @@ export default {
     CxVideoPlayer,
   },
   props: {
+    loading: {
+      type: Boolean,
+      default: true,
+    },
     lazySrc: {
       type: String,
       required: true,
@@ -205,25 +160,34 @@ export default {
     isPlaylist: {
       type: Boolean,
       default: false,
+      type: Boolean,
+      default: false,
     },
     playlistCount: {
+      type: Number,
+      default: 0,
       type: Number,
       default: 0,
     },
     title: {
       type: String,
       default: "",
+      default: "",
     },
     username: {
       type: String,
+      default: "",
       default: "",
     },
     uploadDate: {
       type: String,
       default: "",
+      default: "",
     },
     profileBadge: {
       type: Number,
+      default: 0,
+    },
       default: 0,
     },
   },
@@ -250,6 +214,8 @@ export default {
     loadFinished() {
       this.imageLoaded = true;
     },
+  },
+    },
     handleModalOpen() {
       if (!this.loggedIn) {
         this.isLoginModalVisible = true;
@@ -274,5 +240,13 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal; /* Allows text to wrap */
+}
+.v-skeleton-loader {
+  border-radius: 10px;
+}
+
+.v-skeleton-loader ::v-deep .v-skeleton-loader__image {
+  height: 146px;
+  border-radius: 10px;
 }
 </style>

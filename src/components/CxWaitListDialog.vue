@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" fullscreen :scrim="false" transition="dialog-bottom-transition">
       <template v-slot:activator="{ props }">
-          <v-btn v-bind="props"  min-width="228" prepend-icon="mdi-calendar-clock" variant="flat" size="x-large"
+          <v-btn v-bind="props"  min-width="160" prepend-icon="mdi-calendar-clock" variant="flat" size="x-large"
               color="primary">
               Join Waitlist
           </v-btn>

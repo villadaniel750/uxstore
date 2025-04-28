@@ -136,6 +136,21 @@ async function getEcosystemVideosList(page = 0, size = 48) {
     }
 }
 
+async function getCommunityVideosList(page = 0, size = 48) {
+    try {
+        const response = await axios.get(`${ENDPOINT_PATH}api/mock/videos/list/community`, {
+            params: {
+                page,
+                size    
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching community videos:", error);
+        throw error;
+    }
+}
+
 export default {
     subscribe,
     signup,
@@ -152,5 +167,6 @@ export default {
     submitSignedTransaction,
     processXLogin,
     createSession,
-    getEcosystemVideosList
+    getEcosystemVideosList,
+    getCommunityVideosList
 }

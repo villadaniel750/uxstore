@@ -8,8 +8,8 @@
         </v-list-item>
         <v-row>
             <v-col 
-                v-for="(img, index) in paginatedImages" 
-                :key="`video-${img.id}`"
+                v-for="(item, index) in paginatedItems" 
+                :key="`video-${item._id}`"
                 cols="12" 
                 sm="6" 
                 md="4" 
@@ -19,15 +19,15 @@
                 <div>
                     <CxVideo 
                         :loading="isItemLoading(index)" 
-                        :lazy-src="img.lazySrc" 
-                        :src="img.src" 
-                        :blocked="img.id % 3 === 1" 
-                        :isPlaylist="img.id % 4 === 1" 
-                        :playlist-count="img.id + 1" 
-                        title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it" 
-                        username="Shamus" 
-                        uploadDate="2024/10/7" 
-                        :profileBadge="img.id % 3" 
+                        :lazy-src="item.lazySrc" 
+                        :src="item.src" 
+                        :blocked="item.blocked" 
+                        :isPlaylist="item.type === 'playlist'" 
+                        :playlist-count="item.playlistCount" 
+                        :title="item.title" 
+                        :username="item.username" 
+                        :uploadDate="formatDate(item.uploadDate)" 
+                        :profileBadge="item.profileBadge" 
                     />
                 </div>
             </v-col>
@@ -47,6 +47,7 @@
     
     <script>
     import CxVideo from "@/components/media/CxVideo.vue";
+    import api from "@/api";
     
     export default {
         components: {
@@ -56,58 +57,87 @@
             return {
                 currentPage: 1,
                 itemsPerPage: 48,
-                images: Array.from({ length: 160 }, (_, i) => {
-                    const imageNumber = (i + 1) % 48;
-                    return {
-                        id: i,
-                        lazySrc: `https://picsum.photos/10/6?image=${imageNumber}`,
-                        src: `https://picsum.photos/500/300?image=${imageNumber}`,
-                    };
-                }),
+                items: [],
                 pageLoading: true,
                 loadedPages: new Set(),
+                totalPages: 0,
+                totalElements: 0,
+                // Add skeleton items for loading state
+                skeletonItems: Array.from({ length: 48 }, (_, i) => ({
+                    _id: `skeleton-${i}`,
+                    lazySrc: '',
+                    src: '',
+                    blocked: false,
+                    type: 'video',
+                    playlistCount: 0,
+                    title: '',
+                    username: '',
+                    uploadDate: '',
+                    profileBadge: 0
+                }))
             };
         },
         computed: {
-            totalPages() {
-                return Math.ceil(this.images.length / this.itemsPerPage);
-            },
-            paginatedImages() {
-                const start = (this.currentPage - 1) * this.itemsPerPage;
-                const end = start + this.itemsPerPage;
-                console.log(this.images.slice(start, end));
-                return this.images.slice(start, end);
+            paginatedItems() {
+                // Return skeleton items when loading, otherwise return actual items
+                return this.pageLoading ? this.skeletonItems : this.items;
             }
         },
         methods: {
             getAbsoluteIndex(localIndex) {
-                // Calculate the absolute index in the full list
                 return (this.currentPage - 1) * this.itemsPerPage + localIndex;
             },
             isItemLoading(index) {
-                // Check if the current page is still loading
-                return !this.loadedPages.has(this.currentPage);
+                return this.pageLoading;
             },
-            loadCurrentPage() {
+            formatDate(dateString) {
+                const date = new Date(dateString);
+                return date.toLocaleDateString();
+            },
+            async loadCurrentPage() {
                 this.pageLoading = true;
                 
-                // Simulate loading delay
-                setTimeout(() => {
+                try {
+                    console.log(`Loading page ${this.currentPage}...`);
+                    const response = await api.getCommunityVideosList(this.currentPage - 1, this.itemsPerPage);
+                    
+                    // Process the response data
+                    let items = response.content;
+                    
+                    // Always replace first and last images with random images from the response
+                    if (items.length > 2) {
+                        // Get a random index from the middle of the array (avoiding first and last)
+                        const randomIndex1 = Math.floor(Math.random() * (items.length - 2)) + 1;
+                        const randomIndex2 = Math.floor(Math.random() * (items.length - 2)) + 1;
+                        
+                        // Replace first and last images with random images
+                        items[0] = { ...items[randomIndex1] };
+                        items[items.length - 1] = { ...items[randomIndex2] };
+                        
+                        console.log(`Replaced first and last images with random images from positions ${randomIndex1} and ${randomIndex2}`);
+                    }
+                    
+                    this.items = items;
+                    this.totalPages = response.totalPages;
+                    this.totalElements = response.totalElements || response.content.length * response.totalPages;
                     this.loadedPages.add(this.currentPage);
+                    
+                    console.log(`Loaded ${this.items.length} items for page ${this.currentPage}`);
+                } catch (error) {
+                    console.error("Error loading community videos:", error);
+                    // Handle error appropriately
+                } finally {
                     this.pageLoading = false;
-                }, 1000);
+                }
             }
         },
         watch: {
             currentPage: {
                 immediate: true,
                 handler(newPage) {
-                    // Reset loading state for new page
-                    if (!this.loadedPages.has(newPage)) {
-                        this.loadCurrentPage();
-                    }
+                    // Always load the page when it changes, regardless of whether it's in loadedPages
+                    this.loadCurrentPage();
                     
-                    // Scroll to top
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'

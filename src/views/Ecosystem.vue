@@ -28,6 +28,7 @@
                     :username="item.username" 
                     :uploadDate="formatDate(item.uploadDate)" 
                     :profileBadge="item.profileBadge" 
+                    :profileImage="item.profileImageUrl"
                 />
             </div>
         </v-col>
@@ -72,13 +73,15 @@ export default {
                 title: '',
                 username: '',
                 uploadDate: '',
-                profileBadge: 0
+                profileBadge: 0,
+                profileImage: ''
             }))
         };
     },
     computed: {
         paginatedItems() {
             // Return skeleton items when loading, otherwise return actual items
+            console.log("this itemss",this.items);
             return this.pageLoading ? this.skeletonItems : this.items;
         }
     },

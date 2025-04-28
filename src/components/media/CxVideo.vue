@@ -96,8 +96,8 @@
           color="transparent"
         >
           <v-img
-            lazy-src="https://randomuser.me/api/portraits/men/22.jpg"
-            src="https://randomuser.me/api/portraits/men/22.jpg"
+            :lazy-src="profileImage"
+            :src="profileImage"
             alt="Image"
             cover
             class="fill-height"
@@ -209,6 +209,10 @@ export default {
     profileBadge: {
       type: Number,
       default: 0,
+    },
+    profileImage: {
+      type: String,
+      default: "",
     },
   },
   data() {

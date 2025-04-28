@@ -28,6 +28,7 @@
                         :username="item.username" 
                         :uploadDate="formatDate(item.uploadDate)" 
                         :profileBadge="item.profileBadge" 
+                        :profileImage="item.profileImageUrl"
                     />
                 </div>
             </v-col>

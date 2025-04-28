@@ -9,7 +9,7 @@ axios.defaults.withCredentials = true
 var hostname = window.location.hostname;
 var ENDPOINT_PATH = "";
 
-if (hostname === "www.earnlumens.org" || hostname === "earnlumens.org") {
+if (hostname === "www.earnlumens.org" || hostname === "earnlumens.org" || hostname === "localhost") {
     ENDPOINT_PATH = "https://api.earnlumens.org/";
 } else {
     ENDPOINT_PATH = "http://localhost:852/";
@@ -121,7 +121,20 @@ function processXLogin(code, codeVerifier, redirectUri) {
     );
 }
 
-
+async function getEcosystemVideosList(page = 0, size = 48) {
+    try {
+        const response = await axios.get(`${ENDPOINT_PATH}api/mock/videos/list/ecosystem`, {
+            params: {
+                page,
+                size    
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching ecosystem videos:", error);
+        throw error;
+    }
+}
 
 export default {
     subscribe,
@@ -138,5 +151,6 @@ export default {
     requestSep10Challenge,
     submitSignedTransaction,
     processXLogin,
-    createSession
+    createSession,
+    getEcosystemVideosList
 }

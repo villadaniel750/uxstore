@@ -134,9 +134,8 @@ export default {
         currentPage: {
             immediate: true,
             handler(newPage) {
-                if (!this.loadedPages.has(newPage)) {
-                    this.loadCurrentPage();
-                }
+                // Always load the page when it changes, regardless of whether it's in loadedPages
+                this.loadCurrentPage();
                 
                 window.scrollTo({
                     top: 0,

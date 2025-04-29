@@ -9,7 +9,7 @@ axios.defaults.withCredentials = true
 var hostname = window.location.hostname;
 var ENDPOINT_PATH = "";
 
-if (hostname === "www.earnlumens.org" || hostname === "earnlumens.org" || hostname === "localhost") {
+if (hostname === "www.earnlumens.org" || hostname === "earnlumens.org") {
     ENDPOINT_PATH = "https://api.earnlumens.org/";
 } else {
     ENDPOINT_PATH = "http://localhost:852/";
@@ -109,7 +109,7 @@ function processXLogin(code, codeVerifier, redirectUri) {
     return axios.post(ENDPOINT_PATH + "auth/x/processXLogin", { code, codeVerifier, redirectUri });
   }
 
-  function createSession(tempUUID) {
+function createSession(tempUUID) {
     return axios.post(
         ENDPOINT_PATH + 'api/auth/session',
         {},
@@ -121,9 +121,20 @@ function processXLogin(code, codeVerifier, redirectUri) {
     );
 }
 
+function refreshAccessToken() {
+    return axios.post(ENDPOINT_PATH + 'api/auth/refresh')
+        .then(response => {
+            return response.data.accessToken; // Devolver el nuevo access token
+        })
+        .catch(error => {
+            console.error('Error al renovar el access token:', error);
+            throw error; // Propagar el error para manejarlo en el componente
+        });
+}
+
 async function getEcosystemVideosList(page = 0, size = 48) {
     try {
-        const response = await axios.get(`${ENDPOINT_PATH}api/mock/videos/list/ecosystem`, {
+        const response = await axios.get(`https://api.earnlumens.org/api/mock/videos/list/ecosystem`, {
             params: {
                 page,
                 size    
@@ -138,7 +149,7 @@ async function getEcosystemVideosList(page = 0, size = 48) {
 
 async function getCommunityVideosList(page = 0, size = 48) {
     try {
-        const response = await axios.get(`${ENDPOINT_PATH}api/mock/videos/list/community`, {
+        const response = await axios.get(`https://api.earnlumens.org/api/mock/videos/list/community`, {
             params: {
                 page,
                 size    
@@ -167,6 +178,7 @@ export default {
     submitSignedTransaction,
     processXLogin,
     createSession,
+    refreshAccessToken,
     getEcosystemVideosList,
     getCommunityVideosList
 }

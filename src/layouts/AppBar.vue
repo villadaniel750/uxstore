@@ -40,8 +40,10 @@
             ></v-list-item>
           </template>
         </v-tooltip>
+
+        
   
-        <v-divider class="hidden-sm-and-down"></v-divider>
+        
   
         <!-- <v-tooltip :text="$t('AppBar.wallet')">
           <template v-slot:activator="{ props }">
@@ -58,22 +60,7 @@
             ></v-list-item>
           </template>
         </v-tooltip> -->
-  
-        <v-tooltip :text="$t('AppBar.wallet')">
-          <template v-slot:activator="{ props }">
-            <v-list-item
-              :active="activeItem === 'Wallet'"
-              v-bind="props"
-              class="hidden-sm-and-down"
-              prepend-icon="mdi-wallet-outline"
-              :title="$t('AppBar.wallet')"
-              value="wallet"
-              to="/wallet"
-              exact
-            ></v-list-item>
-          </template>
-        </v-tooltip>
-  
+
         <v-tooltip :text="$t('AppBar.firststeps')">
           <template v-slot:activator="{ props }">
             <v-list-item
@@ -87,6 +74,25 @@
             ></v-list-item>
           </template>
         </v-tooltip>
+
+        <v-divider></v-divider>
+  
+        <v-tooltip :text="$t('AppBar.wallet')">
+          <template v-slot:activator="{ props }">
+            <v-list-item
+              :active="activeItem === 'Wallet'"
+              v-bind="props"
+              class="hidden-sm-and-down"
+              prepend-icon="mdi-wallet-outline"
+              :title="$t('AppBar.wallet')"
+              value="wallet"
+              to="/wallet"
+              exact
+              :disabled="!loggedIn"
+            ></v-list-item>
+          </template>
+        </v-tooltip>
+  
         <v-tooltip :text="$t('AppBar.favorites')">
           <template v-slot:activator="{ props }">
             <v-list-item
@@ -116,11 +122,11 @@
             ></v-list-item>
           </template>
         </v-tooltip>
-  
       
   
         <v-divider></v-divider>
-     
+    
+
         <v-tooltip :text="$t('AppBar.ecosystem')">
           <template v-slot:activator="{ props }">
             <v-list-item
@@ -224,7 +230,7 @@
         {{ $t("AppBar.wallet") }}
       </v-btn> -->
   
-      <v-btn to="/wallet" exact>
+      <v-btn to="/wallet" exact :disabled="!loggedIn">
         <v-icon>mdi-wallet-outline</v-icon>
         {{ $t("AppBar.wallet") }}
       </v-btn>

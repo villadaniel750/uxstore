@@ -65,7 +65,7 @@
             class="position-absolute right-0 bottom-0 text-body-2 bg-black opacity-60 rounded pb-1 pt-1 pl-1 pr-1 mr-3 mb-3 elevation-2"
             style="z-index: 9999999"
           >
-            <b class="opacity-100">13:02</b>
+            <b class="opacity-100">{{ uploadDate }}</b>
           </div>
 
           <div
@@ -86,7 +86,7 @@
     <div v-if="imageLoaded" class="d-flex justify-space-between">
       <div class="d-flex align-center">
         <v-card
-          :class="['ma-4', selectedClass]"
+          :class="['ma-2', selectedClass]"
           height="45"
           width="45"
           min-width="45"
@@ -132,7 +132,7 @@
         </div>
       </div>
 
-      <div class="pt-4">
+      <div class="">
         <v-menu>
           <template v-slot:activator="{ props: activatorProps }">
             <v-btn

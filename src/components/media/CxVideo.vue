@@ -65,7 +65,7 @@
             class="position-absolute right-0 bottom-0 text-body-2 bg-black opacity-60 rounded pb-1 pt-1 pl-1 pr-1 mr-3 mb-3 elevation-2"
             style="z-index: 9999999"
           >
-            <b class="opacity-100">{{ duration }}</b>
+            <b class="opacity-100">{{ formattedDuration }}</b>
           </div>
 
           <div
@@ -221,8 +221,22 @@ export default {
   },
   data() {
     return {
-      imageLoaded: false, // Define variable
+      imageLoaded: false,
     };
+  },
+  computed: {
+    formattedDuration() {
+      if (!this.duration) return '0:00';
+      const hours = Math.floor(this.duration / 3600);
+      const minutes = Math.floor((this.duration % 3600) / 60);
+      const seconds = this.duration % 60;
+      
+      if (hours > 0) {
+        return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      } else {
+        return `${minutes}:${String(seconds).padStart(2, '0')}`;
+      }
+    }
   },
   methods: {
     loadFinished() {

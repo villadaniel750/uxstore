@@ -108,6 +108,11 @@ export default {
                 // Process the response data
                 let items = response.content;
                 console.log("items", items);
+                // Log duration for each item
+                items.forEach((item, index) => {
+                    console.log(`Item ${index} duration:`, item.duration);
+                });
+                
                 if (items.length > 2) {
                     const randomIndex1 = Math.floor(Math.random() * (items.length - 2)) + 1;
                     const randomIndex2 = Math.floor(Math.random() * (items.length - 2)) + 1;

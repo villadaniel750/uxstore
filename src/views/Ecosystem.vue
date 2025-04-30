@@ -29,6 +29,7 @@
                     :uploadDate="formatDate(item.uploadDate)" 
                     :profileBadge="item.profileBadge" 
                     :profileImage="item.profileImageUrl"
+                    :duration="item.duration"
                 />
             </div>
         </v-col>
@@ -74,7 +75,8 @@ export default {
                 username: '',
                 uploadDate: '',
                 profileBadge: 0,
-                profileImage: ''
+                profileImage: '',
+                duration: 0
             }))
         };
     },
@@ -105,14 +107,11 @@ export default {
                 
                 // Process the response data
                 let items = response.content;
-                
-                // Always replace first and last images with random images from the response
+                console.log("items", items);
                 if (items.length > 2) {
-                    // Get a random index from the middle of the array (avoiding first and last)
                     const randomIndex1 = Math.floor(Math.random() * (items.length - 2)) + 1;
                     const randomIndex2 = Math.floor(Math.random() * (items.length - 2)) + 1;
                     
-                    // Replace first and last images with random images
                     items[0] = { ...items[randomIndex1] };
                     items[items.length - 1] = { ...items[randomIndex2] };
                     
@@ -127,7 +126,6 @@ export default {
                 console.log(`Loaded ${this.items.length} items for page ${this.currentPage}`);
             } catch (error) {
                 console.error("Error loading ecosystem videos:", error);
-                // Handle error appropriately
             } finally {
                 this.pageLoading = false;
             }
@@ -137,7 +135,6 @@ export default {
         currentPage: {
             immediate: true,
             handler(newPage) {
-                // Always load the page when it changes, regardless of whether it's in loadedPages
                 this.loadCurrentPage();
                 
                 window.scrollTo({

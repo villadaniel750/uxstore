@@ -61,15 +61,15 @@
             {{ $t("CxVideo.bloqued") }}
           </v-btn>
           <div
-            v-if="isPlaylist"
+            v-if="!isPlaylist"
             class="position-absolute right-0 bottom-0 text-body-2 bg-black opacity-60 rounded pb-1 pt-1 pl-1 pr-1 mr-3 mb-3 elevation-2"
             style="z-index: 9999999"
           >
-            <b class="opacity-100">{{ uploadDate }}</b>
+            <b class="opacity-100">{{ duration }}</b>
           </div>
 
           <div
-            v-if="!isPlaylist && playlistCount % 3 === 0"
+            v-if="isPlaylist"
             class="d-flex align-center position-absolute right-0 bottom-0 text-body-2 opacity-60 bg-black rounded pb-1 pt-1 pl-1 pr-1 mr-3 mb-3 elevation-3"
             style="z-index: 9999999"
           >
@@ -213,6 +213,10 @@ export default {
     profileImage: {
       type: String,
       default: "",
+    },
+    duration: {
+      type: Number,
+      default: 0,
     },
   },
   data() {

@@ -29,6 +29,7 @@
                         :uploadDate="formatDate(item.uploadDate)" 
                         :profileBadge="item.profileBadge" 
                         :profileImage="item.profileImageUrl"
+                        :duration="item.duration"
                     />
                 </div>
             </v-col>
@@ -74,7 +75,9 @@
                     title: '',
                     username: '',
                     uploadDate: '',
-                    profileBadge: 0
+                    profileBadge: 0,
+                    profileImage: '',
+                    duration: 0
                 }))
             };
         },

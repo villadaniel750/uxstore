@@ -110,7 +110,10 @@
             {{ title }}
           </div>
           <div class="w-100 text-no-wrap overflow-hidden text-left">
-            <span class="text-caption font-weight-bold">{{ username }}</span>
+            <span 
+              class="text-caption font-weight-bold cursor-pointer" 
+              @click="navigateToUser"
+            >{{ username }}</span>
             <v-img
               v-if="profileBadge === 1"
               class="d-inline-block ml-1"
@@ -218,6 +221,11 @@ export default {
       type: Number,
       default: 0,
     },
+    userId: {
+      type: String,
+      default: "",
+      required: true
+    },
   },
   data() {
     return {
@@ -241,6 +249,25 @@ export default {
   methods: {
     loadFinished() {
       this.imageLoaded = true;
+    },
+    navigateToUser() {
+      console.log("CxVideo component props:", {
+        username: this.username,
+        profileImage: this.profileImage,
+        profileBadge: this.profileBadge
+      });
+      if (this.username) {
+        this.$router.push({
+          path: `/${this.username}`,
+          query: {
+            profileImage: this.profileImage,
+            profileBadge: this.profileBadge,
+            username: this.username
+          }
+        });
+      } else {
+        console.warn("No username provided to CxVideo component");
+      }
     },
   },
 };

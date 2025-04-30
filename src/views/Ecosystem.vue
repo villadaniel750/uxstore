@@ -30,6 +30,7 @@
                     :profileBadge="item.profileBadge" 
                     :profileImage="item.profileImageUrl"
                     :duration="item.duration"
+                    :userId="item.userId"
                 />
             </div>
         </v-col>
@@ -83,7 +84,6 @@ export default {
     computed: {
         paginatedItems() {
             // Return skeleton items when loading, otherwise return actual items
-            console.log("this itemss",this.items);
             return this.pageLoading ? this.skeletonItems : this.items;
         }
     },
@@ -107,10 +107,14 @@ export default {
                 
                 // Process the response data
                 let items = response.content;
-                console.log("items", items);
+                
                 // Log duration for each item
                 items.forEach((item, index) => {
-                    console.log(`Item ${index} duration:`, item.duration);
+                    console.log(`Item ${index} data:`, {
+                        id: item._id,
+                        userId: item.userId,
+                        username: item.username
+                    });
                 });
                 
                 if (items.length > 2) {
@@ -120,7 +124,6 @@ export default {
                     items[0] = { ...items[randomIndex1] };
                     items[items.length - 1] = { ...items[randomIndex2] };
                     
-                    console.log(`Replaced first and last images with random images from positions ${randomIndex1} and ${randomIndex2}`);
                 }
                 
                 this.items = items;
@@ -128,7 +131,6 @@ export default {
                 this.totalElements = response.totalElements || response.content.length * response.totalPages;
                 this.loadedPages.add(this.currentPage);
                 
-                console.log(`Loaded ${this.items.length} items for page ${this.currentPage}`);
             } catch (error) {
                 console.error("Error loading ecosystem videos:", error);
             } finally {

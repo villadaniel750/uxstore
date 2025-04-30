@@ -3,7 +3,7 @@
     <v-row align="center" justify="start" class="text-center">
         <!-- Imagen ajustada con skeleton loading -->
         <v-col cols="12" md="2" class="d-flex justify-center">
-            <v-img :src="logoImage" class="rounded-circle" max-width="210" max-height="210" aspect-ratio="1" alt="Profile image">
+            <v-img :src="profileImage" class="rounded-circle" max-width="210" max-height="210" aspect-ratio="1" alt="Profile image">
                 <!-- Skeleton mientras carga la imagen -->
                 <template v-slot:placeholder>
                     <v-skeleton-loader type="card"></v-skeleton-loader>
@@ -13,15 +13,15 @@
 
         <!-- Texto ajustado -->
         <v-col cols="12" md="6" class="text-left">
-            <h3>@{{ this.sniped }}</h3>
+            <h3>@{{ username }}</h3>
             <div class="d-flex align-center">
-                <h4>{{ this.sniped }}</h4>
+                <h4>{{ username }}</h4>
                 <div class="d-flex align-center">
                 <v-img v-if="profileBadge === 1" class="d-inline-block ml-1" style="vertical-align: middle;" height="14" width="14" src="/src/assets/blue-verified-badge.svg"></v-img>
                 <v-img v-if="profileBadge === 2" class="d-inline-block ml-1" style="vertical-align: middle;" height="14" width="14" src="/src/assets/yellow-verified-badge.svg"></v-img>
                 </div>
             </div>
-            <p>296.9K Seguidores | 323.6K Me gusta</p>
+            <p>{{ followers }} Seguidores | {{ likes }} Me gusta</p>
             <v-btn color="black" class="mr-2">Seguir</v-btn>
             <v-btn outlined>Mensaje</v-btn>
         </v-col>
@@ -35,13 +35,23 @@ export default {
         profileBadge: {
             type: Number,
             default: 0
+        },
+        username: {
+            type: String,
+            default: ''
+        },
+        profileImage: {
+            type: String,
+            default: ''
+        },
+        followers: {
+            type: Number,
+            default: 0
+        },
+        likes: {
+            type: Number,
+            default: 0
         }
-    },
-    data() {
-        return {
-            logoImage: "https://picsum.photos/210/210", // URL de imagen simulada
-            sniped: window.location.pathname.substring(1).toLowerCase(),
-        };
-    },
+    }
 };
 </script>

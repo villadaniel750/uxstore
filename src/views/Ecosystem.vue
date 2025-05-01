@@ -142,7 +142,7 @@ export default {
         currentPage: {
             immediate: true,
             handler(newPage) {
-                this.loadCurrentPage();
+                    this.loadCurrentPage();
                 
                 window.scrollTo({
                     top: 0,

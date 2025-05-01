@@ -1,6 +1,9 @@
 <template>
   <div class="video-player-container">
     <div class="video-player-header">
+      <div class="d-flex align-center">
+        <span class="text-h6">{{ truncatedTitle }}</span>
+      </div>
       <v-btn
         icon
         variant="text"
@@ -37,18 +40,18 @@
         <v-btn
           variant="text"
           class="action-btn"
-          prepend-icon="mdi-clock-outline"
           @click="handleWatchLater"
         >
-          Watch Later
+          <span class="d-none d-sm-flex">Watch Later</span>
+          <v-icon class="d-flex d-sm-none">mdi-clock-outline</v-icon>
         </v-btn>
         <v-btn
           variant="text"
           class="action-btn"
-          prepend-icon="mdi-share-variant"
           @click="handleShare"
         >
-          Share
+          <span class="d-none d-sm-flex">Share</span>
+          <v-icon class="d-flex d-sm-none">mdi-share-variant</v-icon>
         </v-btn>
       </div>
     </div>
@@ -154,6 +157,8 @@ export default {
 .action-btn {
   color: rgba(255, 255, 255, 0.7);
   transition: all 0.2s;
+  min-width: unset;
+  padding: 0 8px;
 }
 
 .action-btn:hover {
@@ -174,5 +179,25 @@ export default {
 
 .youtube-iframe {
   border: none;
+}
+
+/* Mobile specific styles */
+@media (max-width: 600px) {
+  .video-js,
+  .youtube-iframe {
+    height: 250px;
+  }
+
+  .video-player-footer {
+    padding: 8px;
+  }
+
+  .action-btn {
+    padding: 0 4px;
+  }
+
+  .gap-4 {
+    gap: 8px;
+  }
 }
 </style> 

@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid>
+    <v-container fluid class="overflow-x-hidden">
         <v-list-item :active="activeItem === 'community'" v-slot:prepend="" class="mb-4">
             <v-icon color="primary" size="24">mdi-handshake-outline</v-icon>
             <v-list-item-title  class="ml-3 text-h6">

@@ -5,6 +5,7 @@
       <v-card-text>
         <v-btn @click="fetchData" color="primary">Fetch API</v-btn>
         <v-btn @click="readFromWorker" color="secondary" class="ml-2">Read from WebWorker</v-btn>
+        <v-btn @click="clearWorkerToken" color="error" class="ml-2">Clear Token</v-btn>
 
         <p v-if="response">Response: {{ response }}</p>
         <p v-if="workerToken">Worker Token: {{ workerToken }}</p>
@@ -48,7 +49,20 @@ export default {
       }
     };
 
-    return { response, workerToken, error, fetchData, readFromWorker };
+    const clearWorkerToken = () => {
+      jwtWorker.clearToken();
+      workerToken.value = null;
+    };
+
+    return {
+      response,
+      workerToken,
+      error,
+      fetchData,
+      readFromWorker,
+      clearWorkerToken
+    };
   }
 };
 </script>
+

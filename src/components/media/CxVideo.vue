@@ -201,20 +201,13 @@
     max-width="800"
     transition="dialog-bottom-transition"
     class="playlist-dialog"
+    :fullscreen="$vuetify.display.mobile"
   >
     <v-card class="playlist-card">
       <v-card-title class="d-flex justify-space-between align-center pa-4">
         <div class="d-flex align-center">
           <v-icon icon="mdi-playlist-play" class="mr-2" />
-          <v-tooltip
-            :text="title"
-            location="bottom"
-            :disabled="title.length <= 30"
-          >
-            <template v-slot:activator="{ props }">
-              <span v-bind="props" class="text-h6">{{ truncatedTitle }}</span>
-            </template>
-          </v-tooltip>
+          <span class="text-h6">{{ truncatedTitle }}</span>
         </div>
         <v-btn
           icon
@@ -239,7 +232,7 @@
           <v-list-item
             v-for="(video, index) in playlistVideos"
             :key="index"
-            class="mb-2"
+            class="mb-2 playlist-item"
             @click="playVideo(video)"
           >
             <template v-slot:prepend>
@@ -255,15 +248,7 @@
               </v-avatar>
             </template>
             <v-list-item-title class="text-subtitle-1">
-              <v-tooltip
-                :text="video.title"
-                location="bottom"
-                :disabled="video.title.length <= 30"
-              >
-                <template v-slot:activator="{ props }">
-                  <span v-bind="props">{{ truncateTitle(video.title) }}</span>
-                </template>
-              </v-tooltip>
+              {{ truncateTitle(video.title) }}
             </v-list-item-title>
             <v-list-item-subtitle>{{ video.views }} views • {{ formatDate(video.uploadDate) }}</v-list-item-subtitle>
           </v-list-item>
@@ -568,5 +553,29 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 80%;
+}
+
+/* Mobile specific styles */
+@media (max-width: 600px) {
+  .playlist-dialog {
+    border-radius: 0;
+  }
+
+  .playlist-card .v-card-title {
+    padding: 12px;
+  }
+
+  .playlist-card .v-card-text {
+    padding: 12px;
+  }
+
+  .playlist-item {
+    padding: 8px !important;
+  }
+
+  .playlist-item .v-avatar {
+    width: 60px !important;
+    height: 60px !important;
+  }
 }
 </style>

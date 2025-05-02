@@ -114,7 +114,7 @@
               :disabled="title.length <= 30"
             >
               <template v-slot:activator="{ props }">
-                <span v-bind="props">{{ truncatedTitle }}</span>
+                <span v-bind="props">{{ title }}</span>
               </template>
             </v-tooltip>
           </div>
@@ -205,9 +205,9 @@
   >
     <v-card class="playlist-card">
       <v-card-title class="d-flex justify-space-between align-center pa-4">
-        <div class="d-flex align-center">
+        <div class="d-flex align-center" style="width: calc(100% - 40px);">
           <v-icon icon="mdi-playlist-play" class="mr-2" />
-          <span class="text-h6">{{ truncatedTitle }}</span>
+          <div class="text-h6 text-truncate">{{ title }}</div>
         </div>
         <v-btn
           icon
@@ -375,13 +375,7 @@ export default {
       } else {
         return `${minutes}:${String(seconds).padStart(2, '0')}`;
       }
-    },
-    truncatedTitle() {
-      if (this.title.length > 30) {
-        return this.title.substring(0, 30) + '...';
-      }
-      return this.title;
-    }
+    },   
   },
   methods: {
     loadFinished() {
@@ -450,6 +444,7 @@ export default {
   text-overflow: ellipsis;
   white-space: normal; /* Allows text to wrap */
 }
+
 .v-skeleton-loader {
   border-radius: 10px;
 }
@@ -476,13 +471,6 @@ export default {
 
 .video-card .v-card-text {
   background: #000;
-}
-
-.truncate-text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
 }
 
 .playlist-dialog {
@@ -553,6 +541,13 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 80%;
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 /* Mobile specific styles */

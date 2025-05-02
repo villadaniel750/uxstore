@@ -2,12 +2,13 @@
   <div class="video-player-container">
     <div class="video-player-header">
       <div class="d-flex align-center">
-        <span class="text-h6">{{ truncatedTitle }}</span>
+        <span class="text-h6">{{ title }}</span>
       </div>
       <v-btn
         icon
         variant="text"
         class="close-btn"
+        no-tooltip
         @click="$emit('close')"
       >
         <v-icon>mdi-close</v-icon>
@@ -35,26 +36,7 @@
         web browser that supports HTML5 video
       </p>
     </video>
-    <div class="video-player-footer">
-      <div class="d-flex justify-center gap-4">
-        <v-btn
-          variant="text"
-          class="action-btn"
-          @click="handleWatchLater"
-        >
-          <span class="d-none d-sm-flex">Watch Later</span>
-          <v-icon class="d-flex d-sm-none">mdi-clock-outline</v-icon>
-        </v-btn>
-        <v-btn
-          variant="text"
-          class="action-btn"
-          @click="handleShare"
-        >
-          <span class="d-none d-sm-flex">Share</span>
-          <v-icon class="d-flex d-sm-none">mdi-share-variant</v-icon>
-        </v-btn>
-      </div>
-    </div>
+ 
   </div>
 </template>
 
@@ -85,16 +67,7 @@ export default {
       return `https://www.youtube.com/embed/${videoId}?autoplay=0`;
     }
   },
-  methods: {
-    handleWatchLater() {
-      // Implement watch later functionality
-      console.log('Watch later clicked');
-    },
-    handleShare() {
-      // Implement share functionality
-      console.log('Share clicked');
-    }
-  },
+
   data() {
     return {
       player: null

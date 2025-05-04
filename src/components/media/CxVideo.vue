@@ -263,9 +263,9 @@ import CxVideoPlayer from './CxVideoPlayer.vue';
 import CxBlockedDialog from './CxBlockedDialog.vue';
 
 const SAMPLE_VIDEOS = [
-  'https://www.youtube.com/watch?v=5sklIwA0P-Q',
-  'https://www.youtube.com/watch?v=H5i9J_YwHuw',
-  'https://www.youtube.com/watch?v=SFQe2IjotLI'
+  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
 ];
 
 export default {
@@ -337,28 +337,28 @@ export default {
       selectedVideoUrl: '',
       playlistVideos: [
         {
-          title: 'Sample Video 1',
-          thumbnail: 'https://i.ytimg.com/vi/5sklIwA0P-Q/maxresdefault.jpg',
+          title: "Sample Video 1",
+          thumbnail: "https://i.ytimg.com/vi/5sklIwA0P-Q/maxresdefault.jpg",
           duration: 180,
-          views: '1.2M',
-          uploadDate: '2024-03-15',
-          url: 'https://www.youtube.com/watch?v=5sklIwA0P-Q'
+          views: "1.2M",
+          uploadDate: "2024-03-15",
+          url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
         },
         {
-          title: 'Sample Video 2',
-          thumbnail: 'https://i.ytimg.com/vi/H5i9J_YwHuw/maxresdefault.jpg',
+          title: "Sample Video 2",
+          thumbnail: "https://i.ytimg.com/vi/H5i9J_YwHuw/maxresdefault.jpg",
           duration: 240,
-          views: '856K',
-          uploadDate: '2024-03-14',
-          url: 'https://www.youtube.com/watch?v=H5i9J_YwHuw'
+          views: "856K",
+          uploadDate: "2024-03-14",
+          url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
         },
         {
-          title: 'Sample Video 3',
-          thumbnail: 'https://i.ytimg.com/vi/SFQe2IjotLI/maxresdefault.jpg',
+          title: "Sample Video 3",
+          thumbnail: "https://i.ytimg.com/vi/SFQe2IjotLI/maxresdefault.jpg",
           duration: 300,
-          views: '2.1M',
-          uploadDate: '2024-03-13',
-          url: 'https://www.youtube.com/watch?v=SFQe2IjotLI'
+          views: "2.1M",
+          uploadDate: "2024-03-13",
+          url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
         }
       ]
     };

@@ -3,7 +3,7 @@
     <div class="ma-10">
         <div>
             <!-- When no wallet is connected, show direct CxAddWallet button -->
-            <div v-if="!lobstrPublicKey" class="text-center">
+            <div v-if="!lobstrPublicKey && !freighterPublicKey" class="text-center">
                 <v-btn 
                     prepend-icon="mdi-wallet" 
                     variant="outlined" 
@@ -133,8 +133,10 @@ export default {
     methods: {
         async requestBalance() {
             try {
-                if (this.lobstrPublicKey) {
-                    const result = await api.getBalance(this.lobstrPublicKey);
+                // Check for either Lobstr or Freighter wallet
+                const walletAddress = this.lobstrPublicKey || this.freighterPublicKey;
+                if (walletAddress) {
+                    const result = await api.getBalance(walletAddress);
                     console.log("result", result);
                     this.saldo = result.data.balances[0].balance;
                     this.isLoading = false;
@@ -175,16 +177,33 @@ export default {
             immediate: true,
             handler(newValue) {
                 if (newValue) {
-                    // When wallet is connected
+                    // When Lobstr wallet is connected
                     this.requestBalance(); // Initial balance request
                     this.intervalId = setInterval(this.requestBalance, 1100);
-                } else {
-                    // When no wallet is connected
+                } else if (!this.freighterPublicKey) {
+                    // Only clear interval if no Freighter wallet is connected
                     if (this.intervalId) {
                         clearInterval(this.intervalId);
                     }
                     this.saldo = 0;
-                    this.isLoading = true; // Keep loading state when no wallet
+                    this.isLoading = true;
+                }
+            }
+        },
+        freighterPublicKey: {
+            immediate: true,
+            handler(newValue) {
+                if (newValue) {
+                    // When Freighter wallet is connected
+                    this.requestBalance(); // Initial balance request
+                    this.intervalId = setInterval(this.requestBalance, 1100);
+                } else if (!this.lobstrPublicKey) {
+                    // Only clear interval if no Lobstr wallet is connected
+                    if (this.intervalId) {
+                        clearInterval(this.intervalId);
+                    }
+                    this.saldo = 0;
+                    this.isLoading = true;
                 }
             }
         }
@@ -196,7 +215,7 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'addr', 'isDarkTheme', 'lobstrPublicKey'
+            'addr', 'isDarkTheme', 'lobstrPublicKey', 'freighterPublicKey'
         ]),
         lobstrPublicKeyDebug() {
             return this.lobstrPublicKey;
@@ -205,7 +224,7 @@ export default {
             return this.isDarkTheme ? stellarLogo : stellarLogoBlack;
         },
         formattedAddr() {
-            if (!this.addr || this.addr.length <= 15) return this.addr; // Si es corta, no truncar
+            if (!this.addr || this.addr.length <= 15) return this.addr;
             return `${this.addr.substring(0, 6)}...${this.addr.substring(this.addr.length - 6)}`;
         },
         connectedWallets() {
@@ -217,7 +236,13 @@ export default {
                     type: 'lobstr'
                 });
             }
-            // Add more wallet types here when implemented
+            if (this.freighterPublicKey) {
+                wallets.push({
+                    name: 'Freighter',
+                    address: this.freighterPublicKey,
+                    type: 'freighter'
+                });
+            }
             return wallets;
         }
     },

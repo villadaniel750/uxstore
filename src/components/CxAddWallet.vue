@@ -10,6 +10,8 @@
                 <v-card-title class="text-h6 text-md-h5 text-lg-h4">{{ $t("Common.addWallet") }}</v-card-title>
                 
                 <cx-lobstr-button @close-dialog="closeDialog"></cx-lobstr-button>
+
+                <cx-freighter-button @close-dialog="closeDialog"></cx-freighter-button>
                 
                 <v-divider
                     class="border-opacity-50 my-5"

@@ -11,10 +11,10 @@ export const store = createStore({
       mobileView: window.innerWidth < 960,
       loggedIn: false,
       isDarkTheme: true,
+      isOffline: false,
       color: "#FFCA28",
       addr: null,
       lobstrPublicKey: null,
-      accessToken: null,
       loginError: null,
     }
   },
@@ -28,6 +28,12 @@ export const store = createStore({
     },
     setLoggedInFalse(state) {
       state.loggedIn = false;
+    },
+    setOfflineTrue(state) {
+      state.isOffline = true;
+    },
+    setOfflineFalse(state) {
+      state.isOffline = false;
     },
     setDarkThemeTrue(state) {
       state.isDarkTheme = true;
@@ -43,14 +49,6 @@ export const store = createStore({
     },
     setLobstrPublicKey(state, publicKey) {
       state.lobstrPublicKey = publicKey;
-    },
-    setAccessToken(state, token) {
-      state.accessToken = token;
-      state.loggedIn = true; // estado de login
-    },
-    clearAccessToken(state) {
-      state.accessToken = null;
-      state.loggedIn = false;
     },
     setLoginError(state, error) {
       state.loginError = error;
@@ -68,6 +66,7 @@ export const store = createStore({
     windowWidth: state => state.windowWidth,
     mobileView: state => state.mobileView,
     loggedIn: state => state.loggedIn,
+    isOffline: state => state.isOffline,
     isDarkTheme: state => state.isDarkTheme,
     color: state => state.color,
     addr: state => state.addr,

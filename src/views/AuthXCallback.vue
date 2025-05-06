@@ -37,8 +37,9 @@ export default {
     if (token) {
       try {
         const res = await api.createSession(token);
+        // Guardar el token en webworker directamente en createSession
         const accessToken = res.data.accessToken;
-        this.$store.commit("setAccessToken", accessToken);
+        
 
         // Decodificar el JWT (solo payload, sin validar)
         const payloadBase64 = accessToken.split(".")[1];

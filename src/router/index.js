@@ -132,7 +132,7 @@ const router = createRouter({
 
 // 🔹 Middleware de autenticación antes de cada ruta
 router.beforeEach((to, from, next) => {
-  const publicPages = ['Home', 'fan', 'userProfile', 'WaitList', 'WaitListStats', 'FirstSteps', 'Ecosystem', 'Community', 'Featured', 'Explore', 'AuthXCallback', 'TestApi', 'nonAccount'];
+  const publicPages = ['Home','Wallet', 'fan', 'userProfile', 'WaitList', 'WaitListStats', 'FirstSteps', 'Ecosystem', 'Community', 'Featured', 'Explore', 'AuthXCallback', 'TestApi', 'nonAccount'];
   const authRequired = !publicPages.includes(to.name);
 
   if (authRequired && !store.getters.loggedIn) {

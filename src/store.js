@@ -15,6 +15,8 @@ export const store = createStore({
       color: "#FFCA28",
       addr: null,
       lobstrPublicKey: null,
+      freighterPublicKey: null,
+      accessToken: null,
       loginError: null,
     }
   },
@@ -50,6 +52,18 @@ export const store = createStore({
     setLobstrPublicKey(state, publicKey) {
       state.lobstrPublicKey = publicKey;
     },
+    setFreighterPublicKey(state, publicKey) {
+      state.freighterPublicKey = publicKey;
+      state.addr = publicKey; // Also update the addr to show the Freighter address
+    },
+    setAccessToken(state, token) {
+      state.accessToken = token;
+      state.loggedIn = true; // estado de login
+    },
+    clearAccessToken(state) {
+      state.accessToken = null;
+      state.loggedIn = false;
+    },
     setLoginError(state, error) {
       state.loginError = error;
     },
@@ -71,6 +85,7 @@ export const store = createStore({
     color: state => state.color,
     addr: state => state.addr,
     lobstrPublicKey: state => state.lobstrPublicKey,
+    freighterPublicKey: state => state.freighterPublicKey,
     loginError: (state) => state.loginError,
   }
 })

@@ -1,5 +1,5 @@
 <template>
-    <v-btn disabled @click="userSignTransaction" block  rel="noopener noreferrer"  variant="tonal" style="border-color: #6969F2; color: #6969F2;" class="text-capitalize mt-3" size="large">
+    <v-btn @click="getFreighterPublicKey" block rel="noopener noreferrer" variant="tonal" style="border-color: #6969F2; color: #6969F2;" class="text-capitalize mt-3" size="large">
         <img src="@/assets/freighter.svg" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px;"/>
         Freighter
     </v-btn>
@@ -9,42 +9,36 @@
 import {
   isConnected,
   requestAccess,
-  signTransaction,
 } from "@stellar/freighter-api";
 
 export default {
   methods: {
-    async userSignTransaction() {
+    async getFreighterPublicKey() {
       try {
-        // Verificar si Freighter está instalado y conectado
+        // Check if Freighter is installed and connected
         if (!(await isConnected())) {
           alert('Please install Freighter to continue.');
           return;
         }
 
-        // Solicitar acceso y obtener la clave pública
+        // Request access and get public key
         const publicKey = await requestAccess();
         if (!publicKey) {
           alert('Access denied or no public key available.');
           return;
         }
-        console.log(`Public key retrieved: ${publicKey}`);
-
-        // Define el XDR y la red para la firma
-        const xdr = 'AAAAAgAAAADboxFlQYKamAS7J42c9q5CcVrKmbbaR9qK2o2fxscTWQAAASwC/wbaAAAAAwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAQAAAACan9nPi8kIoBthZJEXJeKYZtXPR+0bDDsyP5SZsnB3IwAAAAAAAAAAAbFtCAAAAAAAAAABAAAAADygGATwVjGKjeMn7gsE1ZU7pWJ/WQPsELtdVpv+npsrAAAAAAAAAAAAEj/gAAAAAAAAAAEAAAAAW/L+cozyghajU1wLrhLznN2eCZI5CB6admax9Dh9FioAAAAAAAAAAAAEj/gAAAAAAAAAAA==';
-        const opts = {
-          network: 'public', // 'public' o 'testnet'
-          networkPassphrase: 'Public Global Stellar Network ; September 2015', // Omitir si no es necesario
-          accountToSign: publicKey // Especificar si se necesita firmar con una cuenta específica
-        };
-        const signedXdr = await signTransaction(xdr, opts);
-        console.log("Transaction signed successfully:", signedXdr);
-        alert('Transaction signed successfully!');
-        return signedXdr;
+        
+        // Store the public key in Vuex store
+        this.$store.commit('setFreighterPublicKey', publicKey);
+        
+        // Debug: Check if the store was updated
+        console.log("Stored Freighter public key:", publicKey);
+        
+        // Emit close dialog event
+        this.$emit('close-dialog');
       } catch (error) {
-        console.error("Error signing transaction with Freighter:", error);
-        alert('Failed to sign the transaction.');
-        return error.toString();
+        console.error("Error retrieving the public key from Freighter:", error);
+        alert("Error retrieving the public key from Freighter.");
       }
     }
   }

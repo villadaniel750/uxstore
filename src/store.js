@@ -11,6 +11,7 @@ export const store = createStore({
       mobileView: window.innerWidth < 960,
       loggedIn: false,
       isDarkTheme: true,
+      isOffline: false,
       color: "#FFCA28",
       addr: null,
       lobstrPublicKey: null,
@@ -29,6 +30,12 @@ export const store = createStore({
     },
     setLoggedInFalse(state) {
       state.loggedIn = false;
+    },
+    setOfflineTrue(state) {
+      state.isOffline = true;
+    },
+    setOfflineFalse(state) {
+      state.isOffline = false;
     },
     setDarkThemeTrue(state) {
       state.isDarkTheme = true;
@@ -73,6 +80,7 @@ export const store = createStore({
     windowWidth: state => state.windowWidth,
     mobileView: state => state.mobileView,
     loggedIn: state => state.loggedIn,
+    isOffline: state => state.isOffline,
     isDarkTheme: state => state.isDarkTheme,
     color: state => state.color,
     addr: state => state.addr,

@@ -105,7 +105,17 @@ export default {
   position: relative;
   background: #000;
   width: 100%;
-  height: 450px;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .loading-overlay {
@@ -177,8 +187,12 @@ export default {
 
 /* Mobile specific styles */
 @media (max-width: 600px) {
+  .video-player-container {
+    max-width: 100%;
+  }
+  
   .video-wrapper {
-    height: 250px;
+    padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio on mobile */
   }
 
   .video-player-footer {

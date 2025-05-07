@@ -79,8 +79,9 @@ export default {
         fluid: true,
         aspectRatio: '16:9',
         controls: true,
-        autoplay: false,
-        preload: 'auto'
+        autoplay: true,
+        preload: 'auto',
+        muted: true
       });
     }
   },

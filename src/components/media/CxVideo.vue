@@ -108,21 +108,14 @@
 
         <div class="">
           <div class="text-caption truncate-text text-left">
-            <v-tooltip
-              :text="title"
-              location="bottom"
-              :disabled="title.length <= 30"
-            >
-              <template v-slot:activator="{ props }">
-                <span v-bind="props">{{ title }}</span>
-              </template>
-            </v-tooltip>
+            <span>{{ title }}</span>
           </div>
           <div class="w-100 text-no-wrap overflow-hidden text-left">
-            <span 
-              class="text-caption font-weight-bold cursor-pointer" 
+            <span
+              class="text-caption font-weight-bold cursor-pointer"
               @click="navigateToUser"
-            >{{ username }}</span>
+              >{{ username }}</span
+            >
             <v-img
               v-if="profileBadge === 1"
               class="d-inline-block ml-1"
@@ -186,9 +179,8 @@
   >
     <v-card class="video-card">
       <v-card-text class="pa-0">
-        <CxVideoPlayer 
-          :video-url="selectedVideoUrl" 
-          :title="title"
+        <CxVideoPlayer
+          :video-url="selectedVideoUrl"          
           @close="showVideoDialog = false"
         />
       </v-card-text>
@@ -205,7 +197,7 @@
   >
     <v-card class="playlist-card">
       <v-card-title class="d-flex justify-space-between align-center pa-4">
-        <div class="d-flex align-center" style="width: calc(100% - 40px);">
+        <div class="d-flex align-center" style="width: calc(100% - 40px)">
           <v-icon icon="mdi-playlist-play" class="mr-2" />
           <div class="text-h6 text-truncate">{{ title }}</div>
         </div>
@@ -236,13 +228,11 @@
             @click="playVideo(video)"
           >
             <template v-slot:prepend>
-              <v-avatar
-                size="80"
-                rounded="lg"
-                class="mr-3"
-              >
+              <v-avatar size="80" rounded="lg" class="mr-3">
                 <v-img :src="video.thumbnail" />
-                <div class="position-absolute right-0 bottom-0 text-body-2 bg-black opacity-60 rounded pb-1 pt-1 pl-1 pr-1 mr-1 mb-1">
+                <div
+                  class="position-absolute right-0 bottom-0 text-body-2 bg-black opacity-60 rounded pb-1 pt-1 pl-1 pr-1 mr-1 mb-1"
+                >
                   {{ formatDuration(video.duration) }}
                 </div>
               </v-avatar>
@@ -250,7 +240,10 @@
             <v-list-item-title class="text-subtitle-1">
               {{ truncateTitle(video.title) }}
             </v-list-item-title>
-            <v-list-item-subtitle>{{ video.views }} views • {{ formatDate(video.uploadDate) }}</v-list-item-subtitle>
+            <v-list-item-subtitle
+              >{{ video.views }} views •
+              {{ formatDate(video.uploadDate) }}</v-list-item-subtitle
+            >
           </v-list-item>
         </v-list>
       </v-card-text>
@@ -259,19 +252,19 @@
 </template>
 
 <script>
-import CxVideoPlayer from './CxVideoPlayer.vue';
-import CxBlockedDialog from './CxBlockedDialog.vue';
+import CxVideoPlayer from "./CxVideoPlayer.vue";
+import CxBlockedDialog from "./CxBlockedDialog.vue";
 
 const SAMPLE_VIDEOS = [
   "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
   "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
 ];
 
 export default {
   components: {
     CxVideoPlayer,
-    CxBlockedDialog
+    CxBlockedDialog,
   },
   props: {
     loading: {
@@ -325,7 +318,7 @@ export default {
     userId: {
       type: String,
       default: "",
-      required: true
+      required: true,
     },
   },
   data() {
@@ -334,7 +327,7 @@ export default {
       showVideoDialog: false,
       showBlockedDialog: false,
       showPlaylistDialog: false,
-      selectedVideoUrl: '',
+      selectedVideoUrl: "",
       playlistVideos: [
         {
           title: "Sample Video 1",
@@ -342,7 +335,7 @@ export default {
           duration: 180,
           views: "1.2M",
           uploadDate: "2024-03-15",
-          url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+          url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
         },
         {
           title: "Sample Video 2",
@@ -350,7 +343,7 @@ export default {
           duration: 240,
           views: "856K",
           uploadDate: "2024-03-14",
-          url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+          url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
         },
         {
           title: "Sample Video 3",
@@ -358,24 +351,26 @@ export default {
           duration: 300,
           views: "2.1M",
           uploadDate: "2024-03-13",
-          url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-        }
-      ]
+          url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        },
+      ],
     };
   },
   computed: {
     formattedDuration() {
-      if (!this.duration) return '0:00';
+      if (!this.duration) return "0:00";
       const hours = Math.floor(this.duration / 3600);
       const minutes = Math.floor((this.duration % 3600) / 60);
       const seconds = this.duration % 60;
-      
+
       if (hours > 0) {
-        return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        return `${hours}:${String(minutes).padStart(2, "0")}:${String(
+          seconds
+        ).padStart(2, "0")}`;
       } else {
-        return `${minutes}:${String(seconds).padStart(2, '0')}`;
+        return `${minutes}:${String(seconds).padStart(2, "0")}`;
       }
-    },   
+    },
   },
   methods: {
     loadFinished() {
@@ -387,7 +382,8 @@ export default {
       } else if (this.isPlaylist) {
         this.showPlaylistDialog = true;
       } else {
-        this.selectedVideoUrl = SAMPLE_VIDEOS[Math.floor(Math.random() * SAMPLE_VIDEOS.length)];
+        this.selectedVideoUrl =
+          SAMPLE_VIDEOS[Math.floor(Math.random() * SAMPLE_VIDEOS.length)];
         this.showVideoDialog = true;
       }
     },
@@ -396,7 +392,7 @@ export default {
       console.log("CxVideo component props:", {
         username: this.username,
         profileImage: this.profileImage,
-        profileBadge: this.profileBadge
+        profileBadge: this.profileBadge,
       });
       if (this.username) {
         this.$router.push({
@@ -404,8 +400,8 @@ export default {
           query: {
             profileImage: this.profileImage,
             profileBadge: this.profileBadge,
-            username: this.username
-          }
+            username: this.username,
+          },
         });
       } else {
         console.warn("No username provided to CxVideo component");
@@ -423,14 +419,14 @@ export default {
     formatDuration(seconds) {
       const minutes = Math.floor(seconds / 60);
       const remainingSeconds = seconds % 60;
-      return `${minutes}:${String(remainingSeconds).padStart(2, '0')}`;
+      return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
     },
     truncateTitle(title) {
       if (title.length > 30) {
-        return title.substring(0, 30) + '...';
+        return title.substring(0, 30) + "...";
       }
       return title;
-    }
+    },
   },
 };
 </script>

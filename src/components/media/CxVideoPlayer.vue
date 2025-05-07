@@ -1,3 +1,6 @@
+code
+
+
 <template>
   <div class="video-player-container">
     <div class="video-player-header">
@@ -14,29 +17,30 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </div>
-    <iframe
-      v-if="isYouTubeUrl"
-      :src="youtubeEmbedUrl"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      class="youtube-iframe"
-    ></iframe>
-    <video
-      v-else
-      ref="videoPlayer"
-      class="video-js vjs-big-play-centered"
-      controls
-      preload="auto"
-      :poster="poster"
-    >
-      <source :src="videoUrl" type="video/mp4" />
-      <p class="vjs-no-js">
-        To view this video please enable JavaScript, and consider upgrading to a
-        web browser that supports HTML5 video
-      </p>
-    </video>
- 
+    <div class="video-wrapper">
+      <div v-if="isLoading" class="loading-overlay">
+        <v-progress-circular
+          indeterminate
+          :size="50"
+          color="primary"
+        ></v-progress-circular>
+      </div>
+      <video
+        ref="videoPlayer"
+        class="video-js vjs-big-play-centered"
+        controls
+        preload="auto"
+        :poster="poster"
+        @canplay="handleVideoLoad"
+        @loadeddata="handleVideoLoad"
+      >
+        <source :src="videoUrl" type="video/mp4" />
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a
+          web browser that supports HTML5 video
+        </p>
+      </video>
+    </div>
   </div>
 </template>
 
@@ -57,33 +61,28 @@ export default {
     }
   },
   emits: ['close'],
-  computed: {
-    isYouTubeUrl() {
-      return this.videoUrl.includes('youtube.com');
-    },
-    youtubeEmbedUrl() {
-      if (!this.isYouTubeUrl) return '';
-      const videoId = this.videoUrl.split('v=')[1];
-      return `https://www.youtube.com/embed/${videoId}?autoplay=0`;
-    }
-  },
-
   data() {
     return {
-      player: null
+      player: null,
+      isLoading: true
     };
   },
-  mounted() {
-    if (!this.isYouTubeUrl) {
-      this.player = videojs(this.$refs.videoPlayer, {
-        fluid: true,
-        aspectRatio: '16:9',
-        controls: true,
-        autoplay: true,
-        preload: 'auto',
-        muted: true
-      });
+  methods: {
+    handleVideoLoad() {
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
     }
+  },
+  mounted() {
+    this.player = videojs(this.$refs.videoPlayer, {
+      fluid: true,
+      aspectRatio: '16:9',
+      controls: true,
+      autoplay: true,
+      preload: 'auto',
+      muted: true
+    });
   },
   beforeUnmount() {
     if (this.player) {
@@ -99,6 +98,27 @@ export default {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
+}
+
+.video-wrapper {
+  position: relative;
+  background: #000;
+  width: 100%;
+  height: 450px;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
 .video-player-header {
@@ -157,8 +177,7 @@ export default {
 
 /* Mobile specific styles */
 @media (max-width: 600px) {
-  .video-js,
-  .youtube-iframe {
+  .video-wrapper {
     height: 250px;
   }
 

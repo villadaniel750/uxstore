@@ -1,61 +1,79 @@
 <template>
-<v-container class="fill-height">
-    <v-responsive class="d-flex align-center text-center fill-height">
-        <v-img contain height="300" src="@/assets/fire.svg" />
-
-        <div class="text-caption text-uppercase text-medium-emphasis">
-            {{ $t("Common.welcome") }}
-        </div>
-
-        <h1 class="text-h3">
-            <b class="font-weight-medium">EARNLUMENS</b>
-        </h1>
-
-        <div class="text-caption text-uppercase text-medium-emphasis">
-            {{ $t("Common.shortAbout") }}
-        </div>
-
-        <div class="py-3" />
-
-        <div class="d-flex justify-center">
-            <v-row justify="center">
-                <v-col cols="12" md="10" lg="8" xl="6">
-                    <blockquote class="v-blockquote">
-                        <span class="text-caption text-uppercase">{{
-                $t("Common.blockquote")
-              }}</span>
-                    </blockquote>
+<v-container fluid class="fill-height pa-0">
+    <v-responsive class="fill-height">
+        <!-- Hero Section conLayout de 2 columnas -->
+        <v-container class="hero-section pt-8 pb-8 pb-md-16">
+            <v-row align="center" class="fill-height">
+                <!-- Columna Izquierda: Contenido de Texto -->
+                <v-col cols="12" md="6" class="text-left pa-8 order-2 order-md-1 mt-n12 mt-md-0">
+                    <div class="hero-content animate-fade-up">
+                        <!-- Welcome Tag -->
+                        <div class="text-overline text-primary mb-4" style="font-size: 0.875rem; letter-spacing: 2px;">
+                            {{ $t("Common.welcome") }}
+                        </div>
+                        
+                        <!-- Main Title - Extra Large -->
+                        <h1 class="hero-title mb-6">
+                            EARNLUMENS
+                        </h1>
+                        
+                        <!-- Subtitle -->
+                        <p class="hero-subtitle mb-8">
+                            {{ $t("Common.shortAbout") }}
+                        </p>
+                        
+                        <!-- Quote -->
+                        <blockquote class="hero-quote mb-10">
+                            {{ $t("Common.blockquote") }}
+                        </blockquote>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="d-flex flex-wrap align-center" style="gap: 16px;">
+                            <v-btn 
+                                color="primary" 
+                                size="x-large" 
+                                variant="flat" 
+                                class="px-8"
+                                @click="this.$router.push({ name: 'WaitList' })"
+                            >
+                                <v-icon icon="mdi-calendar-clock" size="large" start />
+                                {{ $t("Home.joinWaitlist") }}
+                            </v-btn>
+                            
+                            <v-btn 
+                                href="https://stellar.org/learn/lumens" 
+                                size="large" 
+                                variant="outlined"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="px-6"
+                            >
+                                <img :src="stellarIconPath" alt="Stellar" style="height: 20px; width: 20px; margin-right: 8px" />
+                                {{ $t("Home.aboutXLM") }}
+                            </v-btn>
+                        </div>
+                    </div>
+                </v-col>
+                
+                <!-- Columna Derecha: Logo con efecto -->
+                <v-col cols="12" md="6" class="d-flex justify-center align-center order-1 order-md-2">
+                    <div class="logo-glow-container" style="overflow: visible; position: relative; width: 100%; max-width: 400px; aspect-ratio: 1;">
+                        <div class="gargantua-effect"></div>
+                        <v-img 
+                            contain 
+                            width="100%"
+                            height="100%"
+                            src="@/assets/fire.svg" 
+                            class="fire-logo" 
+                            style="z-index: 100; position: relative;" 
+                        />
+                    </div>
                 </v-col>
             </v-row>
-        </div>
+        </v-container>
 
-        <div class="py-3" />
 
-        <v-row class="d-flex align-center justify-center">
-            <v-col cols="auto">
-                <v-btn href="https://stellar.org/learn/lumens" min-width="164" rel="noopener noreferrer" target="_blank" variant="text">
-                    <img :src="stellarIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px" />
-                    {{ $t("Home.aboutXLM") }}
-                </v-btn>
-            </v-col>
-
-            <v-col cols="auto">
-                <v-btn color="primary" min-width="228" rel="noopener noreferrer" size="x-large" variant="flat" @click="this.$router.push({ name: 'WaitList' })">
-                    <v-icon icon="mdi-calendar-clock" size="large" start />
-
-                    {{ $t("Home.joinWaitlist") }}
-                </v-btn>
-            </v-col>
-
-            <v-col cols="auto">
-                <v-btn href="https://twitter.com/earnlumens" min-width="164" rel="noopener noreferrer" target="_blank" variant="text">
-                    <img :src="xIconPath" alt="Twitter" style="height: 24px; width: 24px; margin-right: 8px" />
-                    {{ $t("Home.community") }}
-                </v-btn>
-            </v-col>
-        </v-row>
-
-        <v-sheet class="mx-auto mt-12" width="100%" color="transparent" elevation="0">
+        <v-sheet class="mx-auto mt-6 mt-md-12" width="100%" color="transparent" elevation="0">
             <div class="d-flex justify-space-between align-center" :class="{ 'pl-1': !mobileView }">
                 <v-btn @click="$router.push({ name: 'Ecosystem' })" variant="text" class="text-h6 font-weight-bold text-h6" :ripple="false" append-icon="mdi-chevron-right">
                     Stellar {{ $t("AppBar.ecosystem") }}
@@ -153,10 +171,21 @@
             </div>
         </v-sheet>
 
-        <v-footer class="text-center d-flex flex-column">
+        <v-footer class="d-flex align-center justify-center px-4 position-relative">
             <div class="text-overline text-medium-emphasis">
                 &copy;{{ new Date().getFullYear() }} <strong>- EARNLUMENS</strong>
             </div>
+            <v-btn 
+                href="https://twitter.com/earnlumens" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                variant="text" 
+                icon
+                class="position-absolute"
+                style="right: 16px;"
+            >
+                <img :src="xIconPath" alt="X" style="height: 20px; width: 20px;" />
+            </v-btn>
         </v-footer>
 
     </v-responsive>
@@ -264,6 +293,164 @@ export default {
     background: rgb(18, 18, 18) !important;
 }
 
+.logo-glow-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.gargantua-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 162.5%;
+    height: 162.5%;
+    background: conic-gradient(from 0deg, transparent 0%, rgba(255, 109, 0, 0.1) 20%, rgba(255, 61, 0, 0.2) 50%, rgba(255, 109, 0, 0.1) 80%, transparent 100%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: rotate-aura 10s linear infinite;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+@keyframes rotate-aura {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.gargantua-effect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    width: 125%;
+    height: 2%;
+    background: linear-gradient(90deg, transparent, rgba(255, 61, 0, 0.2), rgba(255, 140, 0, 0.4), rgba(255, 61, 0, 0.2), transparent);
+    filter: blur(6px) grayscale(80%);
+    box-shadow: 0 0 10px rgba(255, 160, 0, 0.4);
+    z-index: -1;
+}
+
+@keyframes pulse-accretion {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+}
+
+
+
+.black-hole-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px; /* Size of the ring */
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, transparent 60%, rgba(255, 160, 0, 0.8) 70%, transparent 80%);
+    filter: blur(5px);
+    z-index: 2;
+    animation: rotate-ring 15s linear infinite;
+}
+
+.black-hole-void {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px; /* Size of the void */
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #000 0%, #1a1a1a 70%, #333 100%);
+    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.8);
+    z-index: 3;
+}
+
+.fire-logo {
+    /* Simula el parpadeo y ondulación del fuego */
+    animation: fire-flicker 5s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes fire-flicker {
+    0% {
+        filter: hue-rotate(0deg) brightness(1) saturate(1);
+    }
+    40% {
+        filter: hue-rotate(8deg) brightness(1.15) saturate(1.15);
+    }
+    70% {
+        filter: hue-rotate(-6deg) brightness(0.95) saturate(0.95);
+    }
+    100% {
+        filter: hue-rotate(0deg) brightness(1) saturate(1);
+    }
+}
+
+/* Hero Section Styles */
+.hero-section {
+    min-height: 70vh; /* Reduced from 100vh to pull content up */
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 5rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -2px !important;
+    letter-spacing: -2px !important;
+    color: rgb(var(--v-theme-on-surface));
+    margin: 0;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
+    line-height: 1.6 !important;
+    line-height: 1.6 !important;
+    color: rgba(var(--v-theme-on-surface), 0.8);
+    font-weight: 400;
+}
+
+.hero-quote {
+    font-size: 1.125rem !important;
+    line-height: 1.8 !important;
+    line-height: 1.8 !important;
+    color: rgba(var(--v-theme-on-surface), 0.7);
+    border-left: 4px solid #FF6D00;
+    padding-left: 1.5rem;
+    font-style: italic;
+}
+
+/* Animaciones de entrada */
+.animate-fade-up {
+    animation: fadeUp 0.8s ease-out;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate-ring {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 .v-skeleton-loader ::v-deep .v-skeleton-loader__avatar {
     width: 24px;
     height: 24px;
@@ -277,4 +464,14 @@ export default {
 .v-skeleton-loader ::v-deep .v-skeleton-loader__list-item-avatar-two-line {
     padding: 2px;
 }
+
+.v-blockquote {
+    border-left: 6px solid #FF6D00;
+    background-color: rgb(var(--v-theme-surface-variant));
+    padding: 24px;
+    border-radius: 0 4px 4px 0;
+    margin: 16px 0;
+    display: block;
+}
+
 </style>

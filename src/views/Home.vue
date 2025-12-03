@@ -83,7 +83,7 @@
                 <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
                     <v-card :class="['ma-4', selectedClass]" width="260" flat tile color="transparent">
                         <div>
-                            <CxVideo :loading="loading[index]" :lazy-src="img.lazySrc" :src="img.src" :blocked="index % 3 === 1" :is-playlist="index % 4 === 1" :playlist-count="index + 1" :title="'One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it'" :username="'Shamus'" :upload-date="'2024/10/7'" :profile-badge="index % 3" />
+                            <CxVideo :loading="loading[index]" :lazy-src="img.lazySrc" :src="img.src" :blocked="index % 3 === 1" :is-playlist="index % 4 === 1" :playlist-count="index + 1" :title="'One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it'" :username="'Shamus'" :upload-date="'2024/10/7'" :profile-badge="index % 3" :profile-image="img.profileImageUrl" />
                         </div>
                     </v-card>
                 </v-slide-group-item>
@@ -98,7 +98,7 @@
                 <v-slide-group-item v-for="(img, index) in images" :key="index" v-slot="{ isSelected, toggle, selectedClass }">
                     <v-card :class="['ma-4', selectedClass]" width="260" flat tile color="transparent">
                         <div>
-                            <CxVideo :loading="loading[index]" :lazy-src="img.lazySrc" :src="img.src" :blocked="index % 3 === 1" :isPlaylist="index % 4 === 1" :playlist-count="index + 1" title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it" username="Shamus" uploadDate="2024/10/7" :profileBadge="index % 3" />
+                            <CxVideo :loading="loading[index]" :lazy-src="img.lazySrc" :src="img.src" :blocked="index % 3 === 1" :isPlaylist="index % 4 === 1" :playlist-count="index + 1" title="One meets his destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it destiny on the road he takes to avoid it" username="Shamus" uploadDate="2024/10/7" :profileBadge="index % 3" :profile-image="img.profileImageUrl" />
                         </div>
                     </v-card>
                 </v-slide-group-item>
@@ -153,6 +153,7 @@
                             username="Shamus" 
                             uploadDate="2024/10/7" 
                             :profileBadge="index % 3" 
+                            :profile-image="img.profileImageUrl" 
                         />
                     </div>
                 </v-col>
@@ -225,6 +226,7 @@ export default {
                 return {
                     lazySrc: `https://picsum.photos/10/6?image=${index * 5 + 10}`,
                     src: `https://picsum.photos/500/300?image=${index * 5 + 10}`,
+                    profileImageUrl: `https://picsum.photos/100/100?image=${index * 5 + 10}`,
                 };
             }
         ),
@@ -242,6 +244,7 @@ export default {
             return {
                 lazySrc: `https://picsum.photos/10/6?image=${imageNumber}`,
                 src: `https://picsum.photos/500/300?image=${imageNumber}`,
+                profileImageUrl: `https://picsum.photos/100/100?image=${imageNumber}`,
             };
         }),
         exploreLoading: Array(50).fill(true),

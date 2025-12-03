@@ -311,7 +311,7 @@ export default {
     background: conic-gradient(from 0deg, transparent 0%, rgba(255, 109, 0, 0.1) 20%, rgba(255, 61, 0, 0.2) 50%, rgba(255, 109, 0, 0.1) 80%, transparent 100%);
     border-radius: 50%;
     filter: blur(40px);
-    animation: rotate-aura 10s linear infinite;
+    animation: rotate-aura 40s linear infinite;
     pointer-events: none;
     opacity: 0.6;
 }
